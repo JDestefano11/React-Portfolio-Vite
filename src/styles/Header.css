@@ -200,6 +200,6 @@ nav a.active {
     display: block;
     padding: 0.5rem 0;
     text-decoration: none;
-    color: inherit;
+    color: #ffffff;
   }
 }
