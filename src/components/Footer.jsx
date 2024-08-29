@@ -75,7 +75,12 @@ export const Footer = () => {
         <div className="footer-section resume">
           <div className="footer-section resume">
             <button
-              onClick={() => window.open("/Resume-JoeD.pdf", "_blank")}
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/Joseph-Destefano-Full Stack Developer.pdf";
+                link.download = "Joseph-Destefano-Full Stack Developer.pdf";
+                link.click();
+              }}
               className="resume-button"
             >
               Download Resume
