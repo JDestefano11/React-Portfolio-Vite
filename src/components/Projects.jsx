@@ -115,21 +115,15 @@ export const Projects = () => {
                 >
                   Live Site
                 </a>
-                {project.id === 1 ? (
-                  <Link to="/TrendHive" className="project-link">
-                    Case Study
-                  </Link>
-                ) : project.id === 2 ? (
-                  <Link to="/moviesflix-case-study" className="project-link">
-                    Case Study
-                  </Link>
-                ) : project.id === 4 ? (
-                  <Link to="/meetapp-case-study" className="project-link">
-                    Case Study
-                  </Link>
-                ) : (
+                {(project.id === 1 || project.id === 2 || project.id === 4) && (
                   <Link
-                    to={`/case-study/${project.id}`}
+                    to={
+                      project.id === 1
+                        ? "/TrendHive"
+                        : project.id === 2
+                        ? "/moviesflix-case-study"
+                        : "/meetapp-case-study"
+                    }
                     className="project-link"
                   >
                     Case Study
@@ -141,7 +135,7 @@ export const Projects = () => {
                   rel="noopener noreferrer"
                   className="project-link"
                 >
-                  <FaGithub /> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
