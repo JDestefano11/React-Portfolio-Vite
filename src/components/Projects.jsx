@@ -135,7 +135,6 @@ export const Projects = () => {
                     Case Study
                   </Link>
                 )}
-
                 <a
                   href={project.githubUrl}
                   target="_blank"
