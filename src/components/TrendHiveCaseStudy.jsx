@@ -251,3 +251,5 @@ export const TrendHiveCaseStudy = () => {
     </motion.div>
   );
 };
+
+export default TrendHiveCaseStudy;

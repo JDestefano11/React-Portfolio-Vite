@@ -230,3 +230,5 @@ export const MoviesFlixCaseStudy = () => {
     </motion.div>
   );
 };
+
+export default MoviesFlixCaseStudy;

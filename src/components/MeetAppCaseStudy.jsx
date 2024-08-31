@@ -242,3 +242,5 @@ export const MeetAppCaseStudy = () => {
     </motion.div>
   );
 };
+
+export default MeetAppCaseStudy;
