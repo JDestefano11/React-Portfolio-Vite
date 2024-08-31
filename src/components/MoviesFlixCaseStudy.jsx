@@ -96,24 +96,38 @@ export const MoviesFlixCaseStudy = () => {
           className="animated-section"
         >
           <h2>Solution</h2>
-          <ul id="tech-stack" className="tech-icons">
-            {[
-              "React with React Bootstrap",
-              "Express.js and Node.js",
-              "MongoDB",
-              "Passport.js",
-              "Parcel",
-            ].map((tech, index) => (
-              <motion.li
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <i className={`icon-${tech.split(" ")[0].toLowerCase()}`}></i>
-                {tech}
-              </motion.li>
-            ))}
-          </ul>
+          <p>
+            We leveraged React with React Bootstrap for a responsive and
+            interactive frontend. This allowed us to create a dynamic user
+            interface with reusable components.
+          </p>
+          <div className="solution-details">
+            <h3>Frontend Development:</h3>
+            <p>
+              React and React Bootstrap were used to ensure a responsive and
+              interactive user interface with reusable components.
+            </p>
+            <h3>Backend Development:</h3>
+            <p>
+              Express.js and Node.js provided a robust server-side framework for
+              handling API requests and business logic.
+            </p>
+            <h3>Database Solution:</h3>
+            <p>
+              MongoDB was selected for its flexibility and scalability in
+              storing and retrieving complex data structures efficiently.
+            </p>
+            <h3>User Authentication:</h3>
+            <p>
+              Passport.js was used to simplify the handling of user credentials
+              and maintain secure sessions.
+            </p>
+            <h3>Build Tool:</h3>
+            <p>
+              Parcel streamlined the development process with zero-configuration
+              bundling and optimized the application for production.
+            </p>
+          </div>
         </motion.section>
 
         <motion.section
@@ -152,18 +166,43 @@ export const MoviesFlixCaseStudy = () => {
         >
           <h2 style={{ marginBottom: "5rem" }}>Development Process</h2>
           <div className="process-container">
-            {["Planning", "Design", "Development", "Testing", "Deployment"].map(
-              (step, index) => (
-                <motion.div
-                  key={index}
-                  className="process-step"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="circle">{index + 1}</div>
-                  <h3>{step}</h3>
-                </motion.div>
-              )
-            )}
+            {[
+              {
+                title: "Planning and Setup",
+                details:
+                  "We began by setting up the project with React and integrating React Bootstrap for UI components. We also defined the core features and functionalities.",
+              },
+              {
+                title: "UI/UX Design",
+                details:
+                  "Designs were created for a responsive layout, including components for movie browsing, search, and user profiles using React Bootstrap.",
+              },
+              {
+                title: "Frontend Development",
+                details:
+                  "Implemented the user interface with React and styled components. We used React Router for navigation and managed state with Context API.",
+              },
+              {
+                title: "Backend Integration",
+                details:
+                  "Developed RESTful API endpoints using Express.js and Node.js. Connected the frontend with the backend to manage data and user interactions.",
+              },
+              {
+                title: "Testing and Deployment",
+                details:
+                  "Tested the application for usability and functionality. Deployed the application using Parcel for bundling and optimized it for production.",
+              },
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                className="process-step"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="circle">{index + 1}</div>
+                <h3>{step.title}</h3>
+                <p>{step.details}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
 
