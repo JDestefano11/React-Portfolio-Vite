@@ -77,8 +77,9 @@ export const Footer = () => {
             <button
               onClick={() => {
                 const link = document.createElement("a");
-                link.href = "/Joseph-Destefano-Full Stack Developer.pdf";
-                link.download = "Joseph-Destefano-Full Stack Developer.pdf";
+                link.href = "/Joseph_Destefano_-_Front_end_Developer (1).pdf";
+                link.download =
+                  "/Joseph_Destefano_-_Front_end_Developer (1).pdf";
                 link.click();
               }}
               className="resume-button"

@@ -49,7 +49,7 @@ export const Header = () => {
             ))}
             <li>
               <a
-                href="/Joseph-Destefano-Full Stack Developer.pdf"
+                href="/Joseph_Destefano_-_Front_end_Developer (1).pdf"
                 download="Resume-JoeD.pdf"
                 className="resume-download-link"
               >

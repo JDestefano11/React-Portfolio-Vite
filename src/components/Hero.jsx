@@ -47,7 +47,7 @@ export const Hero = () => {
               )}
             />
           </h1>
-          <h2 className="tagline">Full Stack Web Developer</h2>
+          <h2 className="tagline">Front End Developer</h2>
           <p className="bio">
             Passionate about creating innovative web solutions that make a
             difference. Specializing in modern frameworks and clean, efficient
