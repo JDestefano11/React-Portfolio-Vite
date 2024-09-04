@@ -107,14 +107,16 @@ export const Projects = () => {
               <h3>{project.name}</h3>
               <p>{project.description}</p>
               <div className="project-links">
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  Live Site
-                </a>
+                {project.id < 5 && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    Live Site
+                  </a>
+                )}
                 {(project.id === 1 || project.id === 2 || project.id === 4) && (
                   <Link
                     to={
