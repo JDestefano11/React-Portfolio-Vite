@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import movieFlixHubImage from "../images/MoviesFlix-Hub.png";
 import meetAppImage from "../images/MeetAppCaseStudy.png";
 import movie from "../images/453321966_511122678039876_4012628457751247270_n.png";
-import chat from "../images/Chatapp.jpg";
+import chat from "../images/f5d3797c-7f94-491f-9084-385acf9fc856.jpg";
 import ecom from "../images/Screenshot 2024-08-26 202451.png";
 import chatapp from "../images/chatapp.png";
 import { motion } from "framer-motion";
