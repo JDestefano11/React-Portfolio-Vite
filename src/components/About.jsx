@@ -44,9 +44,8 @@ export const About = () => {
         <img src={Joe} alt="Joe Destefano" className="profile-image" />
         <div className="header-content">
           <h1 className="name">Joe Destefano</h1>
-          <h2 className="title">Full-Stack Web Developer</h2>
+          <h2 className="title">Front End Developer</h2>
         </div>
-      </motion.div>
 
       <motion.div className="about-content" variants={itemVariants}>
         <div className="about-text">
