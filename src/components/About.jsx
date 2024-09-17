@@ -46,7 +46,8 @@ export const About = () => {
           <h1 className="name">Joe Destefano</h1>
           <h2 className="title">Front End Developer</h2>
         </div>
-
+      </motion.div>{" "}
+      {/* This closing tag was missing */}
       <motion.div className="about-content" variants={itemVariants}>
         <div className="about-text">
           <h2 className="section-title">About Me</h2>
@@ -60,7 +61,6 @@ export const About = () => {
           </p>
         </div>
       </motion.div>
-
       <motion.div className="interests-goals" variants={itemVariants}>
         <div className="interests">
           <h2 className="section-title">Interests</h2>
@@ -90,7 +90,6 @@ export const About = () => {
           variants={itemVariants}
         />
       </motion.div>
-
       <motion.h2 className="section-title skills-title" variants={itemVariants}>
         Skills
       </motion.h2>

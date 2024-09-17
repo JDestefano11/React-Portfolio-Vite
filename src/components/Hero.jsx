@@ -71,7 +71,11 @@ export const Hero = () => {
                 style={{ color: "#39FF14" }}
               />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://x.com/JoeDevstefano"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaTwitter
                 className="icon twitter"
                 style={{ color: "#39FF14" }}

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "../styles/Contact.css";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
 
 export const ContactPage = () => {
@@ -104,6 +104,15 @@ export const ContactPage = () => {
               whileTap={{ scale: 0.9 }}
             >
               <FaLinkedin className="icon linkedin" />
+            </motion.a>
+            <motion.a
+              href="https://x.com/JoeDevstefano"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 360 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaTwitter className="icon twitter" />
             </motion.a>
           </motion.div>
         </div>
