@@ -63,7 +63,7 @@ export const Footer = () => {
               <FaLinkedin className="social-icon linkedin" />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://x.com/JoeDevstefano"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Twitter"
