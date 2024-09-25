@@ -22,6 +22,8 @@ header {
   align-items: center;
   justify-content: center;
   color: #ffffff;
+  position: relative; /* Ensure header is positioned relative */
+  z-index: 1000; /* Ensure header is above other elements */
 }
 
 header > div {
@@ -55,6 +57,8 @@ nav {
   justify-content: flex-end;
   align-items: center;
   width: 100%;
+  position: relative; /* Ensure nav is positioned relative */
+  z-index: 1001; /* Ensure nav is above other elements */
 }
 
 nav ul {
@@ -100,8 +104,9 @@ nav a.active {
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--accent);
-  z-index: 1001;
+  z-index: 1002; /* Ensure menu icon is above other elements */
 }
+
 @media (max-width: 479px) {
   .menu-icon {
     display: block;
