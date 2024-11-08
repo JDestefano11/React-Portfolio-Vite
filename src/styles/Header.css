@@ -147,22 +147,22 @@ nav a.active {
   nav {
     position: absolute;
     top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 320px;
+    left: 0;
+    transform: translateX(0);
+    width: 100%;
+    max-width: 100%;
     background-color: var(--primary-bg);
     display: none;
     padding: 1rem 0;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 0;
     transition: all 0.3s ease-in-out;
   }
 
   nav.open {
-    display: flex;
+    display: block;
     opacity: 1;
     transform: translateY(0);
   }
