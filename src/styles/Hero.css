@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 * {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -43,11 +42,87 @@ html {
       transparent 50%
     );
   animation: pulse 8s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.15),
+    rgba(57, 255, 20, 0.1)
+  );
+  mask-image: radial-gradient(circle, white 70%, transparent 100%);
+  animation: gradient-wave 10s ease-in-out infinite;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-wave {
+  0% {
+    transform: translateX(-20px) translateY(-10px);
+  }
+  50% {
+    transform: translateX(20px) translateY(10px);
+  }
+  100% {
+    transform: translateX(-20px) translateY(-10px);
+  }
+}
+
+/* Particle Animation */
+.particle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(57, 255, 20, 0.7);
+  border-radius: 50%;
+  animation: particle-move 10s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes particle-move {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(100vw - 50px), calc(100vh - 50px));
+    opacity: 0.2;
+  }
 }
 
 .hero-container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   max-width: 1400px;
@@ -75,6 +150,7 @@ html {
   padding: 2.5rem;
   backdrop-filter: blur(5px);
 }
+
 .name {
   font-size: 4.8rem;
   font-weight: 700;
@@ -83,11 +159,6 @@ html {
   text-align: center;
   color: #e6e6fa;
   margin-bottom: 1rem;
-}
-
-.highlight-text {
-  color: #39ff14;
-  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
 }
 
 .tagline {
@@ -180,26 +251,6 @@ html {
   }
   100% {
     transform: translateY(0px);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
   }
 }
 

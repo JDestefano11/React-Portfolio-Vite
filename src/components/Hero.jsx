@@ -13,8 +13,22 @@ export const Hero = () => {
     }
   };
 
+  const particles = Array.from({ length: 50 }).map((_, index) => (
+    <div
+      key={index}
+      className="particle"
+      style={{
+        top: `${Math.random() * 100}vh`,
+        left: `${Math.random() * 100}vw`,
+        animationDelay: `${Math.random() * 10}s`,
+        animationDuration: `${10 + Math.random() * 10}s`,
+      }}
+    ></div>
+  ));
+
   return (
     <section className="hero">
+      <div className="particle-container">{particles}</div>
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="name">
@@ -26,7 +40,7 @@ export const Hero = () => {
               cursorRenderer={(cursor) => (
                 <span className="cursor">{cursor}</span>
               )}
-              displayTextRenderer={(text, i) => (
+              displayTextRenderer={(text) => (
                 <span className="typed-text">
                   {text.split("").map((char, i) => (
                     <span
