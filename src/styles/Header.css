@@ -143,7 +143,7 @@ nav a.active {
 .menu-icon:hover {
   color: var(--button-hover);
 }
-@media (max-width: 767px) {
+@media (max-width: 767px), (min-width: 320px) and (max-width: 467px) {
   .menu-icon {
     display: block;
     position: relative;
