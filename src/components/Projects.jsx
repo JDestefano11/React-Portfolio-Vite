@@ -33,16 +33,16 @@ export const Projects = () => {
       caseStudyUrl: "",
       githubUrl: "https://github.com/JDestefano11/MoviesFlix-Hub.git",
     },
-    {
-      id: 3,
-      name: "Chat Application",
-      description:
-        "ChimeIn is a modern real-time chat application built with React and Firebase. It offers a seamless messaging experience with a clean, responsive interface. Key features include user authentication, real-time messaging, profile management, image sharing, and contact management. The app leverages React 18.3, Vite 5.4, and Firebase to deliver a fast, secure, and efficient communication platform. With its intuitive design and powerful functionality, ChimeIn is suitable for both personal and professional use, providing instant communication in a sleek, modern package.",
-      image: chatapp,
-      liveUrl: "https://chimein-eo3bjqwn1-jdestefano11s-projects.vercel.app/#/",
-      caseStudyUrl: "https://project5.com/case-study",
-      githubUrl: "https://github.com/JDestefano11/ChimeIn.git",
-    },
+    // {
+    //   id: 3,
+    //   name: "Chat Application",
+    //   description:
+    //     "ChimeIn is a modern real-time chat application built with React and Firebase. It offers a seamless messaging experience with a clean, responsive interface. Key features include user authentication, real-time messaging, profile management, image sharing, and contact management. The app leverages React 18.3, Vite 5.4, and Firebase to deliver a fast, secure, and efficient communication platform. With its intuitive design and powerful functionality, ChimeIn is suitable for both personal and professional use, providing instant communication in a sleek, modern package.",
+    //   image: chatapp,
+    //   liveUrl: "https://chimein-eo3bjqwn1-jdestefano11s-projects.vercel.app/#/",
+    //   caseStudyUrl: "https://project5.com/case-study",
+    //   githubUrl: "https://github.com/JDestefano11/ChimeIn.git",
+    // },
     {
       id: 4,
       name: "Meet-App",
