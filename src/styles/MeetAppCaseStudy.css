@@ -1,3 +1,4 @@
+/* General Reset and Layout */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 * {
@@ -175,9 +176,56 @@ strong {
   align-items: center;
   text-align: center;
 }
-@media (max-width: 768px) {
+
+/* Mobile Portrait (320px to 467px) */
+@media (max-width: 467px) {
   .case-study {
     padding: 1rem;
+  }
+
+  .case-study h1 {
+    font-size: 2rem;
+  }
+
+  .case-study h2 {
+    font-size: 1.5rem;
+  }
+
+  .case-study h3 {
+    font-size: 1.2rem;
+  }
+
+  .animated-section p {
+    font-size: 0.9rem;
+  }
+
+  .tech-icons li,
+  .feature-box {
+    flex-basis: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .process-container {
+    gap: 1rem;
+  }
+
+  .process-step .circle {
+    font-size: 1.4rem;
+    width: 60px;
+    height: 60px;
+  }
+
+  .back-link {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Mobile Landscape and Small Tablets (468px to 767px) */
+@media (min-width: 468px) and (max-width: 767px) {
+  .case-study {
+    padding: 1.5rem;
   }
 
   .case-study h1 {
@@ -189,14 +237,73 @@ strong {
   }
 
   .case-study h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
-  .process-timeline {
-    flex-direction: column;
+  .animated-section p {
+    font-size: 1rem;
   }
 
-  .timeline-item {
-    margin-bottom: 2rem;
+  .tech-icons li,
+  .feature-box {
+    flex-basis: 45%;
+  }
+
+  .process-container {
+    gap: 2rem;
+  }
+
+  .process-step .circle {
+    font-size: 1.6rem;
+    width: 65px;
+    height: 65px;
+  }
+
+  .back-link {
+    font-size: 1.1rem;
+    padding: 12px 22px;
+  }
+}
+
+/* Tablets and Small Desktops (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .case-study {
+    padding: 2rem;
+  }
+
+  .case-study h1 {
+    font-size: 3rem;
+  }
+
+  .case-study h2 {
+    font-size: 2rem;
+  }
+
+  .case-study h3 {
+    font-size: 1.6rem;
+  }
+
+  .animated-section p {
+    font-size: 1.1rem;
+  }
+
+  .tech-icons li,
+  .feature-box {
+    flex-basis: 30%;
+  }
+
+  .process-container {
+    gap: 3rem;
+  }
+
+  .process-step .circle {
+    font-size: 1.8rem;
+    width: 70px;
+    height: 70px;
+  }
+
+  .back-link {
+    font-size: 1.2rem;
+    padding: 14px 28px;
   }
 }
