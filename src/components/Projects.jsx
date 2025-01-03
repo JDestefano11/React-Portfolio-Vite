@@ -65,7 +65,7 @@ export const Projects = () => {
     },
     {
       id: 6,
-      name: "Chat App React Native (work in progress)",
+      name: "Chat App React Native",
       description:
         "A mobile chat application developed with React Native, leveraging Firebase for real-time data synchronization and user authentication. This app allows users to create accounts, join chat rooms, and send instant messages. Firebase handles user authentication, message storage, and real-time updates, ensuring seamless communication. The application features a clean, intuitive interface and robust performance on both iOS and Android platforms, providing users with a reliable and engaging messaging experience.",
       image: chat,
