@@ -8,6 +8,7 @@ import About from "./components/About/About";
 import TrendHiveCaseStudy from "./pages/TrendHiveCaseStudy/TrendHiveCaseStudy";
 import MeetAppCaseStudy from "./pages/MeetAppCaseStudy/MeetAppCaseStudy";
 import MoviesFlixCaseStudy from "./pages/MoviesFlixCaseStudy/MoviesFlixCaseStudy";
+import Footer from "./components/Footer/Footer";
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -45,6 +46,9 @@ const App = () => {
               </div>
               <div id="contact">
                 <Contact />
+              </div>
+              <div id="footer">
+                <Footer />
               </div>
             </>
           }
