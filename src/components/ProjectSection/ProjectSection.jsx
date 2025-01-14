@@ -3,7 +3,7 @@ import { FaGithub, FaRocket, FaBookReader } from "react-icons/fa";
 import LazyLoad from "react-lazy-load";
 import "./ProjectSection.css";
 import TrendHive from "../../images/TrendHive.png";
-import ChatApp from "../../images/f5d3797c-7f94-491f-9084-385acf9fc856-B8l4qfms.jpg";
+import MoviesFlix from "../../images/Movies.png";
 import MeetApp from "../../images/MeetApp.png";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const ProjectCard = ({ project }) => {
       case 2:
         return "/meetapp";
       case 3:
-        return "/chatapp";
+        return "/moviesflix";
       default:
         return "/";
     }
@@ -91,10 +91,10 @@ const Projects = () => {
       },
       {
         id: 3,
-        title: "Chat App",
-        image: ChatApp,
+        title: "MoviesFlix-Hub",
+        image: MoviesFlix,
         description:
-          "A mobile chat application developed with React Native, leveraging Firebase for real-time data synchronization and user authentication. This app allows users to create accounts, join chat rooms, and send instant messages. Firebase handles user authentication, message storage, and real-time updates, ensuring seamless communication. The application features a clean, intuitive interface and robust performance on both iOS and Android platforms, providing users with a reliable and engaging messaging experience.",
+          "MoviesFlix-Hub is a React-based client-side application designed for movie enthusiasts. It offers a dynamic and user-friendly interface where users can browse and search for movies, view detailed information, and manage their favorite films. The application also includes features for updating user profiles, such as changing personal details and managing favorite movie lists. With a focus on seamless user experience and responsive design, MoviesFlix-Hub provides an engaging platform for discovering and organizing movie content.",
         tech: ["React Native", "Firebase", "React", "CSS"],
         liveUrl: "#",
         codeUrl: "#",

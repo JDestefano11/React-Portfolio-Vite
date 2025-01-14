@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useLayoutEffect } from "react";
 import "./MeetAppCaseStudy.css";
 
 // Lazy load icons for better performance
@@ -33,6 +33,13 @@ const BiNetworkChart = React.lazy(() =>
 
 export const MeetAppCaseStudy = () => {
   const [activeSection, setActiveSection] = useState(null);
+
+  useLayoutEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
+  }, []);
 
   const sections = [
     {

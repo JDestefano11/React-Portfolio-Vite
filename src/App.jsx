@@ -6,6 +6,8 @@ import Contact from "./components/Contact/Contact";
 import ProjectSection from "./components/ProjectSection/ProjectSection";
 import About from "./components/About/About";
 import TrendHiveCaseStudy from "./pages/TrendHiveCaseStudy/TrendHiveCaseStudy";
+import MeetAppCaseStudy from "./pages/MeetAppCaseStudy/MeetAppCaseStudy";
+import MoviesFlixCaseStudy from "./pages/MoviesFlixCaseStudy/MoviesFlixCaseStudy";
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -48,6 +50,8 @@ const App = () => {
           }
         />
         <Route path="/trendhive" element={<TrendHiveCaseStudy />} />
+        <Route path="/meetapp" element={<MeetAppCaseStudy />} />
+        <Route path="/moviesflix" element={<MoviesFlixCaseStudy />} />
       </Routes>
     </BrowserRouter>
   );
