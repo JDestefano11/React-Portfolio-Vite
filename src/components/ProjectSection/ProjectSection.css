@@ -236,6 +236,30 @@
   box-shadow: var(--aurora-glow);
 }
 
+.action-btn.case-study {
+  background: linear-gradient(135deg, var(--aurora-purple), var(--aurora-pink));
+  color: var(--digital-black);
+  border: 1px solid rgba(182, 67, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 0.7rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.action-btn.case-study:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(182, 67, 255, 0.3);
+  background: linear-gradient(135deg, var(--aurora-pink), var(--aurora-purple));
+}
+
+.action-btn.case-study .btn-icon {
+  font-size: 1.2rem;
+}
+
 @keyframes cardFloat {
   0%,
   100% {

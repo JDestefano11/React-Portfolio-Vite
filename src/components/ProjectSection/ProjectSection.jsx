@@ -1,12 +1,26 @@
 import { useState, useMemo } from "react";
-import { FaGithub, FaRocket } from "react-icons/fa";
+import { FaGithub, FaRocket, FaBookReader } from "react-icons/fa";
 import LazyLoad from "react-lazy-load";
 import "./ProjectSection.css";
 import TrendHive from "../../images/TrendHive.png";
 import ChatApp from "../../images/f5d3797c-7f94-491f-9084-385acf9fc856-B8l4qfms.jpg";
 import MeetApp from "../../images/MeetApp.png";
+import { Link } from "react-router-dom";
 
 const ProjectCard = ({ project }) => {
+  const getCaseStudyPath = (id) => {
+    switch (id) {
+      case 1:
+        return "/trendhive";
+      case 2:
+        return "/meetapp";
+      case 3:
+        return "/chatapp";
+      default:
+        return "/";
+    }
+  };
+
   return (
     <div className="epic-card">
       <div className="card-glow"></div>
@@ -38,6 +52,13 @@ const ProjectCard = ({ project }) => {
               <FaGithub className="btn-icon" />
               Source Code
             </a>
+            <Link
+              to={getCaseStudyPath(project.id)}
+              className="action-btn case-study"
+            >
+              <FaBookReader className="btn-icon" />
+              Case Study
+            </Link>
           </div>
         </div>
       </div>
