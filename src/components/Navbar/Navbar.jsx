@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
@@ -10,6 +11,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showSocials, setShowSocials] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +30,13 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleNavigation = (sectionId) => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: sectionId } });
+    }
+    setIsOpen(false);
+  };
+
   const navLinks = [
     { to: "home", label: "Home" },
     { to: "about", label: "About" },
@@ -38,31 +48,35 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="nav-logo">
-        <ScrollLink
-          to="home"
-          smooth={true}
-          duration={500}
-          offset={-80}
-          onClick={() => setIsOpen(false)}
-        >
+        <Link to="/" onClick={() => handleNavigation("home")}>
           <h1>Joe Destefano</h1>
-        </ScrollLink>
+        </Link>
       </div>
 
       <div className={`nav-links ${isOpen ? "active" : ""}`}>
-        {navLinks.map((link) => (
-          <ScrollLink
-            key={link.to}
-            to={link.to}
-            smooth={true}
-            duration={500}
-            offset={-80}
-            onClick={() => setIsOpen(false)}
-            className="nav-link"
-          >
-            {link.label}
-          </ScrollLink>
-        ))}
+        {navLinks.map((link) =>
+          location.pathname === "/" ? (
+            <ScrollLink
+              key={link.to}
+              to={link.to}
+              smooth={true}
+              duration={500}
+              offset={-80}
+              onClick={() => setIsOpen(false)}
+              className="nav-link"
+            >
+              {link.label}
+            </ScrollLink>
+          ) : (
+            <div
+              key={link.to}
+              onClick={() => handleNavigation(link.to)}
+              className="nav-link"
+            >
+              {link.label}
+            </div>
+          )
+        )}
       </div>
 
       <div className={`nav-socials ${!showSocials ? "hidden" : ""}`}>

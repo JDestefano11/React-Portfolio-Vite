@@ -47,7 +47,8 @@
   cursor: pointer;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-links div.nav-link {
   color: white;
   text-decoration: none;
   font-size: 1rem;
@@ -55,7 +56,8 @@
   transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links div.nav-link:hover {
   color: var(--aurora-pink);
   text-shadow: 0 0 10px var(--aurora-pink);
 }
@@ -159,6 +161,11 @@
   .social-icon:hover {
     color: var(--aurora-pink);
     transform: translateX(2px);
+  }
+  .nav-links a,
+  .nav-links div.nav-link {
+    font-size: 1.5rem;
+    color: var(--aurora-teal);
   }
 
   @media (min-width: 1440px) {
