@@ -44,6 +44,7 @@
 .nav-links {
   display: flex;
   gap: 2.5rem;
+  cursor: pointer;
 }
 
 .nav-links a {

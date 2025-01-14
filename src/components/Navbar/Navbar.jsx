@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link as ScrollLink } from "react-scroll";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
@@ -13,7 +14,6 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       setIsScrolled(currentScrollY > 50);
       setShowSocials(currentScrollY < lastScrollY || currentScrollY === 0);
       setLastScrollY(currentScrollY);
@@ -27,30 +27,42 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const navLinks = [
+    { to: "home", label: "Home" },
+    { to: "about", label: "About" },
+    { to: "projects", label: "Projects" },
+    { to: "skills", label: "Skills" },
+    { to: "contact", label: "Contact" },
+  ];
+
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="nav-logo">
-        <a href="#home">
+        <ScrollLink
+          to="home"
+          smooth={true}
+          duration={500}
+          offset={-80}
+          onClick={() => setIsOpen(false)}
+        >
           <h1>Joe Destefano</h1>
-        </a>
+        </ScrollLink>
       </div>
 
       <div className={`nav-links ${isOpen ? "active" : ""}`}>
-        <a href="#home" onClick={() => setIsOpen(false)}>
-          Home
-        </a>
-        <a href="#about" onClick={() => setIsOpen(false)}>
-          About
-        </a>
-        <a href="#projects" onClick={() => setIsOpen(false)}>
-          Projects
-        </a>
-        <a href="#skills" onClick={() => setIsOpen(false)}>
-          Skills
-        </a>
-        <a href="#contact" onClick={() => setIsOpen(false)}>
-          Contact
-        </a>
+        {navLinks.map((link) => (
+          <ScrollLink
+            key={link.to}
+            to={link.to}
+            smooth={true}
+            duration={500}
+            offset={-80}
+            onClick={() => setIsOpen(false)}
+            className="nav-link"
+          >
+            {link.label}
+          </ScrollLink>
+        ))}
       </div>
 
       <div className={`nav-socials ${!showSocials ? "hidden" : ""}`}>
