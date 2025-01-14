@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import "./Navbar.css";
 
@@ -18,7 +17,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 50);
-      setShowSocials(currentScrollY < lastScrollY || currentScrollY === 0);
+      setShowSocials(currentScrollY === 0);
       setLastScrollY(currentScrollY);
     };
 
@@ -107,7 +106,24 @@ const Navbar = () => {
       </div>
 
       <button className="mobile-menu-btn" onClick={toggleMenu}>
-        {isOpen ? <IoClose size={28} /> : <HiMenu size={28} />}
+        {isOpen ? (
+          <IoClose size={28} />
+        ) : (
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            className="menu-icon"
+          >
+            <path
+              d="M3 7h18M3 12h18M3 17h18"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+        )}
       </button>
     </nav>
   );
