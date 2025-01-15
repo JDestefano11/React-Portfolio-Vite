@@ -1,8 +1,9 @@
 :root {
-  --digital-black: #0a0a0a;
-  --aurora-teal: #00ffd5;
-  --aurora-purple: #7f00ff;
-  --aurora-pink: #ff00d4;
+  --aurora-teal: rgba(0, 255, 213, 0.85);
+  --aurora-pink: rgba(255, 54, 171, 0.85);
+  --aurora-purple: rgba(182, 67, 255, 0.85);
+  --digital-black: #0c0c1d;
+  --aurora-glow: 0 0 20px rgba(0, 255, 213, 0.3);
 }
 
 .cyber-footer {
@@ -246,7 +247,7 @@
     transform: translateY(-5px);
   }
 }
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .cyber-footer {
     padding: 3rem 1.5rem 1rem;
   }
@@ -320,4 +321,4 @@
   .copyright {
     font-size: 0.9rem;
   }
-} */
+}
