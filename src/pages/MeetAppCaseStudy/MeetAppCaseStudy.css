@@ -426,6 +426,11 @@
   .timeline-network-icon {
     font-size: 25rem;
   }
+  .timeline-spark-icon {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
