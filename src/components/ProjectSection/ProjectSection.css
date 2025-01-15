@@ -319,30 +319,62 @@
     gap: 0.6rem;
     padding: 1rem;
   }
+@media (max-width: 768px) {
+  .epic-card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 600px;
+  }
 
-  @media (max-width: 768px) {
-    .card-actions {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-      padding: 1rem;
-    }
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
-    .action-btn {
-      width: 100%;
-      padding: 0.8rem;
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      -webkit-appearance: none;
-      white-space: nowrap;
-    }
+  .card-image-container {
+    height: 200px;
+  }
 
-    .action-btn.case-study {
-      grid-column: span 2;
-      margin-top: 0.4rem;
-    }
+  .card-info {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tech-pills {
+    padding: 0.5rem 1rem;
+    gap: 0.6rem;
+    justify-content: flex-start;
+  }
+
+  .card-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    padding: 1.5rem;
+    margin-top: auto;
+  }
+
+  .action-btn {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .action-btn.case-study {
+    grid-column: span 2;
+    margin-top: 0.4rem;
+  }
+
+  .btn-icon {
+    font-size: 1.1rem;
   }
 }
 

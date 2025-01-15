@@ -603,14 +603,29 @@
     -webkit-justify-content: center;
   }
   .response-time {
-    gap: 1.5rem;
-    -webkit-gap: 1.5rem;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 213, 0.05);
+    border: 1px solid var(--aurora-teal);
+    border-radius: 12px;
+    padding: 1rem;
+    width: 280px;
+    margin: 0 auto;
+    gap: 1rem;
   }
 
   .clock-icon.pulse {
-    margin-left: 0.5rem;
-    -webkit-margin-left: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--aurora-teal);
+  }
+
+  .contact-highlight {
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--aurora-teal), var(--aurora-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
   }
 }
 
