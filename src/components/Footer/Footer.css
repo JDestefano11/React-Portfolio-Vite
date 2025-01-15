@@ -246,7 +246,7 @@
     transform: translateY(-5px);
   }
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .cyber-footer {
     padding: 3rem 1.5rem 1rem;
   }
@@ -320,4 +320,4 @@
   .copyright {
     font-size: 0.9rem;
   }
-}
+} */
