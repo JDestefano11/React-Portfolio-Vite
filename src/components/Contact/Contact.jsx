@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback, Suspense } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
 // Lazy load icons to improve initial load speed
@@ -53,6 +54,7 @@ const BiNetworkChart = React.lazy(() =>
 );
 
 const Contact = () => {
+  emailjs.init("KWFeCFvWMANpOAmY6");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -60,7 +62,6 @@ const Contact = () => {
     message: "",
   });
 
-  // Memoize reasons array to prevent unnecessary re-renders
   const reasons = useMemo(
     () => [
       {
@@ -82,29 +83,32 @@ const Contact = () => {
     []
   );
 
-  // Use useCallback to memoize handleSubmit function
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
-      try {
-        const response = await fetch(
-          "https://formspree.io/f/your-formspree-id",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          }
-        );
 
-        if (response.ok) {
+      const templateParams = {
+        to_email: "joedestefano.webdev@gmail.com",
+        from_name: formData.name,
+        from_email: formData.email,
+        contact_reason: formData.contactReason,
+        message: formData.message,
+      };
+      emailjs
+        .send(
+          "service_qyxnlyt",
+          "template_naz502g",
+          templateParams,
+          "KWFeCFvWMANpOAmY6"
+        )
+        .then(() => {
           setFormData({ name: "", email: "", contactReason: "", message: "" });
-          alert("Message sent successfully!");
-        }
-      } catch (error) {
-        console.error("Error sending message:", error);
-      }
+          alert("Message sent successfully! I'll get back to you soon.");
+        })
+        .catch((error) => {
+          console.error("Error sending message:", error);
+          alert("Failed to send message. Please try again.");
+        });
     },
     [formData]
   );
