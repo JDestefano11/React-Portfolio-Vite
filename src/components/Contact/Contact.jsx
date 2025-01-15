@@ -5,36 +5,47 @@ import "./Contact.css";
 const FaRocket = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaRocket }))
 );
+
 const FaClock = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaClock }))
 );
+
 const FaEnvelope = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaEnvelope }))
 );
+
 const FaGithub = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaGithub }))
 );
+
 const FaLinkedin = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaLinkedin }))
 );
+
 const FaCode = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaCode }))
 );
+
 const FaBrain = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaBrain }))
 );
+
 const FaHandshake = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaHandshake }))
 );
+
 const FaChartLine = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaChartLine }))
 );
+
 const FaHeadset = React.lazy(() =>
   import("react-icons/fa").then((module) => ({ default: module.FaHeadset }))
 );
+
 const HiSparkles = React.lazy(() =>
   import("react-icons/hi").then((module) => ({ default: module.HiSparkles }))
 );
+
 const BiNetworkChart = React.lazy(() =>
   import("react-icons/bi").then((module) => ({
     default: module.BiNetworkChart,
