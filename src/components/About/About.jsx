@@ -19,6 +19,7 @@ import resumeFile from "../../images/Joseph-Destefano-Front End Developer.pdf";
 const ProfileImage = lazy(() =>
   import("../../images/JoeDestefano(myself).png")
 );
+
 const About = () => {
   return (
     <section className="about-section">
