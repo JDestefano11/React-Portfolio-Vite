@@ -12,6 +12,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import "./Footer.css";
+import resume from "../../images/Front End Developer Joe Destefano Resume.pdf";
 
 const Footer = () => {
   const location = useLocation();
@@ -90,7 +91,7 @@ const Footer = () => {
                 </div>
               )}
               <a
-                href="/Joe_Resume.pdf"
+                href={resume}
                 download="Joe_Resume.pdf"
                 className="footer-btn secondary"
               >
