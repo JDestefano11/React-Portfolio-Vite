@@ -129,9 +129,10 @@
 
 .highlight-cards {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 3rem;
   margin: 5rem 0;
+  -webkit-column-count: 1;
 }
 
 .highlight-card {
