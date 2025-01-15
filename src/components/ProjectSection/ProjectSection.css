@@ -197,28 +197,31 @@
 
 .card-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-top: auto;
-  padding: 0 1rem 1rem;
-  flex-wrap: wrap;
+  padding: 1rem;
 }
 
 .action-btn {
-  flex: 1 1 auto;
-  min-width: 100px;
-  padding: 0.8rem 1.2rem;
+  width: 100%;
+  padding: 0.8rem;
   font-size: 0.9rem;
+  text-align: center;
   text-decoration: none;
-  border-radius: 12px;
+  border-radius: 8px;
   transition: all 0.3s ease;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: none;
+}
+
+.action-btn.case-study {
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
 }
 
 .btn-icon {
