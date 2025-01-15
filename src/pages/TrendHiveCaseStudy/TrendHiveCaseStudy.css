@@ -10,7 +10,7 @@
   min-height: 100vh;
   background: var(--digital-black);
   color: white;
-  padding: 4rem 2rem;
+  padding: 8rem 2rem 4rem;
   position: relative;
   overflow: hidden;
   background-image: linear-gradient(
@@ -397,7 +397,7 @@
 
 @media (max-width: 768px) {
   .timeline-container {
-    padding: 4rem 2rem;
+    padding: 9rem 2rem 4rem;
   }
 
   .timeline-header h1 {
@@ -426,11 +426,17 @@
   .timeline-network-icon {
     font-size: 25rem;
   }
+  .timeline-spark-icon {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
   .timeline-header h1 {
     font-size: 2.2rem;
+    margin-top: 2rem;
   }
 
   .timeline-modal-content {
