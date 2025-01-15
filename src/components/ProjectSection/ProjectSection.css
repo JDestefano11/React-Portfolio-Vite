@@ -221,12 +221,6 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.action-btn.case-study {
-  grid-column: 1 / -1;
-  margin-top: 0.5rem;
-  background: linear-gradient(135deg, var(--aurora-purple), var(--aurora-pink));
-  border: none;
-}
 .btn-icon {
   font-size: 1.2rem;
 }
