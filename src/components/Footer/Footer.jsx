@@ -27,6 +27,7 @@ const Footer = () => {
       }, 100);
     }
   };
+  // Define NavLink component
 
   const NavLink = ({ to, children }) => {
     if (isHomePage) {
