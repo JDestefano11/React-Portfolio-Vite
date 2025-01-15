@@ -73,22 +73,28 @@
 
 .hero-cta {
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-bottom: 4rem;
   justify-content: center;
 }
 
 .cta-primary {
+  flex: 1 1 200px;
+  min-width: 150px;
   padding: 1rem 2.5rem;
   background: linear-gradient(45deg, var(--aurora-teal), var(--aurora-purple));
   border-radius: 8px;
   color: #fff;
   font-weight: 600;
   text-decoration: none;
+  text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-secondary {
+  flex: 1 1 200px;
+  min-width: 150px;
   padding: 1rem 2.5rem;
   background: transparent;
   border: 1px solid var(--aurora-teal);
@@ -96,6 +102,7 @@
   color: var(--aurora-teal);
   font-weight: 600;
   text-decoration: none;
+  text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
