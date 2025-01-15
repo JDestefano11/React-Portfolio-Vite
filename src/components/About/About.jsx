@@ -13,7 +13,6 @@ import {
 } from "react-icons/fa";
 import { Suspense, lazy } from "react";
 import "./About.css";
-import profileImage from "../../images/JoeDestefano(myself).png";
 import resumeFile from "../../images/Joseph-Destefano-Front End Developer.pdf";
 
 import profileImage from "../../images/Joe Destefano.png";
