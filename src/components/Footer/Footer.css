@@ -1,3 +1,10 @@
+:root {
+  --digital-black: #0a0a0a;
+  --aurora-teal: #00ffd5;
+  --aurora-purple: #7f00ff;
+  --aurora-pink: #ff00d4;
+}
+
 .cyber-footer {
   position: relative;
   background: var(--digital-black);
