@@ -117,12 +117,17 @@
 }
 
 .response-time {
+  display: -webkit-flex;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
+  -webkit-justify-content: center;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 2rem;
+  -webkit-gap: 2rem;
   color: rgba(255, 255, 255, 0.7);
   font-size: 1.2rem;
+  padding: 0 1rem;
 }
 
 .clock-icon.pulse {
@@ -552,42 +557,97 @@
 @media (max-width: 768px) {
   .contact-container {
     padding: 4rem 2rem;
+    -webkit-padding: 4rem 2rem;
   }
+
   .contact-header h1 {
     font-size: 2.5rem;
+    -webkit-text-size-adjust: 100%;
   }
+
   .reasons-grid {
     grid-template-columns: 1fr;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
   }
+
   .contact-wrapper {
     grid-template-columns: 1fr;
     gap: 3rem;
     padding: 2rem;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
   }
+
   .contact-stats {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-  .social-links {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
   }
+
+  .social-links {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+
   .social-btn {
     width: 100%;
     justify-content: center;
+    -webkit-justify-content: center;
+  }
+  .response-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 213, 0.05);
+    border: 1px solid var(--aurora-teal);
+    border-radius: 12px;
+    padding: 1rem;
+    width: 280px;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .clock-icon.pulse {
+    font-size: 1.2rem;
+    color: var(--aurora-teal);
+  }
+
+  .contact-highlight {
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--aurora-teal), var(--aurora-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
   }
 }
+
 @media (max-width: 480px) {
   .contact-header h1 {
     font-size: 2rem;
+    -webkit-text-size-adjust: 100%;
   }
+
   .contact-stat-item {
     flex-direction: row;
+    -webkit-flex-direction: row;
     text-align: left;
     padding: 1.5rem;
+    display: -webkit-flex;
+    display: flex;
   }
+
   .contact-stat-text h3 {
     font-size: 1.1rem;
   }
+
   .contact-stat-text span {
     font-size: 1.8rem;
   }
