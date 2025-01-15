@@ -320,20 +320,29 @@
     padding: 1rem;
   }
 
-  .card-actions {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-    padding: 0.8rem;
-  }
+  @media (max-width: 768px) {
+    .card-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      padding: 1rem;
+    }
 
-  .action-btn {
-    padding: 0.7rem;
-    font-size: 0.85rem;
-  }
+    .action-btn {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-appearance: none;
+      white-space: nowrap;
+    }
 
-  .action-btn.case-study {
-    grid-column: span 2;
-    margin-top: 0.4rem;
+    .action-btn.case-study {
+      grid-column: span 2;
+      margin-top: 0.4rem;
+    }
   }
 }
 
