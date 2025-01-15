@@ -348,7 +348,7 @@
   }
 }
 
-/* @media (max-width: 1024px) {
+@media (max-width: 1024px) {
   .profile-section {
     grid-template-columns: 1fr;
     text-align: center;
@@ -464,4 +464,4 @@
   .skill-item svg {
     font-size: 2.2rem;
   }
-} */
+}
