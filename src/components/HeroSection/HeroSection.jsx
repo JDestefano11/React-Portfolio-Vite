@@ -29,9 +29,9 @@ const HeroSection = () => {
               <span className="text-light">Full Stack Developer</span>
             </h1>
             <p className="hero-subtitle">
-              Crafting digital experiences with clean code and creative
-              solutions. Specialized in building modern web applications that
-              make an impact.
+              Creating impactful digital experiences with clean code and
+              innovative solutions. Specializing in modern, high-performance web
+              applications.
             </p>
             <div className="hero-cta">
               <a href="#projects" className="cta-primary">
