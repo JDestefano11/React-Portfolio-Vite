@@ -80,7 +80,7 @@ const Navbar = () => {
 
       <div className={`nav-socials ${!showSocials ? "hidden" : ""}`}>
         <a
-          href="https://github.com"
+          href="https://github.com/JDestefano11"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon"
@@ -88,7 +88,7 @@ const Navbar = () => {
           <FaGithub />
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/joeadestefano/"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon"
@@ -96,7 +96,7 @@ const Navbar = () => {
           <FaLinkedin />
         </a>
         <a
-          href="https://twitter.com"
+          href="https://x.com/JoeDestefa56981"
           target="_blank"
           rel="noopener noreferrer"
           className="social-icon"

@@ -1,4 +1,6 @@
 import React from "react";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import {
   FaGithub,
   FaLinkedin,
@@ -9,14 +11,53 @@ import {
   FaDownload,
   FaArrowRight,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === "/";
+
+  const handleNavigation = (to) => {
+    if (!isHomePage) {
+      navigate(`/#${to}`);
+      setTimeout(() => {
+        const element = document.getElementById(to);
+        element?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
+
+  const NavLink = ({ to, children }) => {
+    if (isHomePage) {
+      return (
+        <ScrollLink
+          to={to}
+          smooth={true}
+          duration={500}
+          offset={-100}
+          className="nav-link"
+          spy={true}
+          activeClass="active"
+        >
+          {children}
+        </ScrollLink>
+      );
+    }
+    return (
+      <div
+        onClick={() => handleNavigation(to)}
+        className="nav-link"
+        style={{ cursor: "pointer" }}
+      >
+        {children}
+      </div>
+    );
+  };
+
   return (
     <footer className="cyber-footer">
       <div className="footer-glow-top"></div>
-
       <div className="footer-content">
         <div className="footer-main">
           <div className="footer-brand">
@@ -26,32 +67,46 @@ const Footer = () => {
             </div>
             <p className="footer-tagline">Full Stack Developer</p>
             <div className="footer-cta">
-              <button className="footer-btn primary">
-                <span>Let's Talk</span>
-                <FaArrowRight />
-              </button>
-              <button className="footer-btn secondary">
+              {isHomePage ? (
+                <ScrollLink
+                  to="contact"
+                  smooth={true}
+                  duration={500}
+                  offset={-100}
+                  className="footer-btn primary"
+                  spy={true}
+                >
+                  <span>Let's Talk</span>
+                  <FaArrowRight />
+                </ScrollLink>
+              ) : (
+                <div
+                  onClick={() => handleNavigation("contact")}
+                  className="footer-btn primary"
+                  style={{ cursor: "pointer" }}
+                >
+                  <span>Let's Talk</span>
+                  <FaArrowRight />
+                </div>
+              )}
+              <a
+                href="/Joe_Resume.pdf"
+                download="Joe_Resume.pdf"
+                className="footer-btn secondary"
+              >
                 <FaDownload />
                 <span>Resume</span>
-              </button>
+              </a>
             </div>
           </div>
 
           <div className="footer-nav">
             <div className="nav-group">
               <h4>Navigation</h4>
-              <Link to="/#home" className="nav-link">
-                Home
-              </Link>
-              <Link to="/#about" className="nav-link">
-                About
-              </Link>
-              <Link to="/#projects" className="nav-link">
-                Projects
-              </Link>
-              <Link to="/#contact" className="nav-link">
-                Contact
-              </Link>
+              <NavLink to="home">Home</NavLink>
+              <NavLink to="about">About</NavLink>
+              <NavLink to="projects">Projects</NavLink>
+              <NavLink to="contact">Contact</NavLink>
             </div>
           </div>
 
@@ -61,24 +116,36 @@ const Footer = () => {
               <div className="connect-info">
                 <div className="info-item">
                   <FaEnvelope />
-                  <span>hello@joedestefano.dev</span>
+                  <span>joedestefano.webdev@gmail.com</span>
                 </div>
                 <div className="info-item">
                   <FaMapMarkerAlt />
-                  <span>Boston, MA</span>
+                  <span>New York, NY</span>
                 </div>
               </div>
               <div className="social-links">
                 <a
                   href="https://github.com/JDestefano11"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="social-link"
                 >
                   <FaGithub />
                 </a>
-                <a href="https://linkedin.com" className="social-link">
+                <a
+                  href="https://www.linkedin.com/in/joeadestefano/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                >
                   <FaLinkedin />
                 </a>
-                <a href="https://twitter.com" className="social-link">
+                <a
+                  href="https://x.com/JoeDestefa56981"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                >
                   <FaTwitter />
                 </a>
               </div>

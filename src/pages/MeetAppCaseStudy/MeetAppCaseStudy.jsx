@@ -1,5 +1,7 @@
 import React, { useState, Suspense, useLayoutEffect } from "react";
 import "./MeetAppCaseStudy.css";
+import Footer from "../../components/Footer/Footer";
+import { IoFootstepsOutline } from "react-icons/io5";
 
 // Lazy load icons for better performance
 const BiStore = React.lazy(() =>
@@ -87,71 +89,76 @@ export const MeetAppCaseStudy = () => {
   ];
 
   return (
-    <div className="timeline-container">
-      <div className="timeline-header">
-        <Suspense fallback={<div>Loading...</div>}>
-          <HiSparkles className="timeline-spark-icon" />
-        </Suspense>
-        <h1>Meet App Journey</h1>
-        <div className="timeline-subtitle">Event Discovery Platform</div>
-      </div>
+    <>
+      <div className="timeline-container">
+        <div className="timeline-header">
+          <Suspense fallback={<div>Loading...</div>}>
+            <HiSparkles className="timeline-spark-icon" />
+          </Suspense>
+          <h1>Meet App Journey</h1>
+          <div className="timeline-subtitle">Event Discovery Platform</div>
+        </div>
 
-      <div className="timeline">
-        {sections.map((section, index) => (
-          <div
-            key={section.id}
-            className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
-          >
+        <div className="timeline">
+          {sections.map((section, index) => (
             <div
-              className="timeline-content"
-              onClick={() => setActiveSection(section)}
+              key={section.id}
+              className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
             >
-              <Suspense fallback={<div>Loading...</div>}>
-                <div className="timeline-icon">{section.icon}</div>
-              </Suspense>
-              <h3>{section.title}</h3>
-              <div className="timeline-preview">Click to explore</div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {activeSection && (
-        <div
-          className="timeline-modal-overlay"
-          onClick={() => setActiveSection(null)}
-        >
-          <div
-            className="timeline-modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="timeline-modal-header">
-              <Suspense fallback={<div>Loading...</div>}>
-                <div className="timeline-modal-icon">{activeSection.icon}</div>
-              </Suspense>
-              <h2>{activeSection.title}</h2>
-              <button
-                className="timeline-close-button"
-                onClick={() => setActiveSection(null)}
+              <div
+                className="timeline-content"
+                onClick={() => setActiveSection(section)}
               >
                 <Suspense fallback={<div>Loading...</div>}>
-                  <IoClose />
+                  <div className="timeline-icon">{section.icon}</div>
                 </Suspense>
-              </button>
+                <h3>{section.title}</h3>
+                <div className="timeline-preview">Click to explore</div>
+              </div>
             </div>
-            <div className="timeline-modal-body">
-              {activeSection.description.split("\n").map((line, index) => (
-                <p key={index}>{line}</p>
-              ))}
+          ))}
+        </div>
+
+        {activeSection && (
+          <div
+            className="timeline-modal-overlay"
+            onClick={() => setActiveSection(null)}
+          >
+            <div
+              className="timeline-modal-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="timeline-modal-header">
+                <Suspense fallback={<div>Loading...</div>}>
+                  <div className="timeline-modal-icon">
+                    {activeSection.icon}
+                  </div>
+                </Suspense>
+                <h2>{activeSection.title}</h2>
+                <button
+                  className="timeline-close-button"
+                  onClick={() => setActiveSection(null)}
+                >
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <IoClose />
+                  </Suspense>
+                </button>
+              </div>
+              <div className="timeline-modal-body">
+                {activeSection.description.split("\n").map((line, index) => (
+                  <p key={index}>{line}</p>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <BiNetworkChart className="timeline-network-icon" />
-      </Suspense>
-    </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <BiNetworkChart className="timeline-network-icon" />
+        </Suspense>
+      </div>
+      <Footer />
+    </>
   );
 };
 

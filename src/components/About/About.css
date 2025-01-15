@@ -22,8 +22,8 @@
       transparent 1px
     ),
     linear-gradient(90deg, rgba(0, 255, 213, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: gridFloat 20s linear infinite;
+  background-size: 50px 50px;
+  animation: gridFloat 15s linear infinite;
 }
 
 .cosmic-overlay {
@@ -129,7 +129,7 @@
 
 .highlight-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 3rem;
   margin: 5rem 0;
 }
