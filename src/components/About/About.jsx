@@ -16,9 +16,7 @@ import "./About.css";
 import profileImage from "../../images/JoeDestefano(myself).png";
 import resumeFile from "../../images/Joseph-Destefano-Front End Developer.pdf";
 
-const ProfileImage = lazy(() =>
-  import("../../images/JoeDestefano(myself).png")
-);
+import profileImage from "../../images/Joe Destefano.png";
 
 const About = () => {
   return (

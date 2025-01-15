@@ -1,7 +1,7 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import "./HeroSection.css";
-import profileImage from "../../images/JoeDestefano(myself).png";
+import profileImage from "../../images/Joe Destefano.png";
 
 const HeroSection = () => {
   return (
