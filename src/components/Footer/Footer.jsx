@@ -27,7 +27,7 @@ const Footer = () => {
       }, 100);
     }
   };
-
+// Nav
   const NavLink = ({ to, children }) => {
     if (isHomePage) {
       return (
