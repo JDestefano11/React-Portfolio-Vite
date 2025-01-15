@@ -7,6 +7,7 @@ import MoviesFlix from "../../images/Movies.png";
 import MeetApp from "../../images/MeetApp.png";
 import { Link } from "react-router-dom";
 
+// Project
 const ProjectCard = ({ project }) => {
   const getCaseStudyPath = (id) => {
     switch (id) {
