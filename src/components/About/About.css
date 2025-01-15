@@ -400,6 +400,7 @@
   .highlight-cards {
     gap: 2rem;
     margin: 3rem 0;
+    grid-template-columns: 1fr;
   }
 
   .highlight-card {
