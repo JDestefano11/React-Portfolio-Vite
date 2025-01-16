@@ -10,6 +10,7 @@ import {
   FaAws,
   FaServer,
   FaDesktop,
+  FaPython,
 } from "react-icons/fa";
 import { Suspense, lazy } from "react";
 import "./About.css";
@@ -44,11 +45,14 @@ const About = () => {
                 <h2 className="glowing-text">Full Stack Developer</h2>
                 <p className="bio-text">
                   I am a full-stack web developer with a passion for building
-                  innovative and user-friendly web applications. Through the
-                  rigorous curriculum of the CareerFoundry bootcamp, I gained a
-                  strong foundation in modern technologies like React, Node.js,
-                  and MongoDB. I strive to deliver high-quality solutions that
-                  meet the needs of clients and users alike.
+                  innovative and user-friendly web applications. Before
+                  enrolling in the bootcamp, I was self-taught and successfully
+                  built several complex websites, including a movie application,
+                  a chat application, and two e-commerce stores. These projects
+                  provided valuable hands-on experience and helped me refine my
+                  skills in full-stack development. My continuous passion for
+                  learning and creating drives me to deliver high-quality,
+                  user-centric solutions that meet both client and user needs.
                 </p>
                 <a
                   href={resumeFile}
@@ -64,17 +68,33 @@ const About = () => {
               <div className="highlight-card">
                 <h3>Interests</h3>
                 <p>
-                  Exploring new technologies, collaborating on community-driven
-                  software initiatives, traveling, and nature exploration.
+                  I enjoy exploring new technologies and staying up to date with
+                  the latest trends in web development. I am also passionate
+                  about collaborating on community-driven software initiatives,
+                  where I can contribute to open-source projects and learn from
+                  others. Outside of work, I love traveling to new places,
+                  immersing myself in different cultures, and gaining fresh
+                  perspectives. During my travels, I continue to code, using the
+                  opportunity to work on projects and refine my skills while
+                  exploring the world. Additionally, I find peace and
+                  inspiration in nature, often spending time hiking and
+                  exploring the outdoors to recharge and gain new insights.
                 </p>
               </div>
 
               <div className="highlight-card">
                 <h3>Goals</h3>
                 <p>
-                  Joining a dynamic team to work on innovative projects and
-                  create impactful solutions while continuously learning and
-                  adapting to new challenges.
+                  My goal is to join a dynamic team where I can contribute to
+                  innovative projects and help create impactful solutions. I am
+                  eager to collaborate with talented professionals, learn from
+                  their experiences, and tackle new challenges together. I am
+                  committed to continuously improving my coding skills, staying
+                  up to date with emerging technologies, and refining my
+                  problem-solving abilities. By embracing new challenges and
+                  constantly adapting, I aim to grow as a developer and make
+                  meaningful contributions to the success of the team and the
+                  projects I work on.
                 </p>
               </div>
             </div>
@@ -93,6 +113,8 @@ const About = () => {
                     { icon: FaJs, name: "JavaScript" },
                     { icon: FaHtml5, name: "HTML/CSS" },
                     { icon: FaDesktop, name: "Responsive Design" },
+                    { icon: FaPython, name: "Python" },
+                    { icon: FaGitAlt, name: "Git" },
                   ].map((skill, index) => (
                     <div className="skill-item" key={index}>
                       <skill.icon />
@@ -110,7 +132,7 @@ const About = () => {
                     { icon: FaDatabase, name: "MongoDB" },
                     { icon: FaServer, name: "RESTful API" },
                     { icon: FaAws, name: "AWS" },
-                    { icon: FaGitAlt, name: "Git" },
+                    { icon: FaPython, name: "Python" },
                   ].map((skill, index) => (
                     <div className="skill-item" key={index}>
                       <skill.icon />
