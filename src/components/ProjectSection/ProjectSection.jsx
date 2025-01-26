@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaGithub, FaRocket, FaBookReader } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./ProjectSection.css";
@@ -9,18 +9,25 @@ import MeetApp from "../../images/MeetApp.png";
 const ProjectCard = ({ project }) => {
   return (
     <div className="epic-card">
-      <div className="card-content">
-        <div className="card-image-container">
-          <img src={project.image} alt={project.title} />
-          <div className="card-overlay">
-            <div className="card-description">
-              <p>{project.description}</p>
-            </div>
+      <div className="card-image-container">
+        <img src={project.image} alt={project.title} />
+        <div className="card-overlay">
+          <div className="card-description">
+            <p>{project.description}</p>
           </div>
         </div>
+      </div>
+      <div className="card-content">
         <div className="card-info">
           <div className="card-title">
             <h3>{project.title}</h3>
+          </div>
+          <div className="card-tech">
+            {project.tech.map((tech, index) => (
+              <span key={index} className="tech-tag">
+                {tech}
+              </span>
+            ))}
           </div>
           <div className="card-actions">
             <a href={project.liveUrl} className="action-btn live">
@@ -59,10 +66,10 @@ const ProjectSection = () => {
     },
     {
       id: 2,
-      title: "Neural Network Visualizer",
+      title: "Meet App",
       image: MeetApp,
       description:
-        "The Meet App is a web application designed to help users discover and keep track of upcoming events. The app provides various features to enhance the user experience, such as filtering events by city, showing/hiding event details, specifying the number of events to display, offline usage capabilities, adding the app as a shortcut to the home screen, and displaying charts to visualize event details.",
+        "Meet App is a web application for discovering and tracking events. Key features include city-based filtering, toggling event details, customizing event display, offline functionality, home screen shortcuts, and visualizing event data with charts.",
       tech: ["React", "AWS", "Google API", "CSS"],
       liveUrl: "#",
       codeUrl: "#",
@@ -72,7 +79,7 @@ const ProjectSection = () => {
       title: "MoviesFlix-Hub",
       image: MoviesFlix,
       description:
-        "MoviesFlix-Hub is a React-based client-side application designed for movie enthusiasts. It offers a dynamic and user-friendly interface where users can browse and search for movies, view detailed information, and manage their favorite films. The application also includes features for updating user profiles, such as changing personal details and managing favorite movie lists. With a focus on seamless user experience and responsive design, MoviesFlix-Hub provides an engaging platform for discovering and organizing movie content.",
+        "MoviesFlix-Hub, my first project with React, is a movie application for browsing, searching, and managing favorite films. This project highlights my growth as a developer, showcasing skills in responsive design, seamless user experiences, and dynamic front-end development.",
       tech: ["React Native", "Firebase", "React", "CSS"],
       liveUrl: "#",
       codeUrl: "#",
