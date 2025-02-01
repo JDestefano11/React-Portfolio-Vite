@@ -1,50 +1,89 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub, FaRocket, FaBookReader } from "react-icons/fa";
+import { MdFlip, MdOpenInNew } from 'react-icons/md';
+import { BiCodeAlt } from 'react-icons/bi';
 import { Link } from "react-router-dom";
 import "./ProjectSection.css";
 import TrendHive from "../../images/TrendHive.png";
 import MoviesFlix from "../../images/Movies.png";
 import MeetApp from "../../images/MeetApp.png";
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, isActive, onClick }) => {
   return (
-    <div className="epic-card">
-      <div className="card-image-container">
-        <img src={project.image} alt={project.title} />
-        <div className="card-overlay">
-          <div className="card-description">
-            <p>{project.description}</p>
+    <div 
+      className={`project-card ${isActive ? 'active' : ''}`}
+      onClick={onClick}
+    >
+      <div className="flip-indicator">
+        <MdFlip className="flip-icon" />
+        <span>Flip Card</span>
+      </div>
+      <div className="card-inner">
+        <div className="card-front">
+          <div className="card-header">
+            <h3>{project.title}</h3>
+            <div className="tech-stack">
+              {project.tech.map((tech, index) => (
+                <span key={index} className="tech-badge">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="card-preview">
+            <div className="preview-image">
+              <img src={project.image} alt={project.title} />
+            </div>
+            <div className="preview-content">
+              <p className="preview-description">
+                {project.description.slice(0, 100)}...
+              </p>
+              <div className="preview-actions">
+                <button className="action-button">
+                  <BiCodeAlt />
+                  <span>View Details</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="card-content">
-        <div className="card-info">
-          <div className="card-title">
+        
+        <div className="card-back">
+          <div className="project-content">
             <h3>{project.title}</h3>
-          </div>
-          <div className="card-tech">
-            {project.tech.map((tech, index) => (
-              <span key={index} className="tech-tag">
-                {tech}
-              </span>
-            ))}
-          </div>
-          <div className="card-actions">
-            <a href={project.liveUrl} className="action-btn live">
-              <FaRocket className="btn-icon" />
-              View Live
-            </a>
-            <a href={project.codeUrl} className="action-btn code">
-              <FaGithub className="btn-icon" />
-              Source Code
-            </a>
-            <Link
-              to={`/case-study/${project.id}`}
-              className="action-btn case-study"
-            >
-              <FaBookReader className="btn-icon" />
-              Case Study
-            </Link>
+            <p className="project-description">{project.description}</p>
+            <div className="project-links">
+              <a 
+                href={project.liveUrl} 
+                className="project-link live"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <FaRocket />
+                <span>Live Demo</span>
+                <MdOpenInNew className="external-link-icon" />
+              </a>
+              <a 
+                href={project.codeUrl} 
+                className="project-link code"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <FaGithub />
+                <span>View Code</span>
+                <MdOpenInNew className="external-link-icon" />
+              </a>
+              <Link 
+                to={`/case-study/${project.id}`} 
+                className="project-link case-study"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <FaBookReader />
+                <span>Case Study</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -53,6 +92,8 @@ const ProjectCard = ({ project }) => {
 };
 
 const ProjectSection = () => {
+  const [activeProject, setActiveProject] = useState(null);
+
   const projects = [
     {
       id: 1,
@@ -86,13 +127,24 @@ const ProjectSection = () => {
     },
   ];
 
+  const handleProjectClick = (projectId) => {
+    setActiveProject(activeProject === projectId ? null : projectId);
+  };
+
   return (
-    <section className="projects-section">
+    <section id="projects" className="projects-section">
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+        <h2 className="section-title">
+          <span className="title-text">Featured Projects</span>
+        </h2>
         <div className="projects-grid">
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              isActive={activeProject === project.id}
+              onClick={() => handleProjectClick(project.id)}
+            />
           ))}
         </div>
       </div>
