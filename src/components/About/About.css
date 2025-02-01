@@ -14,32 +14,53 @@
   padding: 140px 4rem 6rem;
 }
 
-.cyber-grid {
+.about-section::before {
+  content: "";
   position: absolute;
-  inset: 0;
-  background-image: linear-gradient(
-      rgba(0, 255, 213, 0.05) 1px,
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 255, 213, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(182, 67, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(255, 54, 171, 0.1) 0%,
+      transparent 50%
+    );
+  animation: gradientMove 15s ease infinite;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+
+.about-section::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(
+      circle at center,
+      var(--aurora-teal) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(0, 255, 213, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridFloat 20s linear infinite;
-}
-
-.cosmic-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-      circle at 15% 15%,
-      var(--aurora-teal) 0%,
-      transparent 35%
-    ),
-    radial-gradient(circle at 85% 85%, var(--aurora-pink) 0%, transparent 35%),
-    radial-gradient(circle at 50% 50%, var(--aurora-purple) 0%, transparent 45%);
-  opacity: 0.07;
+    radial-gradient(circle at center, var(--aurora-pink) 1px, transparent 1px),
+    radial-gradient(circle at center, var(--aurora-purple) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  animation: particleFloat 20s linear infinite;
+  z-index: 0;
   mix-blend-mode: screen;
+  opacity: 0.2;
 }
-
 .about-container {
   max-width: 1600px;
   margin: 0 auto;
@@ -340,17 +361,27 @@
   transform: translateX(100%);
 }
 
-/* Keyframes for grid animation */
-@keyframes gridFloat {
+@keyframes gradientMove {
   0% {
-    transform: translateY(0);
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
   }
   100% {
-    transform: translateY(-50px);
+    transform: rotate(360deg) scale(1);
   }
 }
 
-/* Media Queries */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-50%) rotate(45deg);
+  }
+}
+
 @media (max-width: 1024px) {
   .profile-section {
     grid-template-columns: 1fr;
@@ -451,7 +482,6 @@
     justify-content: center;
   }
 }
-
 @media (min-width: 1440px) {
   .about-container {
     max-width: 1800px;
