@@ -39,7 +39,6 @@
       rgba(255, 54, 171, 0.1) 0%,
       transparent 50%
     );
-  animation: gradientMove 15s ease infinite;
   z-index: 0;
 }
 
@@ -57,7 +56,6 @@
     radial-gradient(circle at center, var(--aurora-purple) 1px, transparent 1px);
   background-size: 40px 40px;
   opacity: 0.3;
-  animation: particleFloat 20s linear infinite;
   z-index: 0;
 }
 
@@ -69,7 +67,6 @@
   font-size: 40rem;
   opacity: 0.02;
   color: var(--aurora-teal);
-  animation: rotate 40s linear infinite;
 }
 
 .contact-content {
@@ -461,27 +458,6 @@
   20%,
   100% {
     transform: translateX(100%);
-  }
-}
-
-@keyframes gradientMove {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.2);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
-
-@keyframes particleFloat {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-50%) translateX(-50%) rotate(45deg);
   }
 }
 
