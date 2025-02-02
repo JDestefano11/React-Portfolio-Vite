@@ -92,9 +92,7 @@ export const MeetAppCaseStudy = () => {
     <>
       <div className="timeline-container">
         <div className="timeline-header">
-          <Suspense fallback={<div>Loading...</div>}>
-            <HiSparkles className="timeline-spark-icon" />
-          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}></Suspense>
           <h1>Meet App Journey</h1>
           <div className="timeline-subtitle">Event Discovery Platform</div>
         </div>

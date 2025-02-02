@@ -91,9 +91,7 @@ export const MoviesFlixCaseStudy = () => {
     <>
       <div className="timeline-container">
         <div className="timeline-header">
-          <Suspense fallback={<div>Loading...</div>}>
-            <HiSparkles className="timeline-spark-icon" />
-          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}></Suspense>
           <h1>MoviesFlix-Hub Journey</h1>
           <div className="timeline-subtitle">Explore. Discover. Enjoy.</div>
         </div>
