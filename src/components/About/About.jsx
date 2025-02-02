@@ -1,149 +1,110 @@
-import React from "react";
-import {
-  FaReact,
-  FaAngular,
-  FaJs,
-  FaHtml5,
-  FaNodeJs,
-  FaDatabase,
-  FaGitAlt,
-  FaAws,
-  FaServer,
-  FaDesktop,
-  FaPython,
-} from "react-icons/fa";
-import { Suspense, lazy } from "react";
-import "./About.css";
-import resumeFile from "../../images/Front End Developer Joe Destefano Resume.pdf";
-
-import profileImage from "../../images/Joe Destefano.png";
+import React, { useState, useEffect } from 'react';
+import './About.css';
+import { FaCode, FaLaptopCode, FaBrain } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import profileImage from '../../images/Joe Destefano.png';
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState(0);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const boldClaims = [
+    {
+      text: "I don't just code; I craft digital experiences that resonate.",
+      icon: <FaCode />,
+      delay: 0.2
+    },
+    {
+      text: "I believe technology should feel human, not just functional.",
+      icon: <FaLaptopCode />,
+      delay: 0.4
+    },
+    {
+      text: "I'm obsessed with turning complex problems into elegant solutions.",
+      icon: <FaBrain />,
+      delay: 0.6
+    }
+  ];
+
   return (
-    <section className="about-section">
-      <div className="cyber-grid"></div>
-      <div className="cosmic-overlay"></div>
-
+    <section className="about-section" id="about">
+      <div className="background-effects"></div>
       <div className="about-container">
-        <h1 className="about-title">About Me</h1>
+        <motion.div 
+          className="split-layout"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Left Side - Visual */}
+          <div className="visual-section">
+            <div className="profile-image-container">
+              <motion.img
+                src={profileImage}
+                alt="Profile"
+                className="profile-image"
+                whileHover={{ scale: 1.05, rotate: -3 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              />
+            </div>
+          </div>
 
-        <div className="about-content">
-          <div className="about-main">
-            <div className="profile-section">
-              <Suspense
-                fallback={<div className="profile-image-skeleton"></div>}
-              >
-                <img
-                  src={profileImage}
-                  alt="Joe Destefano"
-                  className="profile-image"
-                  loading="lazy"
-                />
-              </Suspense>
+          {/* Right Side - Content */}
+          <div className="content-section">
+            <motion.h1 
+              className="main-title"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <span className="highlight-text">I'm Not Your Average</span>
+              <br />
+              <span className="role-text">Developer</span>
+            </motion.h1>
 
-              <div className="profile-content">
-                <h2 className="glowing-text">Full Stack Developer</h2>
-                <p className="bio-text">
-                  I am a full-stack web developer with a passion for building
-                  innovative and user-friendly web applications. Before
-                  enrolling in the bootcamp, I was self-taught and successfully
-                  built several complex websites, including a movie application,
-                  a chat application, and two e-commerce stores. These projects
-                  provided valuable hands-on experience and helped me refine my
-                  skills in full-stack development. My continuous passion for
-                  learning and creating drives me to deliver high-quality,
-                  user-centric solutions that meet both client and user needs.
-                </p>
-                <a
-                  href={resumeFile}
-                  download="JoeDestefano_Resume.pdf"
-                  className="download-resume-btn"
+            <motion.p 
+              className="intro-text"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              While others see lines of code, I see opportunities to create 
+              something extraordinary. My mission is to transform ideas into 
+              immersive digital experiences that leave a lasting impression.
+            </motion.p>
+
+            <div className="bold-claims">
+              {boldClaims.map((claim, index) => (
+                <motion.div
+                  key={index}
+                  className="claim-item"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: claim.delay }}
+                  whileHover={{ scale: 1.02, x: 10 }}
                 >
-                  Download Resume
-                </a>
-              </div>
+                  <div className="claim-icon">{claim.icon}</div>
+                  <p>{claim.text}</p>
+                </motion.div>
+              ))}
             </div>
 
-            <div className="highlight-cards">
-              <div className="highlight-card">
-                <h3>Interests</h3>
-                <p>
-                  I enjoy exploring new technologies and staying up to date with
-                  the latest trends in web development. I am also passionate
-                  about collaborating on community-driven software initiatives,
-                  where I can contribute to open-source projects and learn from
-                  others. Outside of work, I love traveling to new places,
-                  immersing myself in different cultures, and gaining fresh
-                  perspectives. During my travels, I continue to code, using the
-                  opportunity to work on projects and refine my skills while
-                  exploring the world. Additionally, I find peace and
-                  inspiration in nature, often spending time hiking and
-                  exploring the outdoors to recharge and gain new insights.
-                </p>
-              </div>
-
-              <div className="highlight-card">
-                <h3>Goals</h3>
-                <p>
-                  My goal is to join a dynamic team where I can contribute to
-                  innovative projects and help create impactful solutions. I am
-                  eager to collaborate with talented professionals, learn from
-                  their experiences, and tackle new challenges together. I am
-                  committed to continuously improving my coding skills, staying
-                  up to date with emerging technologies, and refining my
-                  problem-solving abilities. By embracing new challenges and
-                  constantly adapting, I aim to grow as a developer and make
-                  meaningful contributions to the success of the team and the
-                  projects I work on.
-                </p>
-              </div>
-            </div>
+            <motion.div 
+              className="cta-section"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              <a href="#contact" className="connect-btn">
+                Let's Create Something Amazing
+              </a>
+            </motion.div>
           </div>
-
-          <div className="skills-section">
-            <h2 className="skills-title">Technical Arsenal</h2>
-
-            <div className="skills-grid">
-              <div className="skill-category frontend">
-                <h3>Frontend</h3>
-                <div className="skill-items">
-                  {[
-                    { icon: FaReact, name: "React" },
-                    { icon: FaAngular, name: "Angular" },
-                    { icon: FaJs, name: "JavaScript" },
-                    { icon: FaHtml5, name: "HTML/CSS" },
-                    { icon: FaDesktop, name: "Responsive Design" },
-                    { icon: FaPython, name: "Python" },
-                    { icon: FaGitAlt, name: "Git" },
-                  ].map((skill, index) => (
-                    <div className="skill-item" key={index}>
-                      <skill.icon />
-                      <span>{skill.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="skill-category backend">
-                <h3>Backend</h3>
-                <div className="skill-items">
-                  {[
-                    { icon: FaNodeJs, name: "Node.js" },
-                    { icon: FaDatabase, name: "MongoDB" },
-                    { icon: FaServer, name: "RESTful API" },
-                    { icon: FaAws, name: "AWS" },
-                    { icon: FaPython, name: "Python" },
-                  ].map((skill, index) => (
-                    <div className="skill-item" key={index}>
-                      <skill.icon />
-                      <span>{skill.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
