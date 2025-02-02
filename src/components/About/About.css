@@ -48,18 +48,25 @@
   z-index: 1;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.split-layout {
+.top-content {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
   align-items: center;
+  margin-bottom: 6rem;
+}
+
+.text-content {
+  max-width: 600px;
 }
 
 .visual-section {
-  position: relative;
-  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-image-container {
@@ -71,6 +78,8 @@
     0 0 0 2px var(--border-teal);
   transform: rotateY(-5deg) rotateX(5deg);
   transition: transform 0.5s ease;
+  max-width: 500px;
+  width: 100%;
 }
 
 .profile-image-container::before {
@@ -99,10 +108,6 @@
   transition: transform 0.5s ease;
 }
 
-.content-section {
-  padding-right: 2rem;
-}
-
 .main-title {
   font-size: 4.5rem;
   line-height: 1.1;
@@ -119,6 +124,7 @@
   animation: shine 3s linear infinite;
   font-weight: 800;
   letter-spacing: -0.5px;
+  font-size: 5rem;
 }
 
 .role-text {
@@ -129,19 +135,7 @@
   text-shadow: var(--aurora-glow);
   position: relative;
   display: inline-block;
-}
-
-.role-text::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--gradient-teal-pink);
-  transform: scaleX(0);
-  transform-origin: center;
-  animation: lineWidth 3s ease-in-out infinite;
+  margin-top: 1rem;
 }
 
 .intro-text {
@@ -153,24 +147,25 @@
   position: relative;
 }
 
-.bold-claims {
+.claims-grid {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .claim-item {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1.5rem;
-  padding: 2rem;
+  padding: 2.5rem;
   background: var(--surface-card);
   border: 1px solid var(--border-teal);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
 }
 
 .claim-item::before {
@@ -202,7 +197,7 @@
 }
 
 .claim-icon {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   color: var(--aurora-teal);
   filter: drop-shadow(var(--aurora-glow));
   transition: all 0.3s ease;
@@ -220,6 +215,8 @@
 }
 
 .cta-section {
+  display: flex;
+  justify-content: center;
   margin-top: 4rem;
 }
 
@@ -227,10 +224,10 @@
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  padding: 1.2rem 2.5rem;
+  padding: 1.5rem 4rem;
   background: var(--gradient-teal-purple);
   color: var(--text-primary);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
   border-radius: 16px;
   text-decoration: none;
@@ -238,6 +235,8 @@
   position: relative;
   overflow: hidden;
   animation: gradientMove 3s ease infinite;
+  min-width: 250px;
+  justify-content: center;
 }
 
 .connect-btn::before {
@@ -258,9 +257,7 @@
 
 .connect-btn:hover {
   transform: translateY(-5px);
-  box-shadow: 
-    0 10px 30px rgba(0, 255, 213, 0.2),
-    0 0 0 2px rgba(0, 255, 213, 0.4);
+  box-shadow: var(--aurora-glow);
   background-position: right center;
 }
 
@@ -309,12 +306,132 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
+  .about-section {
+    padding: 160px 4rem 8rem;
+  }
+
+  .top-content {
+    gap: 8rem;
+  }
+
+  .text-content {
+    max-width: 700px;
+  }
+
+  .profile-image-container {
+    max-width: 550px;
+  }
+
+  .main-title {
+    font-size: 5rem;
+  }
+
+  .highlight-text {
+    font-size: 5.5rem;
+  }
+
+  .role-text {
+    font-size: 6rem;
+  }
+
+  .intro-text {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
+
+  .claims-grid {
+    gap: 3rem;
+    margin: 8rem 0;
+  }
+
+  .claim-item {
+    padding: 3rem;
+  }
+
+  .claim-icon {
+    font-size: 3rem;
+  }
+
+  .claim-item p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .about-container {
+    max-width: 1800px;
+  }
+
+  .top-content {
+    gap: 10rem;
+  }
+
+  .text-content {
+    max-width: 800px;
+  }
+
+  .profile-image-container {
+    max-width: 600px;
+  }
+
+  .main-title {
+    font-size: 6rem;
+  }
+
+  .highlight-text {
+    font-size: 6.5rem;
+  }
+
+  .role-text {
+    font-size: 7rem;
+  }
+
+  .intro-text {
+    font-size: 1.5rem;
+  }
+
+  .claims-grid {
+    gap: 4rem;
+    margin: 10rem 0;
+  }
+
+  .claim-item {
+    padding: 3.5rem;
+  }
+
+  .claim-icon {
+    font-size: 3.5rem;
+  }
+
+  .claim-item p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .top-content {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .text-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .claims-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
   .about-section {
     padding: 120px 3rem;
   }
 
-  .split-layout {
+  .top-content {
     gap: 3rem;
   }
 
@@ -324,33 +441,6 @@
 
   .role-text {
     font-size: 4rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .split-layout {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-
-  .visual-section {
-    order: -1;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .content-section {
-    padding-right: 0;
-    text-align: center;
-  }
-
-  .claim-item {
-    justify-content: center;
-    text-align: left;
-  }
-
-  .intro-text {
-    margin: 0 auto 3rem;
   }
 }
 

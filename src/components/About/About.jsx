@@ -34,33 +34,14 @@ const About = () => {
     <section className="about-section" id="about">
       <div className="background-effects"></div>
       <div className="about-container">
-        <motion.div 
-          className="split-layout"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* Left Side - Visual */}
-          <div className="visual-section">
-            <div className="profile-image-container">
-              <motion.img
-                src={profileImage}
-                alt="Profile"
-                className="profile-image"
-                whileHover={{ scale: 1.05, rotate: -3 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              />
-            </div>
-          </div>
-
-          {/* Right Side - Content */}
-          <div className="content-section">
-            <motion.h1 
-              className="main-title"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
+        <div className="top-content">
+          <motion.div 
+            className="text-content"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <motion.h1 className="main-title">
               <span className="highlight-text">I'm Not Your Average</span>
               <br />
               <span className="role-text">Developer</span>
@@ -76,34 +57,56 @@ const About = () => {
               something extraordinary. My mission is to transform ideas into 
               immersive digital experiences that leave a lasting impression.
             </motion.p>
+          </motion.div>
 
-            <div className="bold-claims">
-              {boldClaims.map((claim, index) => (
-                <motion.div
-                  key={index}
-                  className="claim-item"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: claim.delay }}
-                  whileHover={{ scale: 1.02, x: 10 }}
-                >
-                  <div className="claim-icon">{claim.icon}</div>
-                  <p>{claim.text}</p>
-                </motion.div>
-              ))}
+          <motion.div 
+            className="visual-section"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="profile-image-container">
+              <motion.img
+                src={profileImage}
+                alt="Profile"
+                className="profile-image"
+                whileHover={{ scale: 1.05, rotate: -3 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              />
             </div>
+          </motion.div>
+        </div>
 
-            <motion.div 
-              className="cta-section"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+        <motion.div 
+          className="claims-grid"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          {boldClaims.map((claim, index) => (
+            <motion.div
+              key={index}
+              className="claim-item"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: claim.delay + 0.6 }}
+              whileHover={{ scale: 1.02, y: -5 }}
             >
-              <a href="#contact" className="connect-btn">
-                Let's Create Something Amazing
-              </a>
+              <div className="claim-icon">{claim.icon}</div>
+              <p>{claim.text}</p>
             </motion.div>
-          </div>
+          ))}
+        </motion.div>
+
+        <motion.div 
+          className="cta-section"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+        >
+          <a href="#contact" className="connect-btn">
+            Let's Create Something Amazing
+          </a>
         </motion.div>
       </div>
     </section>
