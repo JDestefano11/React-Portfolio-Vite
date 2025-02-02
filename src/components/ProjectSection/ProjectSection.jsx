@@ -76,7 +76,7 @@ const ProjectCard = ({ project, isActive, onClick }) => {
                 <MdOpenInNew className="external-link-icon" />
               </a>
               <Link 
-                to={`/case-study/${project.id}`} 
+                to={project.id === 1 ? '/trendhive' : project.id === 2 ? '/meetapp' : '/moviesflix'} 
                 className="project-link case-study"
                 onClick={(e) => e.stopPropagation()}
               >
