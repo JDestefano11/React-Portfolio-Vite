@@ -19,39 +19,51 @@
   overflow: hidden;
   padding: 140px 4rem 6rem;
   background: var(--digital-black);
+  isolation: isolate;
 }
 
 .background-effects {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   pointer-events: none;
-  z-index: 0;
+  opacity: 0.08;
+  background: 
+    radial-gradient(circle at 15% 20%, var(--aurora-teal) 0%, transparent 35%),
+    radial-gradient(circle at 85% 80%, var(--aurora-purple) 0%, transparent 35%);
+  filter: blur(100px);
 }
 
 .background-effects::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at 20% 20%, rgba(0, 255, 213, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(255, 54, 171, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(182, 67, 255, 0.15) 0%, transparent 70%);
-  filter: blur(100px);
-  animation: pulseBackground 8s ease-in-out infinite;
+    linear-gradient(45deg, transparent 45%, var(--aurora-teal) 100%),
+    linear-gradient(135deg, transparent 45%, var(--aurora-purple) 100%);
+  opacity: 0.05;
+  mask-image: repeating-linear-gradient(
+    -45deg,
+    #000 25%,
+    transparent 25.5%,
+    transparent 75%,
+    #000 75.5%
+  );
+  mask-size: 4px 4px;
 }
 
 .about-container {
   position: relative;
-  z-index: 1;
+  z-index: 5;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  background: transparent;
 }
 
 .top-content {
+  position: relative;
+  z-index: 10;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6rem;
@@ -60,10 +72,14 @@
 }
 
 .text-content {
+  position: relative;
+  z-index: 10;
   max-width: 600px;
 }
 
 .visual-section {
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,6 +87,7 @@
 
 .profile-image-container {
   position: relative;
+  z-index: 10;
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 
@@ -80,6 +97,7 @@
   transition: transform 0.5s ease;
   max-width: 500px;
   width: 100%;
+  background: var(--digital-black);
 }
 
 .profile-image-container::before {
@@ -110,21 +128,23 @@
 
 .main-title {
   font-size: 4.5rem;
-  line-height: 1.1;
+  line-height: 0.9;
   margin-bottom: 2rem;
   position: relative;
+  z-index: 10;
 }
 
 .highlight-text {
   display: block;
   background: var(--gradient-teal-purple);
-  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
   font-weight: 800;
   letter-spacing: -0.5px;
   font-size: 5rem;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10;
 }
 
 .role-text {
@@ -135,7 +155,9 @@
   text-shadow: var(--aurora-glow);
   position: relative;
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: -0.3em;
+  line-height: 1;
+  z-index: 10;
 }
 
 .intro-text {
@@ -145,9 +167,12 @@
   margin-bottom: 3rem;
   max-width: 600px;
   position: relative;
+  z-index: 10;
 }
 
 .claims-grid {
+  position: relative;
+  z-index: 10;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -155,6 +180,8 @@
 }
 
 .claim-item {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,18 +198,12 @@
 .claim-item::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    transparent,
-    rgba(0, 255, 213, 0.05),
-    transparent
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
+  inset: 0;
+  background: var(--gradient-teal-purple);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
 }
 
 .claim-item:hover {
@@ -201,6 +222,8 @@
   color: var(--aurora-teal);
   filter: drop-shadow(var(--aurora-glow));
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .claim-item:hover .claim-icon {
@@ -212,98 +235,40 @@
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--text-secondary);
+  position: relative;
+  z-index: 10;
 }
 
 .cta-section {
   display: flex;
   justify-content: center;
   margin-top: 4rem;
+  position: relative;
+  z-index: 10;
 }
 
 .connect-btn {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  padding: 1.5rem 4rem;
+  padding: 1.2rem 3rem;
   background: var(--gradient-teal-purple);
   color: var(--text-primary);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   border-radius: 16px;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  animation: gradientMove 3s ease infinite;
-  min-width: 250px;
+  min-width: 200px;
   justify-content: center;
-}
-
-.connect-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: 0.5s;
+  z-index: 10;
 }
 
 .connect-btn:hover {
   transform: translateY(-5px);
   box-shadow: var(--aurora-glow);
-  background-position: right center;
-}
-
-.connect-btn:hover::before {
-  left: 100%;
-}
-
-@keyframes pulseBackground {
-  0%, 100% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-}
-
-@keyframes shine {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-@keyframes lineWidth {
-  0%, 100% {
-    transform: scaleX(0);
-  }
-  50% {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-  100% {
-    background-position: 0% center;
-  }
 }
 
 @media (min-width: 1200px) {
@@ -319,20 +284,19 @@
     max-width: 700px;
   }
 
-  .profile-image-container {
-    max-width: 550px;
-  }
-
   .main-title {
     font-size: 5rem;
+    line-height: 0.85;
   }
 
   .highlight-text {
     font-size: 5.5rem;
+    margin-bottom: 0;
   }
 
   .role-text {
     font-size: 6rem;
+    margin-top: -0.4em;
   }
 
   .intro-text {
@@ -377,14 +341,17 @@
 
   .main-title {
     font-size: 6rem;
+    line-height: 0.8;
   }
 
   .highlight-text {
     font-size: 6.5rem;
+    margin-bottom: 0;
   }
 
   .role-text {
     font-size: 7rem;
+    margin-top: -0.5em;
   }
 
   .intro-text {
