@@ -57,6 +57,23 @@ const About = () => {
       <div className="about-container">
         <div className="top-content">
           <motion.div 
+            className="visual-section"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="profile-image-container">
+              <motion.img
+                src={profileImage}
+                alt="Profile"
+                className="profile-image"
+                whileHover={{ scale: 1.05, rotate: -3 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              />
+            </div>
+          </motion.div>
+
+          <motion.div 
             className="text-content"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,23 +95,6 @@ const About = () => {
               something extraordinary. My mission is to transform ideas into 
               immersive digital experiences that leave a lasting impression.
             </motion.p>
-          </motion.div>
-
-          <motion.div 
-            className="visual-section"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="profile-image-container">
-              <motion.img
-                src={profileImage}
-                alt="Profile"
-                className="profile-image"
-                whileHover={{ scale: 1.05, rotate: -3 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              />
-            </div>
           </motion.div>
         </div>
 
