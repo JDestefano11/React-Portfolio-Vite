@@ -4,6 +4,9 @@
   --aurora-purple: rgba(182, 67, 255, 0.85);
   --digital-black: #0c0c1d;
   --aurora-glow: 0 0 20px rgba(0, 255, 213, 0.3);
+  --gradient-teal-purple: linear-gradient(45deg, var(--aurora-teal), var(--aurora-purple));
+  --gradient-teal-pink: linear-gradient(90deg, var(--aurora-teal), var(--aurora-pink));
+  --text-primary: white;
 }
 
 .navbar {
@@ -32,7 +35,7 @@
 }
 
 .nav-logo h1 {
-  background: linear-gradient(45deg, var(--aurora-teal), var(--aurora-purple));
+  background: var(--gradient-teal-purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1.8rem;
@@ -53,7 +56,7 @@
 .nav-links div.nav-link {
   font-size: 1.1rem;
   font-weight: 500;
-  color: white;
+  color: var(--text-primary);
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -69,14 +72,14 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--aurora-teal), var(--aurora-pink));
+  background: var(--gradient-teal-pink);
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover,
 .nav-links div.nav-link:hover {
   color: var(--aurora-teal);
-  text-shadow: 0 0 8px rgba(0, 255, 213, 0.4);
+  text-shadow: var(--aurora-glow);
   transform: translateY(-2px);
 }
 
@@ -94,7 +97,7 @@
 
 .social-icon {
   font-size: 1.4rem;
-  color: var(--aurora-purple);
+  color: var(--aurora-teal);
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
@@ -103,9 +106,9 @@
 }
 
 .social-icon:hover {
-  color: var(--aurora-teal);
-  transform: scale(1.1) translateY(-2px);
-  text-shadow: 0 0 10px var(--aurora-teal);
+  color: var(--aurora-pink);
+  transform: translateY(-2px);
+  text-shadow: var(--aurora-glow);
 }
 
 .mobile-menu-btn {

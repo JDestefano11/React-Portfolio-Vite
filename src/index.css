@@ -1,9 +1,31 @@
 :root {
+  /* Primary Colors */
   --aurora-teal: rgba(0, 255, 213, 0.85);
   --aurora-pink: rgba(255, 54, 171, 0.85);
   --aurora-purple: rgba(182, 67, 255, 0.85);
   --digital-black: #0c0c1d;
+  
+  /* Effects */
   --aurora-glow: 0 0 20px rgba(0, 255, 213, 0.3);
+  
+  /* Text Colors */
+  --text-primary: rgba(255, 255, 255, 1);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-disabled: rgba(255, 255, 255, 0.5);
+  
+  /* Surface Colors */
+  --surface-dark: rgba(12, 12, 29, 0.95);
+  --surface-card: rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.05);
+  
+  /* Border Colors */
+  --border-teal: rgba(0, 255, 213, 0.2);
+  --border-pink: rgba(255, 54, 171, 0.2);
+  --border-light: rgba(255, 255, 255, 0.1);
+  
+  /* Gradient Colors */
+  --gradient-teal-purple: linear-gradient(135deg, var(--aurora-teal), var(--aurora-purple));
+  --gradient-teal-pink: linear-gradient(135deg, var(--aurora-teal), var(--aurora-pink));
 }
 
 * {

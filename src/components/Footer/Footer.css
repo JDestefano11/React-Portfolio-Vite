@@ -4,6 +4,14 @@
   --aurora-purple: rgba(182, 67, 255, 0.85);
   --digital-black: #0c0c1d;
   --aurora-glow: 0 0 20px rgba(0, 255, 213, 0.3);
+  --gradient-teal-purple: linear-gradient(45deg, var(--aurora-teal), var(--aurora-purple));
+  --gradient-teal-pink: linear-gradient(90deg, var(--aurora-teal), var(--aurora-pink));
+  --text-primary: white;
+  --text-secondary: var(--aurora-teal);
+  --border-light: rgba(0, 255, 213, 0.2);
+  --border-teal: var(--aurora-teal);
+  --surface-card: rgba(0, 255, 213, 0.1);
+  --surface-hover: rgba(0, 255, 213, 0.2);
 }
 
 .cyber-footer {
@@ -19,16 +27,8 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--aurora-teal),
-    var(--aurora-pink),
-    var(--aurora-purple),
-    var(--aurora-teal),
-    transparent
-  );
-  box-shadow: 0 0 20px var(--aurora-teal);
+  background: var(--gradient-teal-purple);
+  box-shadow: var(--aurora-glow);
   animation: glowPulse 3s infinite;
 }
 
@@ -56,7 +56,7 @@
 
 .footer-title {
   font-size: 3rem;
-  background: linear-gradient(45deg, var(--aurora-teal), var(--aurora-purple));
+  background: var(--gradient-teal-purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
@@ -71,7 +71,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, var(--aurora-teal), var(--aurora-pink));
+  background: var(--gradient-teal-pink);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
@@ -83,7 +83,7 @@
 }
 
 .footer-tagline {
-  color: white;
+  color: var(--text-primary);
   font-size: 1.2rem;
   margin-bottom: 2rem;
   opacity: 0.9;
@@ -110,7 +110,7 @@
 }
 
 .footer-btn.primary {
-  background: linear-gradient(45deg, var(--aurora-teal), var(--aurora-purple));
+  background: var(--gradient-teal-purple);
   border: none;
   color: white;
 }
@@ -254,7 +254,7 @@
 }
 
 .social-link {
-  color: var(--aurora-teal);
+  color: var(--text-secondary);
   font-size: 1.5rem;
   transition: all 0.3s ease;
   position: relative;
@@ -264,7 +264,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(0, 255, 213, 0.1);
+  background: var(--surface-card);
   cursor: pointer;
   overflow: hidden;
 }
@@ -281,8 +281,11 @@
 }
 
 .social-link:hover {
+  color: var(--aurora-teal);
+  border-color: var(--border-teal);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 255, 213, 0.2);
+  box-shadow: var(--aurora-glow);
+  background: var(--surface-hover);
 }
 
 .social-link:hover::before {
