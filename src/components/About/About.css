@@ -11,6 +11,37 @@
   --text-secondary: rgba(255, 255, 255, 0.9);
   --surface-card: rgba(18, 18, 35, 0.5);
   --surface-hover: rgba(18, 18, 35, 0.8);
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  --font-black: 900;
+  --font-bold: 700;
+  --font-medium: 500;
+  --font-regular: 400;
+  --text-7xl: 4.5rem;
+  --text-8xl: 5rem;
+  --text-6xl: 3.5rem;
+  --text-5xl: 2.5rem;
+  --text-4xl: 2rem;
+  --text-3xl: 1.8rem;
+  --text-2xl: 1.5rem;
+  --text-xl: 1.3rem;
+  --text-lg: 1.2rem;
+  --text-base: 1.1rem;
+  --tracking-tight: -0.02em;
+  --tracking-tighter: -0.05em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --surface-dark: #0c0c1d;
+  --text-bright: #fff;
+  --gradient-primary: linear-gradient(135deg, rgba(0, 255, 213, 0.2), transparent 50%, rgba(255, 54, 171, 0.2));
+  --border-light: rgba(0, 255, 213, 0.1);
+  --surface-card-hover: rgba(18, 18, 35, 0.8);
+  --border-bright: rgba(255, 255, 255, 0.9);
+  --glow-medium: 0 0 20px rgba(0, 255, 213, 0.3);
+  --glow-soft: 0 0 10px rgba(0, 255, 213, 0.1);
+  --primary-glow: rgba(0, 255, 213, 0.85);
+  --text-tertiary: rgba(255, 255, 255, 0.7);
+  --border-subtle: rgba(0, 255, 213, 0.05);
 }
 
 .about-section {
@@ -18,7 +49,7 @@
   position: relative;
   overflow: hidden;
   padding: 140px 4rem 6rem;
-  background: var(--digital-black);
+  background: var(--surface-dark);
   isolation: isolate;
 }
 
@@ -127,47 +158,41 @@
 }
 
 .main-title {
-  font-size: 4.5rem;
+  font-family: var(--font-primary);
+  font-size: var(--text-7xl);
+  font-weight: var(--font-black);
   line-height: 0.9;
   margin-bottom: 2rem;
-  position: relative;
-  z-index: 10;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-bright);
 }
 
 .highlight-text {
   display: block;
-  background: var(--gradient-teal-purple);
+  font-size: var(--text-4xl);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  font-size: 5rem;
-  margin-bottom: 0;
-  position: relative;
-  z-index: 10;
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-tight);
 }
 
 .role-text {
-  font-size: 5.5rem;
-  color: var(--text-primary);
-  font-weight: 900;
-  letter-spacing: -1px;
-  text-shadow: var(--aurora-glow);
-  position: relative;
-  display: inline-block;
-  margin-top: -0.3em;
-  line-height: 1;
-  z-index: 10;
+  font-size: var(--text-7xl);
+  color: var(--text-bright);
+  font-weight: var(--font-black);
+  letter-spacing: var(--tracking-tighter);
+  text-shadow: var(--glow-medium);
 }
 
 .intro-text {
-  font-size: 1.3rem;
-  line-height: 1.8;
+  font-family: var(--font-secondary);
+  font-size: var(--text-xl);
   color: var(--text-secondary);
-  margin-bottom: 3rem;
+  font-weight: var(--font-regular);
+  line-height: 1.6;
+  letter-spacing: var(--tracking-normal);
   max-width: 600px;
-  position: relative;
-  z-index: 10;
 }
 
 .claims-grid {
@@ -189,7 +214,7 @@
   gap: 1.5rem;
   padding: 2.5rem;
   background: var(--surface-card);
-  border: 1px solid var(--border-teal);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -199,7 +224,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--gradient-teal-purple);
+  background: var(--gradient-primary);
   opacity: 0;
   z-index: -1;
   transition: opacity 0.3s ease;
@@ -208,9 +233,9 @@
 
 .claim-item:hover {
   transform: translateY(-5px);
-  background: var(--surface-hover);
-  border-color: var(--border-teal);
-  box-shadow: var(--aurora-glow);
+  background: var(--surface-card-hover);
+  border-color: var(--border-bright);
+  box-shadow: var(--glow-soft);
 }
 
 .claim-item:hover::before {
@@ -219,8 +244,8 @@
 
 .claim-icon {
   font-size: 2.5rem;
-  color: var(--aurora-teal);
-  filter: drop-shadow(var(--aurora-glow));
+  color: var(--primary-glow);
+  filter: drop-shadow(var(--glow-soft));
   transition: all 0.3s ease;
   position: relative;
   z-index: 10;
@@ -232,11 +257,22 @@
 }
 
 .claim-item p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
+  font-family: var(--font-secondary);
+  font-size: var(--text-base);
+  color: var(--text-tertiary);
+  font-weight: var(--font-regular);
+  letter-spacing: var(--tracking-normal);
   position: relative;
   z-index: 10;
+}
+
+.claim-item h3 {
+  font-family: var(--font-primary);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  margin-bottom: 0.5rem;
+  color: var(--text-bright);
+  letter-spacing: var(--tracking-tight);
 }
 
 .cta-section {
@@ -252,7 +288,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1.2rem 3rem;
-  background: var(--gradient-teal-purple);
+  background: var(--gradient-primary);
   color: var(--text-primary);
   font-size: 1.2rem;
   font-weight: 600;
@@ -268,7 +304,7 @@
 
 .connect-btn:hover {
   transform: translateY(-5px);
-  box-shadow: var(--aurora-glow);
+  box-shadow: var(--glow-medium);
 }
 
 .skills-section {
@@ -288,33 +324,30 @@
 .skills-box {
   position: relative;
   z-index: 15;
-  background: rgba(0, 255, 213, 0.02);
-  border: 1px solid var(--border-teal);
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
   border-radius: 24px;
   padding: 3rem;
   backdrop-filter: blur(10px);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 1px rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--glow-soft);
+  transition: all 0.3s ease;
 }
 
 .skills-box:hover {
+  border-color: var(--border-bright);
   transform: translateY(-5px);
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.3),
-    inset 0 1px 1px rgba(255, 255, 255, 0.05),
-    0 0 20px rgba(0, 255, 213, 0.1);
+  box-shadow: var(--glow-medium);
 }
 
 .skills-box h3 {
-  font-size: 2.5rem;
+  font-family: var(--font-primary);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
   margin-bottom: 2.5rem;
-  background: var(--gradient-teal-purple);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  letter-spacing: var(--tracking-tight);
   text-align: center;
   position: relative;
 }
@@ -327,7 +360,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: var(--gradient-teal-purple);
+  background: var(--gradient-primary);
   border-radius: 2px;
 }
 
@@ -342,23 +375,23 @@
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: rgba(0, 255, 213, 0.03);
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 16px;
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 255, 213, 0.1);
 }
 
 .skill-item:hover {
-  background: rgba(0, 255, 213, 0.05);
+  background: var(--surface-card-hover);
+  border-color: var(--border-light);
   transform: translateY(-3px);
-  box-shadow: var(--aurora-glow);
-  border-color: rgba(0, 255, 213, 0.2);
+  box-shadow: var(--glow-soft);
 }
 
 .skill-icon {
   font-size: 2.2rem;
-  color: var(--aurora-teal);
-  filter: drop-shadow(var(--aurora-glow));
+  color: var(--primary-glow);
+  filter: drop-shadow(var(--glow-soft));
   min-width: 40px;
   display: flex;
   align-items: center;
@@ -370,25 +403,26 @@
 }
 
 .skill-name {
-  display: block;
+  font-family: var(--font-secondary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
   color: var(--text-primary);
-  font-size: 1.1rem;
-  font-weight: 500;
   margin-bottom: 0.5rem;
+  letter-spacing: var(--tracking-wide);
 }
 
 .skill-bar {
   height: 6px;
-  background: rgba(0, 255, 213, 0.1);
+  background: var(--surface-card-hover);
   border-radius: 3px;
   overflow: hidden;
 }
 
 .skill-progress {
   height: 100%;
-  background: var(--gradient-teal-purple);
+  background: var(--gradient-primary);
   border-radius: 3px;
-  box-shadow: var(--aurora-glow);
+  box-shadow: var(--glow-soft);
 }
 
 @media (min-width: 1200px) {
@@ -407,23 +441,19 @@
   }
 
   .main-title {
-    font-size: 5rem;
-    line-height: 0.85;
+    font-size: var(--text-8xl);
   }
 
   .highlight-text {
-    font-size: 5.5rem;
-    margin-bottom: 0;
+    font-size: var(--text-5xl);
   }
 
   .role-text {
-    font-size: 6rem;
-    margin-top: -0.4em;
+    font-size: var(--text-8xl);
   }
 
   .intro-text {
-    font-size: 1.4rem;
-    margin-bottom: 0;
+    font-size: var(--text-2xl);
   }
 
   .claims-grid {
@@ -440,7 +470,7 @@
   }
 
   .claim-item p {
-    font-size: 1.2rem;
+    font-size: var(--text-base);
   }
 
   .skills-section {
@@ -457,8 +487,7 @@
   }
 
   .skills-box h3 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
+    font-size: var(--text-5xl);
   }
 
   .skills-grid {
@@ -474,7 +503,7 @@
   }
 
   .skill-name {
-    font-size: 1.2rem;
+    font-size: var(--text-xl);
   }
 }
 
@@ -498,22 +527,19 @@
   }
 
   .main-title {
-    font-size: 6rem;
-    line-height: 0.8;
+    font-size: var(--text-8xl);
   }
 
   .highlight-text {
-    font-size: 6.5rem;
-    margin-bottom: 0;
+    font-size: var(--text-5xl);
   }
 
   .role-text {
-    font-size: 7rem;
-    margin-top: -0.5em;
+    font-size: var(--text-8xl);
   }
 
   .intro-text {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
   }
 
   .claims-grid {
@@ -530,7 +556,7 @@
   }
 
   .claim-item p {
-    font-size: 1.3rem;
+    font-size: var(--text-base);
   }
 
   .skills-section {
@@ -546,8 +572,7 @@
   }
 
   .skills-box h3 {
-    font-size: 3.5rem;
-    margin-bottom: 4rem;
+    font-size: var(--text-5xl);
   }
 
   .skills-grid {
@@ -563,7 +588,7 @@
   }
 
   .skill-name {
-    font-size: 1.3rem;
+    font-size: var(--text-xl);
   }
 }
 
@@ -603,11 +628,11 @@
   }
 
   .main-title {
-    font-size: 3.5rem;
+    font-size: var(--text-7xl);
   }
 
   .role-text {
-    font-size: 4rem;
+    font-size: var(--text-7xl);
   }
 }
 
@@ -617,15 +642,15 @@
   }
 
   .main-title {
-    font-size: 3rem;
+    font-size: var(--text-6xl);
   }
 
   .role-text {
-    font-size: 3.5rem;
+    font-size: var(--text-6xl);
   }
 
   .intro-text {
-    font-size: 1.2rem;
+    font-size: var(--text-lg);
   }
 
   .claim-item {
@@ -641,8 +666,7 @@
   }
 
   .skills-box h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: var(--text-3xl);
   }
 
   .skills-grid {
@@ -659,7 +683,7 @@
   }
 
   .skill-name {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 }
 
@@ -669,15 +693,15 @@
   }
 
   .main-title {
-    font-size: 2.5rem;
+    font-size: var(--text-6xl);
   }
 
   .role-text {
-    font-size: 3rem;
+    font-size: var(--text-6xl);
   }
 
   .intro-text {
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
   }
 
   .claim-item {

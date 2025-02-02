@@ -1,37 +1,85 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,300&f[]=satoshi@900,700,500,300,400&display=swap');
+
 :root {
-  /* Primary Colors */
-  --aurora-teal: rgba(0, 255, 213, 0.85);
-  --aurora-pink: rgba(255, 54, 171, 0.85);
-  --aurora-purple: rgba(182, 67, 255, 0.85);
+  /* Base Colors */
+  --aurora-teal: rgba(0, 255, 213, 1);
+  --aurora-pink: rgba(255, 54, 171, 1);
+  --aurora-purple: rgba(182, 67, 255, 1);
   --digital-black: #0c0c1d;
   
-  /* Effects */
-  --aurora-glow: 0 0 20px rgba(0, 255, 213, 0.3);
+  /* Color System */
+  --primary-glow: rgba(0, 255, 213, 0.85);
+  --secondary-glow: rgba(182, 67, 255, 0.85);
+  --accent-glow: rgba(255, 54, 171, 0.85);
   
   /* Text Colors */
-  --text-primary: rgba(255, 255, 255, 1);
-  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-bright: rgba(255, 255, 255, 1);
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-tertiary: rgba(255, 255, 255, 0.7);
   --text-disabled: rgba(255, 255, 255, 0.5);
   
+  /* Gradient Effects */
+  --gradient-primary: linear-gradient(45deg, var(--aurora-teal), var(--aurora-purple));
+  --gradient-secondary: linear-gradient(135deg, var(--aurora-purple), var(--aurora-pink));
+  --gradient-accent: linear-gradient(90deg, var(--aurora-teal), var(--aurora-pink));
+  
+  /* Glow Effects */
+  --glow-strong: 0 0 30px rgba(0, 255, 213, 0.3);
+  --glow-medium: 0 0 20px rgba(0, 255, 213, 0.2);
+  --glow-soft: 0 0 10px rgba(0, 255, 213, 0.1);
+  
   /* Surface Colors */
-  --surface-dark: rgba(12, 12, 29, 0.95);
+  --surface-dark: var(--digital-black);
   --surface-card: rgba(255, 255, 255, 0.03);
-  --surface-hover: rgba(255, 255, 255, 0.05);
+  --surface-card-hover: rgba(255, 255, 255, 0.05);
+  --surface-overlay: rgba(12, 12, 29, 0.8);
   
   /* Border Colors */
-  --border-teal: rgba(0, 255, 213, 0.2);
-  --border-pink: rgba(255, 54, 171, 0.2);
-  --border-light: rgba(255, 255, 255, 0.1);
+  --border-bright: rgba(0, 255, 213, 0.5);
+  --border-light: rgba(0, 255, 213, 0.2);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+
+  /* Font System */
+  --font-primary: 'Clash Display', sans-serif;
+  --font-secondary: 'Satoshi', sans-serif;
   
-  /* Gradient Colors */
-  --gradient-teal-purple: linear-gradient(135deg, var(--aurora-teal), var(--aurora-purple));
-  --gradient-teal-pink: linear-gradient(135deg, var(--aurora-teal), var(--aurora-pink));
+  /* Font Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  
+  /* Font Weights */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-black: 900;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-secondary);
 }
 
 html, body {
@@ -43,7 +91,7 @@ html, body {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -140,4 +188,18 @@ html {
   100% {
     transform: translateY(-50%) translateX(-50%) rotate(45deg);
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-bold);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+}
+
+p {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-regular);
+  line-height: 1.6;
+  letter-spacing: var(--tracking-normal);
 }
