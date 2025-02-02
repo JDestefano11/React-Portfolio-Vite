@@ -5,14 +5,24 @@
   --digital-black: #0c0c1d;
   --aurora-glow: 0 0 20px rgba(0, 255, 213, 0.3);
   --border-teal: rgba(0, 255, 213, 0.1);
-  --gradient-teal-pink: linear-gradient(135deg, rgba(0, 255, 213, 0.2), transparent 50%, rgba(255, 54, 171, 0.2));
-  --gradient-teal-purple: linear-gradient(135deg, rgba(0, 255, 213, 0.2), transparent 50%, rgba(182, 67, 255, 0.2));
+  --gradient-teal-pink: linear-gradient(
+    135deg,
+    rgba(0, 255, 213, 0.2),
+    transparent 50%,
+    rgba(255, 54, 171, 0.2)
+  );
+  --gradient-teal-purple: linear-gradient(
+    135deg,
+    rgba(0, 255, 213, 0.2),
+    transparent 50%,
+    rgba(182, 67, 255, 0.2)
+  );
   --text-primary: #fff;
   --text-secondary: rgba(255, 255, 255, 0.9);
   --surface-card: rgba(18, 18, 35, 0.5);
   --surface-hover: rgba(18, 18, 35, 0.8);
-  --font-primary: 'Inter', sans-serif;
-  --font-secondary: 'Inter', sans-serif;
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Inter", sans-serif;
   --font-black: 900;
   --font-bold: 700;
   --font-medium: 500;
@@ -33,7 +43,12 @@
   --tracking-wide: 0.05em;
   --surface-dark: #0c0c1d;
   --text-bright: #fff;
-  --gradient-primary: linear-gradient(135deg, rgba(0, 255, 213, 0.2), transparent 50%, rgba(255, 54, 171, 0.2));
+  --gradient-primary: linear-gradient(
+    135deg,
+    rgba(0, 255, 213, 0.2),
+    transparent 50%,
+    rgba(255, 54, 171, 0.2)
+  );
   --border-light: rgba(0, 255, 213, 0.1);
   --surface-card-hover: rgba(18, 18, 35, 0.8);
   --border-bright: rgba(255, 255, 255, 0.9);
@@ -59,18 +74,20 @@
   z-index: 1;
   pointer-events: none;
   opacity: 0.08;
-  background: 
-    radial-gradient(circle at 15% 20%, var(--aurora-teal) 0%, transparent 35%),
+  background: radial-gradient(
+      circle at 15% 20%,
+      var(--aurora-teal) 0%,
+      transparent 35%
+    ),
     radial-gradient(circle at 85% 80%, var(--aurora-purple) 0%, transparent 35%);
   filter: blur(100px);
 }
 
 .background-effects::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(45deg, transparent 45%, var(--aurora-teal) 100%),
+  background: linear-gradient(45deg, transparent 45%, var(--aurora-teal) 100%),
     linear-gradient(135deg, transparent 45%, var(--aurora-purple) 100%);
   opacity: 0.05;
   mask-image: repeating-linear-gradient(
@@ -121,9 +138,7 @@
   z-index: 10;
   border-radius: 30px;
   overflow: hidden;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 0 2px var(--border-teal);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--border-teal);
   transform: rotateY(-5deg) rotateX(5deg);
   transition: transform 0.5s ease;
   max-width: 500px;
@@ -132,7 +147,7 @@
 }
 
 .profile-image-container::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--gradient-teal-pink);
@@ -175,6 +190,8 @@
   -webkit-text-fill-color: transparent;
   font-weight: var(--font-bold);
   letter-spacing: var(--tracking-tight);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
 }
 
 .role-text {
@@ -221,7 +238,7 @@
 }
 
 .claim-item::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--gradient-primary);
@@ -353,7 +370,7 @@
 }
 
 .skills-box h3::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -0.8rem;
   left: 50%;

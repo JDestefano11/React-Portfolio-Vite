@@ -1,9 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import './About.css';
-import { FaCode, FaLaptopCode, FaBrain, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaDatabase } from 'react-icons/fa';
-import { SiJavascript, SiTypescript, SiTailwindcss, SiMongodb, SiExpress, SiPostgresql, SiPython, SiRedux } from 'react-icons/si';
-import { motion } from 'framer-motion';
-import profileImage from '../../images/Joe Destefano.png';
+import React, { useState, useEffect } from "react";
+import "./About.css";
+import {
+  FaCode,
+  FaLaptopCode,
+  FaBrain,
+  FaReact,
+  FaNodeJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaGitAlt,
+  FaDatabase,
+} from "react-icons/fa";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiTailwindcss,
+  SiMongodb,
+  SiExpress,
+  SiPostgresql,
+  SiPython,
+  SiRedux,
+} from "react-icons/si";
+import { motion } from "framer-motion";
+import profileImage from "../../images/Joe Destefano.png";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,38 +36,38 @@ const About = () => {
     {
       text: "I don't just code; I craft digital experiences that resonate.",
       icon: <FaCode />,
-      delay: 0.2
+      delay: 0.2,
     },
     {
       text: "I believe technology should feel human, not just functional.",
       icon: <FaLaptopCode />,
-      delay: 0.4
+      delay: 0.4,
     },
     {
       text: "I'm obsessed with turning complex problems into elegant solutions.",
       icon: <FaBrain />,
-      delay: 0.6
-    }
+      delay: 0.6,
+    },
   ];
 
   const frontendSkills = [
-    { name: 'React', icon: <FaReact />, level: 90 },
-    { name: 'JavaScript', icon: <SiJavascript />, level: 85 },
-    { name: 'TypeScript', icon: <SiTypescript />, level: 80 },
-    { name: 'HTML5', icon: <FaHtml5 />, level: 95 },
-    { name: 'CSS3', icon: <FaCss3Alt />, level: 90 },
-    { name: 'Redux', icon: <SiRedux />, level: 85 },
-    { name: 'Tailwind', icon: <SiTailwindcss />, level: 90 },
-    { name: 'Git', icon: <FaGitAlt />, level: 85 }
+    { name: "React", icon: <FaReact />, level: 90 },
+    { name: "JavaScript", icon: <SiJavascript />, level: 85 },
+    { name: "TypeScript", icon: <SiTypescript />, level: 80 },
+    { name: "HTML5", icon: <FaHtml5 />, level: 95 },
+    { name: "CSS3", icon: <FaCss3Alt />, level: 90 },
+    { name: "Redux", icon: <SiRedux />, level: 85 },
+    { name: "Tailwind", icon: <SiTailwindcss />, level: 90 },
+    { name: "Git", icon: <FaGitAlt />, level: 85 },
   ];
 
   const backendSkills = [
-    { name: 'Node.js', icon: <FaNodeJs />, level: 85 },
-    { name: 'Express', icon: <SiExpress />, level: 80 },
-    { name: 'MongoDB', icon: <SiMongodb />, level: 85 },
-    { name: 'PostgreSQL', icon: <SiPostgresql />, level: 80 },
-    { name: 'Python', icon: <SiPython />, level: 75 },
-    { name: 'REST APIs', icon: <FaDatabase />, level: 85 }
+    { name: "Node.js", icon: <FaNodeJs />, level: 85 },
+    { name: "Express", icon: <SiExpress />, level: 80 },
+    { name: "MongoDB", icon: <SiMongodb />, level: 85 },
+    { name: "PostgreSQL", icon: <SiPostgresql />, level: 80 },
+    { name: "Python", icon: <SiPython />, level: 75 },
+    { name: "REST APIs", icon: <FaDatabase />, level: 85 },
   ];
 
   return (
@@ -56,7 +75,7 @@ const About = () => {
       <div className="background-effects"></div>
       <div className="about-container">
         <div className="top-content">
-          <motion.div 
+          <motion.div
             className="visual-section"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -73,32 +92,32 @@ const About = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="text-content"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
             <motion.h1 className="main-title">
-              <span className="highlight-text">I'm Not Your Average</span>
+              <span className="highlight-text">Breaking boundaries as a</span>
               <br />
               <span className="role-text">Developer</span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               className="intro-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              While others see lines of code, I see opportunities to create 
-              something extraordinary. My mission is to transform ideas into 
+              While others see lines of code, I see opportunities to create
+              something extraordinary. My mission is to transform ideas into
               immersive digital experiences that leave a lasting impression.
             </motion.p>
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="claims-grid"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -119,7 +138,7 @@ const About = () => {
           ))}
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="skills-section"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -142,7 +161,7 @@ const About = () => {
                     <div className="skill-info">
                       <span className="skill-name">{skill.name}</span>
                       <div className="skill-bar">
-                        <motion.div 
+                        <motion.div
                           className="skill-progress"
                           initial={{ width: 0 }}
                           animate={{ width: `${skill.level}%` }}
@@ -171,7 +190,7 @@ const About = () => {
                     <div className="skill-info">
                       <span className="skill-name">{skill.name}</span>
                       <div className="skill-bar">
-                        <motion.div 
+                        <motion.div
                           className="skill-progress"
                           initial={{ width: 0 }}
                           animate={{ width: `${skill.level}%` }}
@@ -186,7 +205,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="cta-section"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
