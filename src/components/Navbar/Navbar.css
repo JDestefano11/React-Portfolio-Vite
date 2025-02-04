@@ -7,6 +7,15 @@
   --gradient-teal-purple: linear-gradient(45deg, var(--aurora-teal), var(--aurora-purple));
   --gradient-teal-pink: linear-gradient(90deg, var(--aurora-teal), var(--aurora-pink));
   --text-primary: white;
+  --font-primary: 'Open Sans', sans-serif;
+  --font-secondary: 'Lato', sans-serif;
+  --font-bold: 700;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --text-bright: white;
+  --text-secondary: #ccc;
+  --text-2xl: 2.2rem;
+  --text-base: 1.1rem;
 }
 
 .navbar {
@@ -30,6 +39,13 @@
   box-shadow: var(--aurora-glow);
 }
 
+.nav-logo {
+  font-family: var(--font-primary);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-bright);
+}
+
 .nav-logo a {
   text-decoration: none;
 }
@@ -38,9 +54,6 @@
   background: var(--gradient-teal-purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin: 0;
   text-shadow: var(--aurora-glow);
   transform: translateY(-5px);
 }
@@ -54,9 +67,10 @@
 
 .nav-links a,
 .nav-links div.nav-link {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--text-primary);
+  font-family: var(--font-secondary);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  font-weight: var(--font-medium);
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;

@@ -22,7 +22,8 @@ import {
   SiRedux,
 } from "react-icons/si";
 import { motion } from "framer-motion";
-import profileImage from "../../images/Joe Destefano.png";
+import portfolioImage from "../../images/Joe Portfolio Pic.jpg";
+import joeDestefanoImg from "../../images/img Joe Destefano.svg";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -72,49 +73,38 @@ const About = () => {
 
   return (
     <section className="about-section" id="about">
-      <div className="background-effects"></div>
-      <div className="about-container">
-        <div className="top-content">
-          <motion.div
-            className="visual-section"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="profile-image-container">
-              <motion.img
-                src={profileImage}
-                alt="Profile"
-                className="profile-image"
-                whileHover={{ scale: 1.05, rotate: -3 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              />
-            </div>
-          </motion.div>
+      <div className="background-effects">
+        <div className="grid-pattern"></div>
+      </div>
 
-          <motion.div
-            className="text-content"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+      <div className="about-container">
+        <div className="about-top-content">
+          <div className="about-text-content">
             <motion.h1 className="main-title">
               <span className="highlight-text">Breaking boundaries as a</span>
               <br />
-              <span className="role-text">Developer</span>
+              Developer
             </motion.h1>
-
             <motion.p
-              className="intro-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              className="about-description"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              While others see lines of code, I see opportunities to create
-              something extraordinary. My mission is to transform ideas into
-              immersive digital experiences that leave a lasting impression.
+              I'm a passionate Full Stack Developer with a knack for crafting
+              elegant solutions to complex problems. My journey in tech is
+              driven by an insatiable curiosity and a commitment to excellence,
+              constantly pushing the boundaries of what's possible in web
+              development and transforming ideas into immersive digital
+              experiences that leave a lasting impact.
             </motion.p>
-          </motion.div>
+          </div>
+
+          <div className="about-image-outer">
+            <div className="glowing-hex">
+              <img src={joeDestefanoImg} alt="Joe Destefano" />
+            </div>
+          </div>
         </div>
 
         <motion.div
