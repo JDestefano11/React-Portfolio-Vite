@@ -8,7 +8,7 @@ import TrendHive from "../../images/TrendHive.png";
 import MoviesFlix from "../../images/Movies.png";
 import MeetApp from "../../images/MeetApp.png";
 import Sovereign from "../../images/Sovereign.png";
-import Remake from "../../images/Remake.png";
+import Remake from "../../images/remake.png";
 
 const ProjectCard = ({ project, isActive, onClick }) => {
   return (
