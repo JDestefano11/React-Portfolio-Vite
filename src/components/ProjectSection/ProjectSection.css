@@ -7,8 +7,8 @@
   --card-bg: var(--digital-black);
   --card-border: var(--aurora-teal);
   --card-hover-border: rgba(0, 255, 213, 0.5);
-  --font-primary: 'Arial', sans-serif;
-  --font-secondary: 'Arial', sans-serif;
+  --font-primary: "Arial", sans-serif;
+  --font-secondary: "Arial", sans-serif;
   --font-bold: 700;
   --font-medium: 500;
   --text-bright: white;
@@ -45,7 +45,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 213, 0.1), transparent 70%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 255, 213, 0.1),
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -90,7 +94,7 @@ body {
 }
 
 .title-text::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -289,21 +293,21 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 20px;
   color: white;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
+  gap: 0.4rem;
   z-index: 10;
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(-10px);
   font-size: 0.9rem;
 }
 
-.flip-icon {
-  font-size: 1.2rem;
+.flip-indicator .flip-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.1rem;
   color: var(--aurora-teal);
-  animation: rotate 2s infinite linear;
 }
 
 .project-card:hover .flip-indicator {
@@ -399,9 +403,18 @@ body {
 }
 
 @keyframes pulse {
-  0% { opacity: 0.5; transform: scale(0.95); }
-  50% { opacity: 1; transform: scale(1.05); }
-  100% { opacity: 0.5; transform: scale(0.95); }
+  0% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
 }
 
 .project-card:hover .preview-image img {
@@ -409,14 +422,24 @@ body {
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes gradientMove {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.2); }
-  100% { transform: rotate(360deg) scale(1); }
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
 }
 
 /* Media Queries for Responsive Design */
@@ -424,7 +447,7 @@ body {
   .container {
     width: 95%;
   }
-  
+
   .project-card {
     min-width: 300px;
     max-width: 400px;
