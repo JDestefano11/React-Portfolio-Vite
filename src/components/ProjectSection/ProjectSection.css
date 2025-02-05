@@ -301,23 +301,30 @@ body {
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
   font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  line-height: 1;
 }
 
 .flip-indicator .flip-icon {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   font-size: 1.1rem;
   color: var(--aurora-teal);
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.flip-indicator span {
+  display: inline-block;
+  line-height: 1;
 }
 
 .project-card:hover .flip-indicator {
   opacity: 1;
   transform: translateY(0);
-  box-shadow: var(--aurora-glow);
-}
-
-.project-card.active .flip-indicator {
-  opacity: 0;
 }
 
 .card-back {
