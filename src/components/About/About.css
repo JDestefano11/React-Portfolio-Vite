@@ -865,6 +865,165 @@
   }
 }
 
+@media (min-width: 320px) and (max-width: 467px) {
+  .about-section {
+    padding: 80px 0.75rem 2rem;
+    min-height: auto;
+  }
+
+  .about-container {
+    padding: 0 0.75rem;
+  }
+
+  .about-top-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .about-image-outer {
+    order: -1;
+    width: 240px;
+    height: 240px;
+    justify-self: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .main-title {
+    font-size: calc(var(--text-3xl) * 0.9);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .highlight-text {
+    font-size: calc(var(--text-2xl) * 0.9);
+  }
+
+  .about-description {
+    font-size: calc(var(--text-base) * 0.95);
+    text-align: left;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .bold-claims-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .bold-claim {
+    padding: 1rem;
+  }
+
+  .bold-claim-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .bold-claim p {
+    font-size: calc(var(--text-base) * 0.9);
+    line-height: 1.4;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .skills-box {
+    padding: 1.25rem;
+  }
+
+  .skills-box h3 {
+    font-size: var(--text-xl);
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+
+  .skill-item {
+    margin-bottom: 0.875rem;
+    padding: 0.75rem;
+  }
+
+  .skill-info {
+    gap: 0.5rem;
+  }
+
+  .skill-icon {
+    font-size: 1.25rem;
+  }
+
+  .skill-name {
+    font-size: calc(var(--text-base) * 0.9);
+  }
+
+  .skill-level-bar {
+    height: 4px;
+  }
+}
+
+@media (min-width: 468px) and (max-width: 767px) {
+  .about-section {
+    padding: 120px 2rem 4rem;
+  }
+
+  .about-container {
+    padding: 0 1.5rem;
+  }
+
+  .about-top-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .about-image-outer {
+    order: -1;
+    width: 320px;
+    height: 320px;
+    justify-self: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .main-title {
+    font-size: var(--text-5xl);
+    line-height: 1.2;
+  }
+
+  .about-description {
+    font-size: var(--text-lg);
+    text-align: left;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .bold-claims-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .skills-box h3 {
+    font-size: var(--text-3xl);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .skill-item {
+    margin-bottom: 1.25rem;
+  }
+}
+
 .about-section::after {
   z-index: 1;
 }
