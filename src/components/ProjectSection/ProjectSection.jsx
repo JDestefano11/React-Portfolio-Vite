@@ -132,7 +132,7 @@ const ProjectSection = () => {
     },
     {
       id: 3,
-      title: "MoviesFlix Remake",
+      title: "DragonFlix(Refactoring)",
       image: Remake,
       description:
         "Movies Flix Hub Remake is an updated version of the front-end from my original full-stack project when I first began learning React. This remake includes some new features and additional content, though it is not connected to my API. It serves as a more polished version of my initial work.",
