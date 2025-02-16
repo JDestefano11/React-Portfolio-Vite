@@ -11,7 +11,7 @@ const HeroSection = () => {
         <div className="content-wrapper">
           <div className="text-content">
             <h1 className="hero-title">
-              <span className="text-light">Hi, I'm</span>
+              <span className="text-light">Hi I'm</span>
               <TypeAnimation
                 sequence={[
                   "Joe Destefano",

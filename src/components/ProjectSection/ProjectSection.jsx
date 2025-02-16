@@ -34,7 +34,18 @@ const ProjectCard = ({ project, isActive, onClick }) => {
           </div>
           <div className="card-preview">
             <div className="preview-image">
-              <img src={project.image} alt={project.title} />
+              {project.video ? (
+                <video 
+                  src={project.video} 
+                  alt={project.title}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              ) : (
+                <img src={project.image} alt={project.title} />
+              )}
             </div>
             <div className="preview-content">
               <p className="preview-description">

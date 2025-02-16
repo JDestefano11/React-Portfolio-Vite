@@ -32,42 +32,15 @@ body {
 
 .projects-section {
   min-height: 100vh;
-  background: var(--digital-black);
   position: relative;
   overflow: hidden;
   padding: 120px 4rem 6rem;
+  background: transparent !important;
 }
 
-.projects-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(0, 255, 213, 0.1),
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
+.projects-section::before,
 .projects-section::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background-image: radial-gradient(
-      circle at center,
-      var(--aurora-teal) 1px,
-      transparent 1px
-    ),
-    radial-gradient(circle at center, var(--aurora-pink) 1px, transparent 1px),
-    radial-gradient(circle at center, var(--aurora-purple) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.3;
-  z-index: 0;
+  display: none !important;
 }
 
 .container {
@@ -231,11 +204,16 @@ body {
   background: rgba(0, 0, 0, 0.2);
 }
 
-.preview-image img {
+.preview-image img, .preview-image video {
   width: 90%;
   height: 90%;
   object-fit: contain;
   transition: transform 0.5s ease;
+}
+
+.preview-image video {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .preview-content {

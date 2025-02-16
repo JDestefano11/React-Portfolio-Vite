@@ -13,55 +13,19 @@
 
 .hero-section {
   min-height: 100vh;
-  background: var(--digital-black);
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 120px;
+  background: transparent !important;
 }
 
-.hero-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-      circle at 50% 50%,
-      rgba(0, 255, 213, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(182, 67, 255, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 0% 100%,
-      rgba(255, 54, 171, 0.1) 0%,
-      transparent 50%
-    );
-  z-index: 0;
-}
-
+/* Remove background effects */
+.hero-section::before,
 .hero-section::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background-image: radial-gradient(
-      circle at center,
-      var(--aurora-teal) 1px,
-      transparent 1px
-    ),
-    radial-gradient(circle at center, var(--aurora-pink) 1px, transparent 1px),
-    radial-gradient(circle at center, var(--aurora-purple) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.3;
-  z-index: 0;
+  display: none !important;
 }
 
 .hero-content {

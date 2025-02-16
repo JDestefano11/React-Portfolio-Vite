@@ -83,11 +83,21 @@
 }
 
 html, body {
-  background-color: var(--digital-black);
-  color: white;
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
+  background: linear-gradient(
+    125deg,
+    var(--digital-black) 0%,
+    #0c1d3b 20%,
+    #0f2448 40%,
+    #132f5c 60%,
+    #0c1d3b 80%,
+    var(--digital-black) 100%
+  );
+  background-attachment: fixed;
+  background-size: 400% 400%;
+  color: white;
 }
 
 body {
@@ -96,11 +106,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at top right,
+    rgba(0, 255, 213, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
 #root {
-  min-height: 100vh;
-  background-color: var(--digital-black);
   position: relative;
-  overflow: hidden;
+  z-index: 2;
 }
 
 html {
@@ -112,82 +136,28 @@ html {
   transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+.section,
+[class*="section"],
+.projects-section,
+.about-section,
+.contact-section,
+.hero-section,
+#root,
+.cyber-footer {
+  background: transparent !important;
 }
 
-/* Global background animation */
 [class*="section"]::before,
-.cyber-footer::before,
-.contact-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(0, 255, 213, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(182, 67, 255, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 0% 100%,
-      rgba(255, 54, 171, 0.1) 0%,
-      transparent 50%
-    );
-  animation: globalGradientMove 15s ease infinite;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Global particle animation */
 [class*="section"]::after,
+.cyber-footer::before,
 .cyber-footer::after,
-.contact-container::after {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background-image: 
-    radial-gradient(circle at center, var(--aurora-teal) 1px, transparent 1px),
-    radial-gradient(circle at center, var(--aurora-pink) 1px, transparent 1px),
-    radial-gradient(circle at center, var(--aurora-purple) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.3;
-  animation: globalParticleFloat 20s linear infinite;
-  z-index: 0;
-  pointer-events: none;
-}
-
-@keyframes globalGradientMove {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.2);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
-
-@keyframes globalParticleFloat {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-50%) translateX(-50%) rotate(45deg);
-  }
+.contact-container::before,
+.contact-container::after,
+.hero-section::before,
+.hero-section::after,
+.projects-section::before,
+.projects-section::after {
+  display: none !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
