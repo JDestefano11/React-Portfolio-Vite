@@ -6,20 +6,35 @@
   --aurora-glow: 0 0 20px rgba(0, 255, 213, 0.3);
 }
 
+.case-study-container {
+  min-height: 100vh;
+  padding: 120px 2rem;
+  background: transparent !important;
+  position: relative;
+  z-index: 1;
+}
+
+.case-study-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.case-study-container::before,
+.case-study-container::after,
+.timeline-container::before,
+.timeline-container::after,
+[class*="section"]::before,
+[class*="section"]::after {
+  display: none !important;
+}
+
 .timeline-container {
   min-height: 100vh;
-  background: var(--digital-black);
-  color: white;
-  padding: 4rem 2rem;
-  position: relative;
-  overflow: hidden;
-  background-image: linear-gradient(
-      rgba(0, 255, 213, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(0, 255, 213, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridFloat 15s linear infinite;
+  background: transparent !important;
+  padding: 2rem 0;
 }
 
 .timeline-network-icon {

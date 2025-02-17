@@ -6,6 +6,7 @@
   --aurora-pink: rgba(255, 54, 171, 1);
   --aurora-purple: rgba(182, 67, 255, 1);
   --digital-black: #0c0c1d;
+  --deep-space: #070714;
   
   /* Color System */
   --primary-glow: rgba(0, 255, 213, 0.85);
@@ -28,6 +29,17 @@
   --glow-strong: 0 0 30px rgba(0, 255, 213, 0.3);
   --glow-medium: 0 0 20px rgba(0, 255, 213, 0.2);
   --glow-soft: 0 0 10px rgba(0, 255, 213, 0.1);
+  
+  /* Background Gradients */
+  --bg-gradient-main: radial-gradient(circle at 50% 50%, 
+    var(--digital-black) 0%, 
+    var(--deep-space) 100%
+  );
+  --bg-gradient-overlay: linear-gradient(180deg, 
+    rgba(0, 255, 213, 0.03) 0%,
+    rgba(182, 67, 255, 0.02) 50%,
+    rgba(255, 54, 171, 0.03) 100%
+  );
   
   /* Surface Colors */
   --surface-dark: var(--digital-black);
@@ -86,21 +98,14 @@ html, body {
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
-  background: linear-gradient(
-    125deg,
-    var(--digital-black) 0%,
-    #0c1d3b 20%,
-    #0f2448 40%,
-    #132f5c 60%,
-    #0c1d3b 80%,
-    var(--digital-black) 100%
-  );
-  background-attachment: fixed;
-  background-size: 400% 400%;
   color: white;
 }
 
 body {
+  margin: 0;
+  background: var(--bg-gradient-main);
+  position: relative;
+  min-height: 100vh;
   font-family: var(--font-secondary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -111,15 +116,11 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at top right,
-    rgba(0, 255, 213, 0.03) 0%,
-    transparent 50%
-  );
+  right: 0;
+  bottom: 0;
+  background: var(--bg-gradient-overlay);
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 #root {
