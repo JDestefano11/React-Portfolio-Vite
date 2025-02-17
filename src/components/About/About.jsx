@@ -92,11 +92,6 @@ const About = () => {
     { name: "REST APIs", icon: <FaCode />, level: 85 },
   ];
 
-  const gridStyles = {
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: "1.5rem",
-    width: "100%",
-  };
   return (
     <section className="about-section" id="about">
       <div className="about-container">
@@ -135,9 +130,14 @@ const About = () => {
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
           >
-            <h1 className="title">
-              Crafting Digital <span className="highlight">Experiences</span>
-            </h1>
+            <motion.h1
+              className="title"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+            >
+              Crafting Digital Experiences
+            </motion.h1>
 
             <div className="tab-navigation">
               <button
@@ -151,12 +151,6 @@ const About = () => {
                 onClick={() => setActiveTab("bring")}
               >
                 What I Bring
-              </button>
-              <button
-                className={activeTab === "skills" ? "active" : ""}
-                onClick={() => setActiveTab("skills")}
-              >
-                Skills
               </button>
             </div>
 
@@ -207,15 +201,11 @@ const About = () => {
                     <div className="slider-controls">
                       <div className="slider-dots">
                         <span
-                          className={`dot ${
-                            currentSlide === 0 ? "active" : ""
-                          }`}
+                          className={`dot ${currentSlide === 0 ? "active" : ""}`}
                           onClick={() => handleDotClick(0)}
                         ></span>
                         <span
-                          className={`dot ${
-                            currentSlide === 1 ? "active" : ""
-                          }`}
+                          className={`dot ${currentSlide === 1 ? "active" : ""}`}
                           onClick={() => handleDotClick(1)}
                         ></span>
                       </div>
@@ -257,48 +247,101 @@ const About = () => {
                     </ul>
                   </motion.div>
                 )}
-
-                {activeTab === "skills" && (
-                  <motion.div
-                    key="skills"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="skills-grid-container"
-                  >
-                    <div className="skills-grid" style={gridStyles}>
-                      {[...frontendSkills, ...backendSkills].map(
-                        (skill, index) => (
-                          <motion.div
-                            key={skill.name}
-                            className="skill-item"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                          >
-                            <div className="skill-icon">{skill.icon}</div>
-                            <div className="skill-info">
-                              <h3>{skill.name}</h3>
-                              <div className="skill-bar-bg">
-                                <motion.div
-                                  className="skill-bar-fill"
-                                  initial={{ width: 0 }}
-                                  animate={{ width: `${skill.level}%` }}
-                                  transition={{ duration: 1, delay: 0.2 }}
-                                ></motion.div>
-                              </div>
-                            </div>
-                          </motion.div>
-                        )
-                      )}
-                    </div>
-                  </motion.div>
-                )}
               </AnimatePresence>
             </div>
           </motion.div>
         </div>
+
+        <motion.div 
+          className="skills-section"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="skills-grid">
+            <motion.div 
+              className="skills-category"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h3>Frontend Development</h3>
+              <div className="skills-list">
+                {frontendSkills.map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    className="skill-item"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.1,
+                      ease: [0.4, 0, 0.2, 1]
+                    }}
+                  >
+                    <div className="skill-content">
+                      <div className="skill-icon">{skill.icon}</div>
+                      <div className="skill-name">{skill.name}</div>
+                      <div className="skill-progress">
+                        <motion.div
+                          className="progress-bar"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{
+                            duration: 1.2,
+                            delay: 0.6 + index * 0.1,
+                            ease: [0.4, 0, 0.2, 1]
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="skills-category"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h3>Backend Development</h3>
+              <div className="skills-list">
+                {backendSkills.map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    className="skill-item"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.2 + index * 0.1,
+                      ease: [0.4, 0, 0.2, 1]
+                    }}
+                  >
+                    <div className="skill-content">
+                      <div className="skill-icon">{skill.icon}</div>
+                      <div className="skill-name">{skill.name}</div>
+                      <div className="skill-progress">
+                        <motion.div
+                          className="progress-bar"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{
+                            duration: 1.2,
+                            delay: 0.8 + index * 0.1,
+                            ease: [0.4, 0, 0.2, 1]
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
