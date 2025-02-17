@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import HeroSection from "./components/HeroSection/HeroSection";
-import Navbar from "./components/Navbar/Navbar";
-import Contact from "./components/Contact/Contact";
-import ProjectSection from "./components/ProjectSection/ProjectSection";
+import { useEffect } from "react";
+import Home from "./pages/Home/Home";
 import About from "./components/About/About";
-import TrendHiveCaseStudy from "./pages/TrendHiveCaseStudy/TrendHiveCaseStudy";
+import Projects from "./components/Projects/Projects";
+import Contact from "./components/Contact/Contact";
 import MeetAppCaseStudy from "./pages/MeetAppCaseStudy/MeetAppCaseStudy";
 import MoviesFlixCaseStudy from "./pages/MoviesFlixCaseStudy/MoviesFlixCaseStudy";
 import Footer from "./components/Footer/Footer";
@@ -15,7 +13,7 @@ const ScrollToSection = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.state?.scrollTo) {
+    if (location.state && location.state.scrollTo) {
       const element = document.getElementById(location.state.scrollTo);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
@@ -32,32 +30,14 @@ const App = () => {
       <NewNavbar />
       <ScrollToSection />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <div id="home">
-                <HeroSection />
-              </div>
-              <div id="about">
-                <About />
-              </div>
-              <div id="projects">
-                <ProjectSection />
-              </div>
-              <div id="contact">
-                <Contact />
-              </div>
-              <div id="footer">
-                <Footer />
-              </div>
-            </>
-          }
-        />
-        <Route path="/trendhive" element={<TrendHiveCaseStudy />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/meetapp" element={<MeetAppCaseStudy />} />
         <Route path="/moviesflix" element={<MoviesFlixCaseStudy />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
