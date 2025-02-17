@@ -12,7 +12,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import "./Footer.css";
-import resume from "../../images/Front End Developer Joe Destefano Resume.pdf";
+import resume from "../../images/Joe Destefano Web Developer Resume.pdf";
 
 const Footer = () => {
   const location = useLocation();
