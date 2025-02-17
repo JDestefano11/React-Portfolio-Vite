@@ -10,6 +10,7 @@ import {
   FaCss3Alt,
   FaGitAlt,
   FaDatabase,
+  FaFileDownload,
 } from "react-icons/fa";
 import {
   SiJavascript,
@@ -24,6 +25,7 @@ import {
 import { motion } from "framer-motion";
 import portfolioImage from "../../images/Joe Portfolio Pic.jpg";
 import joeDestefanoImg from "../../images/img Joe Destefano.svg";
+import joeResume from "../../images/Joe Destefano Web Developer Resume.pdf";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -98,6 +100,22 @@ const About = () => {
               development and transforming ideas into immersive digital
               experiences that leave a lasting impact.
             </motion.p>
+
+            <motion.a
+              href={joeResume}
+              className="resume-download-btn"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 8px 20px rgba(0, 255, 213, 0.2)",
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaFileDownload className="download-icon" />
+              <span>Download Resume</span>
+            </motion.a>
           </div>
 
           <div className="about-image-outer">
