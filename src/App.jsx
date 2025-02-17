@@ -9,6 +9,7 @@ import TrendHiveCaseStudy from "./pages/TrendHiveCaseStudy/TrendHiveCaseStudy";
 import MeetAppCaseStudy from "./pages/MeetAppCaseStudy/MeetAppCaseStudy";
 import MoviesFlixCaseStudy from "./pages/MoviesFlixCaseStudy/MoviesFlixCaseStudy";
 import Footer from "./components/Footer/Footer";
+import NewNavbar from "./components/NewNavbar/NewNavbar";
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -28,7 +29,7 @@ const ScrollToSection = () => {
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
+      <NewNavbar />
       <ScrollToSection />
       <Routes>
         <Route
