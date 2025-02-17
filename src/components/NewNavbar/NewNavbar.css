@@ -18,20 +18,24 @@
 }
 
 .header-container {
-  max-width: 1400px;
+  position: relative;
+  width: 100%;
+  max-width: 1800px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 4rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  padding: 0 2rem;
 }
 
 /* Logo */
 .header-logo {
+  position: absolute;
+  left: 2rem;
   text-decoration: none;
   padding: 0.5rem;
-  margin-right: 2rem;
+  transition: all 0.3s ease;
 }
 
 .logo-text {
@@ -51,6 +55,8 @@
   align-items: center;
   gap: 3rem;
   transform: translateY(3px);
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 .nav-item {
@@ -86,12 +92,12 @@
 
 /* Social Links */
 .header-social {
+  position: absolute;
+  right: 2rem;
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-left: 2rem;
-  padding-left: 2rem;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .social-item {
@@ -198,32 +204,59 @@
 }
 
 /* Responsive Design */
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
   .header-container {
-    padding: 0 6rem;
+    max-width: 1600px;
   }
 
-  .logo-text {
-    font-size: 2.4rem;
-  }
-
-  .nav-item {
-    font-size: 1.2rem;
-  }
-
-  .social-item {
-    font-size: 1.4rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .header-nav {
-    gap: 2rem;
+  .header-logo {
+    left: 3rem;
   }
 
   .header-social {
-    margin-left: 1.5rem;
-    padding-left: 1.5rem;
+    right: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header-container {
+    max-width: 1800px;
+  }
+
+  .header-logo {
+    left: 4rem;
+  }
+
+  .header-social {
+    right: 4rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .header-container {
+    max-width: 2000px;
+  }
+
+  .header-logo {
+    left: 5rem;
+  }
+
+  .header-social {
+    right: 5rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  .header-container {
+    padding: 0 2rem;
+  }
+
+  .header-logo {
+    position: static;
+  }
+
+  .header-social {
+    position: static;
   }
 }
 
@@ -233,7 +266,7 @@
   }
 
   .header-container {
-    padding: 0 2rem;
+    padding: 0 1.5rem;
   }
 
   .logo-text {
@@ -248,36 +281,14 @@
   .mobile-toggle {
     display: block;
   }
-
-  .mobile-menu {
-    display: block;
-  }
 }
 
 @media (max-width: 480px) {
   .header-container {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 
   .logo-text {
     font-size: 1.6rem;
-  }
-
-  .mobile-nav-item {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-container {
-    padding: 0 1.5rem;
-  }
-
-  .logo-text {
-    font-size: 1.6rem;
-  }
-
-  .mobile-nav-item {
-    font-size: 1.2rem;
   }
 }
