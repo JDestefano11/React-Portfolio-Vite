@@ -1,8 +1,7 @@
 import { FaArrowRight, FaEnvelope } from "react-icons/fa";
-import { ReactTyped } from 'react-typed';
+import { ReactTyped } from "react-typed";
 import "./NewHero.css";
-
-const profileImage = "/src/images/Joe Destefano.png";
+import profileImage from "../../images/Joe Destefano.png";
 
 const NewHero = () => {
   return (
@@ -14,10 +13,10 @@ const NewHero = () => {
             <span className="title-role">
               <ReactTyped
                 strings={[
-                  'Full Stack Developer',
-                  'Building Digital Experiences',
-                  'Crafting Clean Code',
-                  'Turning Ideas into Reality',
+                  "Full Stack Developer",
+                  "Building Digital Experiences",
+                  "Crafting Clean Code",
+                  "Turning Ideas into Reality",
                 ]}
                 typeSpeed={40}
                 backSpeed={50}
@@ -56,7 +55,9 @@ const NewHero = () => {
 
         <div className="hero-visual-content">
           <div className="glowing-hex">
-            <img src={profileImage} alt="Joe" className="profile-image" />
+            <div className="hero-image-container">
+              <img src={profileImage} alt="Joe Destefano" className="hero-image" />
+            </div>
           </div>
         </div>
       </div>
