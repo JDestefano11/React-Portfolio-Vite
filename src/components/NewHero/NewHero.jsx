@@ -10,14 +10,14 @@ const NewHero = () => {
       <div className="hero-content-wrapper">
         <div className="hero-text-content">
           <h1 className="hero-title">
-            Hi, I'm <span className="highlight">Joseph</span>
+            Hi I'm Joe
             <span className="title-role">
               <ReactTyped
                 strings={[
                   'Full Stack Developer',
-                  'React Specialist',
-                  'UI/UX Enthusiast',
-                  'Problem Solver'
+                  'Building Digital Experiences',
+                  'Crafting Clean Code',
+                  'Turning Ideas into Reality',
                 ]}
                 typeSpeed={40}
                 backSpeed={50}
@@ -56,16 +56,9 @@ const NewHero = () => {
 
         <div className="hero-visual-content">
           <div className="glowing-hex">
-            <img src={profileImage} alt="Joseph" className="profile-image" />
+            <img src={profileImage} alt="Joe" className="profile-image" />
           </div>
         </div>
-      </div>
-
-      <div className="scroll-indicator">
-        <div className="mouse">
-          <div className="wheel"></div>
-        </div>
-        <span className="scroll-text">Scroll Down</span>
       </div>
     </section>
   );
