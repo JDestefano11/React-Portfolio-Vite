@@ -724,6 +724,15 @@
       margin-bottom: 5rem;  /* Extra space after slider */
     }
 
+    .slider-controls {
+      margin-bottom: 4rem;  /* Added margin for slider controls */
+      padding-bottom: 2rem;
+    }
+
+    .tab-navigation {
+      margin-bottom: 3rem;  /* Extra space after tab navigation */
+    }
+
     .skills-section {
       padding-top: 3rem;  /* Extra padding before skills section */
     }
@@ -741,50 +750,11 @@
       padding-bottom: 120px;  /* Increased bottom padding */
     }
   }
-}
 
-@media (max-width: 480px) {
-  .about-section {
-    padding: 60px 0;
-  }
-
-  .about-container {
-    padding: 0 1rem;
-  }
-
-  .about-left-column {
-    max-width: 280px;
-  }
-
-  .title {
-    font-size: var(--text-3xl);
-  }
-
-  .tab-navigation {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .tab-navigation button {
-    padding: 0.5rem 0.75rem;
-    font-size: calc(var(--text-base) * 0.9);
-  }
-
-  .skills-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-  
-  .skill-item {
-    padding: 1rem;
-  }
-  
-  .skill-icon {
-    font-size: 1.75rem;
-  }
-  
-  .skill-name {
-    font-size: 0.9rem;
+  @media (max-width: 480px) {
+    .slider-controls {
+      margin-bottom: 5rem;  /* Even more margin on smaller devices */
+    }
   }
 }
 
