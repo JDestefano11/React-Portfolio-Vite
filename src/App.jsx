@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import HeroSection from "./components/HeroSection/HeroSection";
 import About from "./components/About/About";
 import ProjectSection from "./components/ProjectSection/ProjectSection";
 import Contact from "./components/Contact/Contact";
@@ -8,6 +7,7 @@ import MeetAppCaseStudy from "./pages/MeetAppCaseStudy/MeetAppCaseStudy";
 import MoviesFlixCaseStudy from "./pages/MoviesFlixCaseStudy/MoviesFlixCaseStudy";
 import Footer from "./components/Footer/Footer";
 import NewNavbar from "./components/NewNavbar/NewNavbar";
+import NewHero from "./components/NewHero/NewHero";
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -35,7 +35,7 @@ const App = () => {
           element={
             <>
               <div id="home">
-                <HeroSection />
+                <NewHero />
               </div>
               <div id="about">
                 <About />
