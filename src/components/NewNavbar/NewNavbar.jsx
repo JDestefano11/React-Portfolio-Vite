@@ -99,19 +99,16 @@ const NewNavbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="mobile-toggle"
+          className={`mobile-toggle ${isMobileMenuOpen ? 'active' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? (
-            <IoClose />
-          ) : (
-            <div className="hamburger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          )}
+          <div className="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </button>
 
         {/* Mobile Menu */}

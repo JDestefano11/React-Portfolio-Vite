@@ -692,6 +692,8 @@
 
   .about-content {
     min-height: 400px;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   .skills-grid {
@@ -710,17 +712,33 @@
 
   /* Safari-specific media query */
   @supports (-webkit-touch-callout: none) {
-    .skills-category {
-      margin-bottom: 3rem;
-      padding-bottom: 3rem;
+    .about-content {
+      margin-bottom: 6rem;  /* Increased margin for Safari */
+    }
+
+    .tab-content {
+      margin-bottom: 4rem;  /* Additional spacing for tab content */
+    }
+
+    .about-slider-container {
+      margin-bottom: 5rem;  /* Extra space after slider */
+    }
+
+    .skills-section {
+      padding-top: 3rem;  /* Extra padding before skills section */
     }
 
     .skills-grid {
       gap: 4rem;
     }
 
+    .skills-category {
+      margin-bottom: 4rem;  /* Increased spacing between categories */
+      padding-bottom: 3rem;
+    }
+
     .about-section {
-      padding-bottom: 100px;
+      padding-bottom: 120px;  /* Increased bottom padding */
     }
   }
 }
