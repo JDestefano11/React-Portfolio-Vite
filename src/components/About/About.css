@@ -761,28 +761,8 @@
 }
 
 .skills-section {
+  margin-top: 40rem;
   position: relative;
-}
-
-@media (min-width: 1200px) {
-  .skills-section {
-    margin-top: 10rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .skills-section {
-    margin-top: 35rem;
-  }
-}
-
-/* Safari-specific media query */
-@supports (-webkit-touch-callout: none) {
-  @media (max-width: 768px) {
-    .skills-section {
-      margin-top: 38rem;
-    }
-  }
 }
 
 .skills-grid {
@@ -1074,5 +1054,11 @@
     .skills-section {
       margin-top: 38rem;
     }
+  }
+}
+
+@media (min-width: 1200px) {
+  .skills-section {
+    margin-top: 10rem;
   }
 }
