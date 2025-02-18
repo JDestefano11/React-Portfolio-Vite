@@ -269,10 +269,6 @@
     padding: 0 1.5rem;
   }
 
-  .logo-text {
-    font-size: 1.8rem;
-  }
-
   .header-nav,
   .header-social {
     display: none;
@@ -280,6 +276,74 @@
 
   .mobile-toggle {
     display: block;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .mobile-menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(12, 12, 29, 0.98);
+    backdrop-filter: blur(10px);
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .mobile-menu.active {
+    right: 0;
+  }
+
+  .mobile-nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .mobile-nav-item {
+    color: rgba(0, 255, 213, 0.85);
+    text-decoration: none;
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .mobile-nav-item:hover {
+    color: rgba(255, 54, 171, 0.85);
+    transform: scale(1.1);
+  }
+
+  .mobile-social {
+    margin-top: 3rem;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .mobile-social-item {
+    color: rgba(0, 255, 213, 0.85);
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-social-item:hover {
+    color: rgba(255, 54, 171, 0.85);
+    transform: scale(1.1);
+  }
+
+  .logo-text {
+    font-size: 1.6rem;
   }
 }
 
@@ -289,6 +353,6 @@
   }
 
   .logo-text {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 }
