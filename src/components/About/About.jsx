@@ -34,24 +34,33 @@ import portfolioImage from "../../images/Joe Portfolio Pic.jpg";
 const About = () => {
   const [activeTab, setActiveTab] = useState("about");
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentGoalSlide, setCurrentGoalSlide] = useState(0);
   const sliderRef = useRef(null);
+  const goalSliderRef = useRef(null);
 
-  const handleSlideChange = (direction) => {
-    const slider = sliderRef.current;
-    if (!slider) return;
+  const handleSlideChange = (direction, sliderType) => {
+    const slider = sliderType === 'goals' ? goalSliderRef.current : sliderRef.current;
+    const currentSlideState = sliderType === 'goals' ? currentGoalSlide : currentSlide;
+    const setSlideState = sliderType === 'goals' ? setCurrentGoalSlide : setCurrentSlide;
+    
+    if (slider) {
+      const slides = slider.children;
+      const maxSlide = slides.length - 1;
+      let newSlide;
 
-    const slideWidth = slider.offsetWidth;
-    const newPosition =
-      direction === "next"
-        ? slideWidth * (currentSlide + 1)
-        : slideWidth * (currentSlide - 1);
+      if (direction === "next") {
+        newSlide = currentSlideState === maxSlide ? 0 : currentSlideState + 1;
+      } else {
+        newSlide = currentSlideState === 0 ? maxSlide : currentSlideState - 1;
+      }
 
-    slider.scrollTo({
-      left: newPosition,
-      behavior: "smooth",
-    });
-
-    setCurrentSlide(direction === "next" ? 1 : 0);
+      setSlideState(newSlide);
+      slides[newSlide].scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "start",
+      });
+    }
   };
 
   const handleDotClick = (index) => {
@@ -152,6 +161,12 @@ const About = () => {
               >
                 What I Bring
               </button>
+              <button
+                className={activeTab === "goals" ? "active" : ""}
+                onClick={() => setActiveTab("goals")}
+              >
+                My Goals
+              </button>
             </div>
 
             <div className="tab-content">
@@ -165,33 +180,24 @@ const About = () => {
                     transition={{ duration: 0.3 }}
                     className="about-slider-container"
                   >
-                    <div className="about-slider" ref={sliderRef}>
-                      <div className="about-slide">
-                        <p className="description">
-                          As a passionate Full Stack Developer, I blend
-                          creativity with technical expertise to build immersive
-                          web experiences. My journey in web development is
-                          driven by a constant pursuit of innovation and
-                          excellence.
-                        </p>
-
-                        <p className="description">
-                          With expertise in modern web technologies and a keen
-                          eye for design, I create seamless digital experiences
-                          that engage and inspire.
+                    <div className="slider" ref={sliderRef}>
+                      <div className="slide">
+                        <p>
+                          A passionate Full Stack Developer with a strong foundation
+                          in both front-end and back-end technologies. My journey
+                          in web development began with a fascination for creating
+                          interactive user experiences, and has evolved into a
+                          comprehensive skill set that allows me to build complete,
+                          scalable web applications.
                         </p>
                       </div>
-
-                      <div className="about-slide">
-                        <p className="description">
-                          My approach combines technical precision with creative
-                          problem-solving, ensuring each project not only meets
-                          but exceeds expectations. I'm constantly learning and
-                          adapting to new technologies.
-                        </p>
-
-                        <p className="description">
-                          I believe in writing clean, maintainable code and
+                      <div className="slide">
+                        <p>
+                          I specialize in modern JavaScript frameworks like React,
+                          and have experience with Node.js and various backend
+                          technologies. I'm dedicated to writing clean,
+                          maintainable code and am constantly learning new
+                          technologies to stay at the forefront of web development,
                           creating intuitive user experiences that make a
                           lasting impact.
                         </p>
@@ -200,26 +206,25 @@ const About = () => {
 
                     <div className="slider-controls">
                       <div className="slider-dots">
-                        <span
-                          className={`dot ${currentSlide === 0 ? "active" : ""}`}
-                          onClick={() => handleDotClick(0)}
-                        ></span>
-                        <span
-                          className={`dot ${currentSlide === 1 ? "active" : ""}`}
-                          onClick={() => handleDotClick(1)}
-                        ></span>
+                        {[0, 1].map((index) => (
+                          <button
+                            key={index}
+                            className={`dot ${currentSlide === index ? "active" : ""}`}
+                            onClick={() => handleDotClick(index)}
+                          />
+                        ))}
                       </div>
                       <div className="slider-arrows">
                         <button
                           className="arrow-btn prev"
-                          onClick={() => handleSlideChange("prev")}
+                          onClick={() => handleSlideChange("prev", "about")}
                           disabled={currentSlide === 0}
                         >
                           ←
                         </button>
                         <button
                           className="arrow-btn next"
-                          onClick={() => handleSlideChange("next")}
+                          onClick={() => handleSlideChange("next", "about")}
                           disabled={currentSlide === 1}
                         >
                           →
@@ -245,6 +250,51 @@ const About = () => {
                       <li>Strong focus on user experience and design</li>
                       <li>Agile development and continuous learning</li>
                     </ul>
+                  </motion.div>
+                )}
+
+                {activeTab === "goals" && (
+                  <motion.div
+                    key="goals"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="highlight-box"
+                  >
+                    <h4>Mission: Elevate Development Teams</h4>
+                    <div className="goals-slider-container">
+                      <button
+                        className="slider-button prev"
+                        onClick={() => handleSlideChange("prev", "goals")}
+                      >
+                        ←
+                      </button>
+                      <div className="goals-slider" ref={goalSliderRef}>
+                        <div className="goal-slide">
+                          <h5>Primary Objective</h5>
+                          <p>Join an innovative development team where I can leverage my full-stack expertise to create exceptional digital experiences.</p>
+                        </div>
+                        <div className="goal-slide">
+                          <h5>Technical Impact</h5>
+                          <p>Contribute cutting-edge solutions using React, Node.js, and modern web technologies to drive project success and innovation.</p>
+                        </div>
+                        <div className="goal-slide">
+                          <h5>Team Synergy</h5>
+                          <p>Collaborate effectively with fellow developers, sharing knowledge and maintaining high code quality standards while fostering a positive team culture.</p>
+                        </div>
+                        <div className="goal-slide">
+                          <h5>Growth Mindset</h5>
+                          <p>Continuously expand my skill set through challenging projects and team collaboration, while helping others grow their capabilities.</p>
+                        </div>
+                      </div>
+                      <button
+                        className="slider-button next"
+                        onClick={() => handleSlideChange("next", "goals")}
+                      >
+                        →
+                      </button>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>

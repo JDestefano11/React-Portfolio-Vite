@@ -205,6 +205,95 @@
   transition: opacity 0.3s ease;
 }
 
+.slider {
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-bottom: 1rem;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  min-width: 100%;
+  scroll-snap-align: start;
+  padding: 1rem;
+}
+
+.slide p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  margin-bottom: 1rem;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.slider-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.dot.active {
+  background: rgba(0, 255, 213, 0.85);
+  transform: scale(1.2);
+}
+
+.slider-arrows {
+  display: flex;
+  gap: 1rem;
+}
+
+.arrow-btn {
+  background: rgba(0, 255, 213, 0.1);
+  border: 1px solid rgba(0, 255, 213, 0.3);
+  color: rgba(0, 255, 213, 0.85);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.arrow-btn:hover:not(:disabled) {
+  background: rgba(0, 255, 213, 0.2);
+  transform: scale(1.1);
+}
+
+.arrow-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.arrow-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -298,46 +387,47 @@
 }
 
 .highlight-box h4 {
-  color: var(--text-bright);
-  font-size: var(--text-xl);
-  font-weight: var(--font-bold);
-  margin-bottom: 2rem;
-  background: linear-gradient(135deg, var(--aurora-teal), var(--aurora-purple));
+  background: linear-gradient(45deg, rgba(0, 255, 213, 0.85), rgba(182, 67, 255, 0.85));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
 .highlight-box ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .highlight-box li {
-  color: var(--text-secondary);
-  font-size: var(--text-lg);
-  display: flex;
-  align-items: center;
-  line-height: 1.8;
-  padding: 1rem 1.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.highlight-box li:hover {
-  transform: translateX(8px);
-  background: rgba(255, 255, 255, 0.04);
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
 }
 
 .highlight-box li::before {
-  content: '→';
-  color: var(--aurora-teal);
-  margin-right: 1.5rem;
-  font-weight: var(--font-bold);
-  transition: transform 0.3s ease;
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: rgba(0, 255, 213, 0.85);
+}
+
+.goal-highlight {
+  color: rgba(255, 54, 171, 0.85);
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.highlight-box li {
+  transition: transform 0.2s ease;
+}
+
+.highlight-box li:hover {
+  transform: translateX(5px);
 }
 
 .skill-item {
@@ -1061,4 +1151,73 @@
   .skills-section {
     margin-top: 10rem;
   }
+}
+
+.goals-slider-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.goals-slider {
+  flex: 1;
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.goals-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.goal-slide {
+  min-width: 100%;
+  scroll-snap-align: start;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.goal-slide h5 {
+  color: rgba(255, 54, 171, 0.85);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.goal-slide p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+}
+
+.slider-button {
+  background: rgba(0, 255, 213, 0.1);
+  border: 1px solid rgba(0, 255, 213, 0.3);
+  color: rgba(0, 255, 213, 0.85);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.slider-button:hover {
+  background: rgba(0, 255, 213, 0.2);
+  transform: scale(1.1);
+}
+
+.slider-button:active {
+  transform: scale(0.95);
 }
