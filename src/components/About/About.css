@@ -710,31 +710,35 @@
     margin-bottom: 2rem;
   }
 
+  .skills-section {
+    margin-top: 35rem;  
+  }
+
   /* Safari-specific media query */
   @supports (-webkit-touch-callout: none) {
     .about-content {
-      margin-bottom: 6rem;  /* Increased margin for Safari */
+      margin-bottom: 6rem;  
     }
 
     .tab-content {
-      margin-bottom: 4rem;  /* Additional spacing for tab content */
+      margin-bottom: 4rem;  
     }
 
     .about-slider-container {
-      margin-bottom: 5rem;  /* Extra space after slider */
+      margin-bottom: 5rem;  
     }
 
     .slider-controls {
-      margin-bottom: 4rem;  /* Added margin for slider controls */
+      margin-bottom: 4rem;  
       padding-bottom: 2rem;
     }
 
     .tab-navigation {
-      margin-bottom: 3rem;  /* Extra space after tab navigation */
+      margin-bottom: 3rem;  
     }
 
     .skills-section {
-      padding-top: 3rem;  /* Extra padding before skills section */
+      margin-top: 38rem;  
     }
 
     .skills-grid {
@@ -742,18 +746,12 @@
     }
 
     .skills-category {
-      margin-bottom: 4rem;  /* Increased spacing between categories */
+      margin-bottom: 4rem;  
       padding-bottom: 3rem;
     }
 
     .about-section {
-      padding-bottom: 120px;  /* Increased bottom padding */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .slider-controls {
-      margin-bottom: 5rem;  /* Even more margin on smaller devices */
+      padding-bottom: 120px;  
     }
   }
 }
@@ -763,7 +761,7 @@
 }
 
 .skills-section {
-  margin-top: 15rem;
+  margin-top: 40rem;
   position: relative;
 }
 
@@ -1047,5 +1045,20 @@
   .skill-name {
     font-size: 1rem;
     margin-bottom: 0.75rem;
+  }
+}
+
+/* Safari-specific media query */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 768px) {
+    .skills-section {
+      margin-top: 38rem;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .skills-section {
+    margin-top: 10rem;
   }
 }
