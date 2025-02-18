@@ -694,20 +694,34 @@
     min-height: 400px;
   }
 
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
   .skills-category {
-    padding: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    position: relative;
+    /* Safari-specific fixes */
+    -webkit-margin-bottom: 2rem;
+    margin-bottom: 2rem;
   }
-  
-  .skills-list {
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  }
-  
-  .skill-item {
-    padding: 1rem;
-  }
-  
-  .skill-icon {
-    font-size: 2rem;
+
+  /* Safari-specific media query */
+  @supports (-webkit-touch-callout: none) {
+    .skills-category {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .skills-grid {
+      gap: 4rem;
+    }
+
+    .about-section {
+      padding-bottom: 100px;
+    }
   }
 }
 

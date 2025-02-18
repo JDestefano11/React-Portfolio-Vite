@@ -272,20 +272,30 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-top: 10px;
+    padding-top: 100px;
+    margin-bottom: 4rem;
+  }
+
+  .hero-content {
+    padding: 0 1.5rem;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
 
-  .hero-stats {
-    flex-direction: column;
-    gap: 2rem;
+  .hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
   }
 
   .hero-cta {
-    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    flex: 1 1 100%;
   }
 
   .hero-visual {
