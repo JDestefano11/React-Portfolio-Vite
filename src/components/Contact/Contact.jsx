@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useCallback, Suspense } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
@@ -114,43 +115,136 @@ const Contact = () => {
   );
 
   return (
-    <div className="contact-container">
+    <motion.div 
+      className="contact-container"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="cyber-grid"></div>
       <div className="cosmic-overlay"></div>
       <Suspense fallback={<div>Loading network icon...</div>}>
-        <BiNetworkChart className="network-icon" />
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <BiNetworkChart className="network-icon" />
+        </motion.div>
       </Suspense>
 
-      <div className="contact-content">
-        <div className="contact-header">
-          <h1>Let's Create Something Extraordinary</h1>
-          <p className="response-time">
+      <motion.div 
+        className="contact-content"
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <motion.div 
+          className="contact-header"
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <motion.h1
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            Let's Create Something Extraordinary
+          </motion.h1>
+          <motion.p 
+            className="response-time"
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
             <Suspense fallback={<div>Loading clock icon...</div>}>
               <FaClock className="clock-icon pulse" />
             </Suspense>
             Average Response Time:{" "}
             <span className="contact-highlight">4 Hours</span>
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="reasons-grid">
           {reasons.map((reason, index) => (
-            <div className="reason-card" key={index}>
-              <div className="reason-icon">{reason.icon}</div>
-              <h3>{reason.title}</h3>
-              <p>{reason.text}</p>
+            <motion.div 
+              className="reason-card" 
+              key={index}
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
+              <motion.div 
+                className="reason-icon"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+              >
+                {reason.icon}
+              </motion.div>
+              <motion.h3
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
+              >
+                {reason.title}
+              </motion.h3>
+              <motion.p
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.7 + index * 0.2 }}
+              >
+                {reason.text}
+              </motion.p>
               <div className="card-glow"></div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         <div className="contact-wrapper">
-          <div className="contact-info">
-            <h2>Ready to Transform Your Ideas into Reality?</h2>
-            <p>Let's collaborate and build something amazing together!</p>
+          <motion.div 
+            className="contact-info"
+            initial={{ x: -20, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <motion.h2
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              Ready to Transform Your Ideas into Reality?
+            </motion.h2>
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              Let's collaborate and build something amazing together!
+            </motion.p>
 
-            <div className="contact-stats">
-              <div className="contact-stat-item">
+            <motion.div 
+              className="contact-stats"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <motion.div 
+                className="contact-stat-item"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
                 <Suspense fallback={<div>Loading chart icon...</div>}>
                   <FaChartLine className="contact-stat-icon" />
                 </Suspense>
@@ -158,8 +252,11 @@ const Contact = () => {
                   <h3>Project Success Rate</h3>
                   <span>98%</span>
                 </div>
-              </div>
-              <div className="contact-stat-item">
+              </motion.div>
+              <motion.div 
+                className="contact-stat-item"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
                 <Suspense fallback={<div>Loading headset icon...</div>}>
                   <FaHeadset className="contact-stat-icon" />
                 </Suspense>
@@ -167,37 +264,60 @@ const Contact = () => {
                   <h3>Communication</h3>
                   <span>24/7</span>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="social-links">
-              <a
+            <motion.div 
+              className="social-links"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <motion.a
                 href="https://github.com/JDestefano11"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-btn"
+                whileHover={{ y: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Suspense fallback={<div>Loading GitHub icon...</div>}>
                   <FaGithub />
                 </Suspense>
                 GitHub
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="https://www.linkedin.com/in/joeadestefano/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-btn"
+                whileHover={{ y: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Suspense fallback={<div>Loading LinkedIn icon...</div>}>
                   <FaLinkedin />
                 </Suspense>
                 LinkedIn
-              </a>
-            </div>
-          </div>
+              </motion.a>
+            </motion.div>
+          </motion.div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
+          <motion.form 
+            className="contact-form" 
+            onSubmit={handleSubmit}
+            initial={{ x: 20, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <motion.div 
+              className="form-group"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
               <input
                 type="text"
                 placeholder="Your Name"
@@ -207,10 +327,15 @@ const Contact = () => {
                 }
                 required
               />
-              <div className="form-highlight"></div>
-            </div>
+            </motion.div>
 
-            <div className="form-group">
+            <motion.div 
+              className="form-group"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
               <input
                 type="email"
                 placeholder="Your Email"
@@ -220,10 +345,15 @@ const Contact = () => {
                 }
                 required
               />
-              <div className="form-highlight"></div>
-            </div>
+            </motion.div>
 
-            <div className="form-group">
+            <motion.div 
+              className="form-group"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+            >
               <select
                 value={formData.contactReason}
                 onChange={(e) =>
@@ -232,16 +362,22 @@ const Contact = () => {
                 required
               >
                 <option value="">Select Reason for Contact</option>
-                <option value="project">Project Collaboration</option>
-                <option value="consultation">Technical Consultation</option>
-                <option value="job">Job Opportunity</option>
-                <option value="mentorship">Mentorship</option>
-                <option value="other">Other</option>
+                <option value="Custom Development">Custom Development</option>
+                <option value="Technical Consultation">
+                  Technical Consultation
+                </option>
+                <option value="Collaboration">Collaboration</option>
+                <option value="Other">Other</option>
               </select>
-              <div className="form-highlight"></div>
-            </div>
+            </motion.div>
 
-            <div className="form-group">
+            <motion.div 
+              className="form-group"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
               <textarea
                 placeholder="Your Message"
                 value={formData.message}
@@ -250,19 +386,25 @@ const Contact = () => {
                 }
                 required
               ></textarea>
-              <div className="form-highlight"></div>
-            </div>
+            </motion.div>
 
-            <button type="submit" className="submit-btn">
+            <motion.button 
+              type="submit" 
+              className="submit-btn"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+            >
               <span>Send Message</span>
               <Suspense fallback={<div>Loading sparkle...</div>}>
                 <HiSparkles className="btn-sparkle" />
               </Suspense>
-            </button>
-          </form>
+            </motion.button>
+          </motion.form>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
