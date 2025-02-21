@@ -174,23 +174,28 @@ body {
   width: 100%;
   height: 250px;
   overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  margin-bottom: -1px;
 }
 
 .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: brightness(0.8) contrast(1.2);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.1);
 }
 
-.project-card.hovered .project-image {
-  transform: scale(1.1);
+.project-card:hover .project-image {
+  transform: scale(1.2);
 }
 
 .project-overlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
     to top,
     rgba(12, 12, 29, 0.95) 0%,
@@ -201,12 +206,22 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   padding: 1.5rem;
+  z-index: 2;
+}
+
+.project-card-content {
   transform: translateY(0);
   transition: transform 0.4s ease;
 }
 
-.project-card.hovered .project-overlay {
+.project-card.hovered .project-card-content {
   transform: translateY(-10px);
+}
+
+.project-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(12, 12, 29, 0.5);
 }
 
 .project-title {
@@ -315,6 +330,37 @@ body {
       rgba(182, 67, 255, 0.25)
     );
     box-shadow: 0 5px 15px rgba(0, 255, 213, 0.15);
+  }
+
+  .project-link.coming-soon {
+    position: relative;
+    cursor: not-allowed;
+    opacity: 0.8;
+    overflow: hidden;
+  }
+
+  .project-link.coming-soon::before {
+    content: "Coming Soon";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    color: #00ffd5;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+  }
+
+  .project-link.coming-soon:hover::before {
+    opacity: 1;
+  }
+
+  .project-link.coming-soon:hover {
+    transform: none;
+    box-shadow: none;
   }
 
   .flip-indicator {

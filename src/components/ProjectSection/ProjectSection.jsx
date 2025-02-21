@@ -60,6 +60,8 @@ const ProjectSection = () => {
       techStack: ["React", "Node.js", "Express", "MongoDB"],
       liveLink: "https://real-estate-website-nrw6.onrender.com/",
       githubLink: "https://github.com/JDestefano11/sovereign-realty.git",
+      caseStudyLink: "#",
+      caseStudyComingSoon: true,
     },
     {
       id: 3,
@@ -161,48 +163,47 @@ const ProjectSection = () => {
                     className="project-image"
                   />
                   <div className="project-overlay">
-                    <h3 className="project-title">{project.title}</h3>
-                    <div className="tech-stack">
-                      {project.techStack.map((tech, index) => (
-                        <span key={index} className="tech-badge">
-                          {tech}
-                        </span>
-                      ))}
+                    <div className="project-card-content">
+                      <h3 className="project-title">{project.title}</h3>
+                      <p className="project-description">{project.description}</p>
+                      <div className="tech-stack">
+                        {project.techStack.map((tech, index) => (
+                          <span key={index} className="tech-item">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="project-links">
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-link"
+                        >
+                          <FiGithub /> View Code
+                        </a>
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-link"
+                        >
+                          <FiExternalLink /> Live Demo
+                        </a>
+                        {project.caseStudyLink && (
+                          <a
+                            href={project.caseStudyLink}
+                            className={`project-link case-study-link ${project.caseStudyComingSoon ? 'coming-soon' : ''}`}
+                            onClick={project.caseStudyComingSoon ? (e) => e.preventDefault() : undefined}
+                          >
+                            <FiBook /> Case Study
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div className="card-content">
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-links">
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link"
-                    >
-                      <FiGithub /> View Code
-                    </a>
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link"
-                    >
-                      <FiExternalLink /> Live Demo
-                    </a>
-                    {project.caseStudyLink && (
-                      <Link
-                        to={project.caseStudyLink}
-                        className="project-link case-study-link"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.scrollTo(0, 0);
-                        }}
-                      >
-                        <FiBook /> Case Study
-                      </Link>
-                    )}
-                  </div>
                 </div>
               </div>
             </motion.div>
