@@ -134,8 +134,9 @@ const NewHero = () => {
                 src={profileImage}
                 alt="Joe Destefano"
                 className="hero-image"
-                initial={{ filter: "blur(10px) brightness(0.5)" }}
-                animate={{ filter: "blur(0px) brightness(1)" }}
+                initial={{ filter: "blur(10px) brightness(0.5) grayscale(100%)" }}
+                animate={{ filter: "blur(0px) brightness(1) grayscale(100%)" }}
+                whileHover={{ filter: "blur(0px) brightness(1) grayscale(0%)" }}
                 transition={{ duration: 1, delay: 0.5 }}
               />
             </div>
