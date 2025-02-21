@@ -40,10 +40,10 @@ const Skills = () => {
         <div className="skills-container">
           <motion.div 
             className="skills-category"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, translateY: 20 }}
+            whileInView={{ opacity: 1, translateY: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.3 }}
           >
             <div className="category-header">
               <h2>Frontend Development</h2>
@@ -53,10 +53,10 @@ const Skills = () => {
                 <motion.div 
                   key={skill.name}
                   className="skill-card"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  initial={{ opacity: 0, translateY: 20 }}
+                  whileInView={{ opacity: 1, translateY: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                 >
                   <div className="skill-icon">
                     <skill.icon />
@@ -66,10 +66,11 @@ const Skills = () => {
                     <div className="skill-bar-container">
                       <motion.div 
                         className="skill-bar"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: skill.level / 100 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+                        transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
+                        style={{ transformOrigin: "left" }}
                       />
                     </div>
                   </div>
@@ -80,10 +81,10 @@ const Skills = () => {
 
           <motion.div 
             className="skills-category"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0, translateY: 20 }}
+            whileInView={{ opacity: 1, translateY: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.3 }}
           >
             <div className="category-header">
               <h2>Backend Development</h2>
@@ -93,10 +94,10 @@ const Skills = () => {
                 <motion.div 
                   key={skill.name}
                   className="skill-card"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  initial={{ opacity: 0, translateY: 20 }}
+                  whileInView={{ opacity: 1, translateY: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
                 >
                   <div className="skill-icon">
                     <skill.icon />
@@ -106,10 +107,11 @@ const Skills = () => {
                     <div className="skill-bar-container">
                       <motion.div 
                         className="skill-bar"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: skill.level / 100 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+                        transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
+                        style={{ transformOrigin: "left" }}
                       />
                     </div>
                   </div>
