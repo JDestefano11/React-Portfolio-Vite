@@ -10,7 +10,6 @@ import Sovereign from "../../images/Sovereign.png";
 import Remake from "../../images/remake.png";
 
 const ProjectSection = () => {
-  const [hoveredCard, setHoveredCard] = useState(null);
   const projectsRef = useRef(null);
 
   useEffect(() => {
@@ -139,21 +138,15 @@ const ProjectSection = () => {
 
         <motion.div
           className="projects-grid"
-          ref={projectsRef}
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
         >
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              className={`project-card ${
-                hoveredCard === project.id ? "hovered" : ""
-              }`}
               variants={cardVariants}
-              onMouseEnter={() => setHoveredCard(project.id)}
-              onMouseLeave={() => setHoveredCard(null)}
+              className="project-card"
             >
               <div className="card-inner">
                 <div className="project-image-container">
@@ -163,47 +156,45 @@ const ProjectSection = () => {
                     className="project-image"
                   />
                   <div className="project-overlay">
-                    <div className="project-card-content">
-                      <h3 className="project-title">{project.title}</h3>
-                      <p className="project-description">{project.description}</p>
-                      <div className="tech-stack">
-                        {project.techStack.map((tech, index) => (
-                          <span key={index} className="tech-item">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="project-links">
-                        <a
-                          href={project.githubLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="project-link"
-                        >
-                          <FiGithub /> View Code
-                        </a>
-                        <a
-                          href={project.liveLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="project-link"
-                        >
-                          <FiExternalLink /> Live Demo
-                        </a>
-                        {project.caseStudyLink && (
-                          <a
-                            href={project.caseStudyLink}
-                            className={`project-link case-study-link ${project.caseStudyComingSoon ? 'coming-soon' : ''}`}
-                            onClick={project.caseStudyComingSoon ? (e) => e.preventDefault() : undefined}
-                          >
-                            <FiBook /> Case Study
-                          </a>
-                        )}
-                      </div>
+                    <h3 className="project-title">{project.title}</h3>
+                    <div className="tech-stack">
+                      {project.techStack.map((tech, index) => (
+                        <span key={index} className="tech-badge">
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
                 <div className="card-content">
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-links">
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link view-code"
+                    >
+                      <FiGithub /> View Code
+                    </a>
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link live-demo"
+                    >
+                      <FiExternalLink /> Live Demo
+                    </a>
+                    {project.caseStudyLink && (
+                      <a
+                        href={project.caseStudyLink}
+                        className={`project-link case-study-link ${project.caseStudyComingSoon ? 'coming-soon' : ''}`}
+                        onClick={project.caseStudyComingSoon ? (e) => e.preventDefault() : undefined}
+                      >
+                        <FiBook /> Case Study
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>
