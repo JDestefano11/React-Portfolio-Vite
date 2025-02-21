@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiBook } from 'react-icons/fi';
-import './ProjectSection.css';
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { FiGithub, FiExternalLink, FiBook } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import "./ProjectSection.css";
 import TrendHive from "../../images/TrendHive.png";
 import MoviesFlix from "../../images/Movies.png";
 import MeetApp from "../../images/MeetApp.png";
@@ -14,26 +15,26 @@ const ProjectSection = () => {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      const cards = document.querySelectorAll('.project-card');
-      
-      cards.forEach(card => {
+      const cards = document.querySelectorAll(".project-card");
+
+      cards.forEach((card) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
       });
     };
 
     const projectsElement = projectsRef.current;
     if (projectsElement) {
-      projectsElement.addEventListener('mousemove', handleMouseMove);
+      projectsElement.addEventListener("mousemove", handleMouseMove);
     }
 
     return () => {
       if (projectsElement) {
-        projectsElement.removeEventListener('mousemove', handleMouseMove);
+        projectsElement.removeEventListener("mousemove", handleMouseMove);
       }
     };
   }, []);
@@ -42,53 +43,58 @@ const ProjectSection = () => {
     {
       id: 1,
       title: "Trend Hive",
-      description: "Trend Hive is a cutting-edge e-commerce store dedicated to delivering a seamless and enjoyable shopping experience for fashion enthusiasts of all ages. Our mission is to be the premier destination for high-quality, stylish clothing for the entire family.",
+      description:
+        "Trend Hive is a cutting-edge e-commerce store dedicated to delivering a seamless and enjoyable shopping experience for fashion enthusiasts of all ages. Our mission is to be the premier destination for high-quality, stylish clothing for the entire family.",
       image: TrendHive,
       techStack: ["React", "Tailwind"],
       liveLink: "https://trend-hive.onrender.com/",
       githubLink: "https://github.com/JDestefano11/Ecommerce-application.git",
-      caseStudyLink: "/case-studies/trend-hive" // Has case study
+      caseStudyLink: "/case-studies/trend-hive",
     },
     {
       id: 2,
       title: "Sovereign Realty",
-      description: "Sovereign Realty is an online platform where users can explore our completed real estate projects, browse detailed information, and schedule property viewings. Whether you're looking for inspiration or ready to make your next move, Sovereign Realty offers a seamless way to connect with our properties.",
+      description:
+        "Sovereign Realty is an online platform where users can explore our completed real estate projects, browse detailed information, and schedule property viewings. Whether you're looking for inspiration or ready to make your next move, Sovereign Realty offers a seamless way to connect with our properties.",
       image: Sovereign,
       techStack: ["React", "Node.js", "Express", "MongoDB"],
       liveLink: "https://github.com/JDestefano11/sovereign-realty.git",
-      githubLink: "https://github.com/JDestefano11/sovereign-realty.git"
-      // No case study
+      githubLink: "https://github.com/JDestefano11/sovereign-realty.git",
     },
     {
       id: 3,
       title: "Movies Flix",
-      description: "Movies Flix is a dynamic web application that allows users to explore and discover movies. Built with modern web technologies, it offers a sleek interface for browsing movies, viewing details, and managing favorites.",
+      description:
+        "Movies Flix is a dynamic web application that allows users to explore and discover movies. Built with modern web technologies, it offers a sleek interface for browsing movies, viewing details, and managing favorites.",
       image: MoviesFlix,
       techStack: ["React", "API Integration", "CSS"],
       liveLink: "https://movies-flix-psi.vercel.app/",
       githubLink: "https://github.com/JDestefano11/movies-flix.git",
-      caseStudyLink: "/case-studies/movies-flix" // Has case study
+      caseStudyLink: "/case-studies/movies-flix",
     },
     {
       id: 4,
       title: "Meet App",
-      description: "Meet App is a serverless, progressive web application built with React using a test-driven development approach. It uses the Google Calendar API to fetch upcoming events and allows users to search for events by city.",
+      description:
+        "Meet App is a serverless, progressive web application built with React using a test-driven development approach. It uses the Google Calendar API to fetch upcoming events and allows users to search for events by city.",
       image: MeetApp,
       techStack: ["React", "AWS", "Google API"],
       liveLink: "https://jdestefano11.github.io/meet/",
-      githubLink: "https://github.com/JDestefano11/meet.git"
-      // No case study
+      githubLink: "https://github.com/JDestefano11/meet.git",
+      caseStudyLink: "/case-studies/meet-app",
     },
     {
       id: 5,
-      title: "Remake",
-      description: "Remake is a modern web application that helps users track and manage their movie watchlist. With a clean interface and intuitive design, users can easily add, remove, and organize their favorite movies.",
+      title: "DragonFlix(refactoring)",
+      description:
+        "DragonFlix is an updated version of my original MoviesFlixHub project, showcasing my early work with React. This remake features new functionalities and additional content, offering a more polished front-end experience. However, it is not integrated with my API.",
+      tech: ["React"],
       image: Remake,
       techStack: ["React", "Node.js", "MongoDB"],
       liveLink: "https://github.com/JDestefano11/remake.git",
-      githubLink: "https://github.com/JDestefano11/remake.git"
-      // No case study
-    }
+      githubLink: "https://github.com/JDestefano11/remake.git",
+      caseStudyLink: "/case-studies/movies-flix",
+    },
   ];
 
   const containerVariants = {
@@ -96,24 +102,24 @@ const ProjectSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const cardVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
-      y: 20
+      y: 20,
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.4, 0, 0.2, 1]
-      }
-    }
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
   };
 
   return (
@@ -140,7 +146,9 @@ const ProjectSection = () => {
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              className={`project-card ${hoveredCard === project.id ? 'hovered' : ''}`}
+              className={`project-card ${
+                hoveredCard === project.id ? "hovered" : ""
+              }`}
               variants={cardVariants}
               onMouseEnter={() => setHoveredCard(project.id)}
               onMouseLeave={() => setHoveredCard(null)}
@@ -183,12 +191,16 @@ const ProjectSection = () => {
                       <FiExternalLink /> Live Demo
                     </a>
                     {project.caseStudyLink && (
-                      <a
-                        href={project.caseStudyLink}
+                      <Link
+                        to={project.caseStudyLink}
                         className="project-link case-study-link"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.scrollTo(0, 0);
+                        }}
                       >
                         <FiBook /> Case Study
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </div>

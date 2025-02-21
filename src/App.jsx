@@ -5,6 +5,7 @@ import ProjectSection from "./components/ProjectSection/ProjectSection";
 import Contact from "./components/Contact/Contact";
 import MeetAppCaseStudy from "./pages/MeetAppCaseStudy/MeetAppCaseStudy";
 import MoviesFlixCaseStudy from "./pages/MoviesFlixCaseStudy/MoviesFlixCaseStudy";
+import TrendHiveCaseStudy from "./pages/TrendHiveCaseStudy/TrendHiveCaseStudy";
 import Footer from "./components/Footer/Footer";
 import NewNavbar from "./components/NewNavbar/NewNavbar";
 import NewHero from "./components/NewHero/NewHero";
@@ -51,8 +52,9 @@ const App = () => {
             </>
           }
         />
-        <Route path="/meetapp" element={<MeetAppCaseStudy />} />
-        <Route path="/moviesflix" element={<MoviesFlixCaseStudy />} />
+        <Route path="/case-studies/meet-app" element={<MeetAppCaseStudy />} />
+        <Route path="/case-studies/movies-flix" element={<MoviesFlixCaseStudy />} />
+        <Route path="/case-studies/trend-hive" element={<TrendHiveCaseStudy />} />
       </Routes>
       <Footer />
     </BrowserRouter>
