@@ -180,9 +180,9 @@ const ProjectSection = () => {
   return (
     <section id="projects" className="projects-section">
       <div className="container">
-        <h2 className="section-title">
-          <span className="title-text">Featured Projects</span>
-        </h2>
+        <div className="section-title">
+          <h1 className="title-text">Featured Projects</h1>
+        </div>
         <div className="projects-grid">
           {projects.map((project) => (
             <ProjectCard

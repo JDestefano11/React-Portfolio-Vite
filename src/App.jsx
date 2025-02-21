@@ -8,6 +8,7 @@ import MoviesFlixCaseStudy from "./pages/MoviesFlixCaseStudy/MoviesFlixCaseStudy
 import Footer from "./components/Footer/Footer";
 import NewNavbar from "./components/NewNavbar/NewNavbar";
 import NewHero from "./components/NewHero/NewHero";
+import Skills from "./components/Skills/Skills";
 
 const ScrollToSection = () => {
   const location = useLocation();
@@ -39,6 +40,7 @@ const App = () => {
               </div>
               <div id="about">
                 <About />
+                <Skills />
               </div>
               <div id="projects">
                 <ProjectSection />

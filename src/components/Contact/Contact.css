@@ -16,6 +16,7 @@
   --text-lg: 1.2rem;
   --text-base: 1.1rem;
   --tracking-tight: -0.05em;
+  --glow-soft: 0 0 10px rgba(0, 255, 213, 0.2);
 }
 
 .contact-container {
@@ -53,32 +54,57 @@
 
 .contact-header {
   text-align: center;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .contact-header h1 {
   font-family: var(--font-primary);
-  font-size: var(--text-5xl);
+  font-size: 3.5rem;
   font-weight: var(--font-bold);
   color: var(--text-bright);
-  margin-bottom: 1.5rem;
   letter-spacing: var(--tracking-tight);
-  background: linear-gradient(135deg, var(--aurora-teal), var(--aurora-pink));
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(135deg,
+    var(--aurora-teal) 0%,
+    var(--aurora-purple) 50%,
+    var(--aurora-pink) 100%
+  );
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: var(--aurora-glow);
+  text-shadow: var(--glow-soft);
+}
+
+.contact-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(135deg,
+    var(--aurora-teal) 0%,
+    var(--aurora-purple) 50%,
+    var(--aurora-pink) 100%
+  );
+  border-radius: 2px;
+  box-shadow: var(--glow-soft);
 }
 
 .response-time {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.2rem;
-  padding: 0 1rem;
-  flex-wrap: nowrap;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-top: 1rem;
 }
 
 .clock-icon.pulse {
@@ -88,8 +114,7 @@
 
 .contact-highlight {
   color: var(--aurora-pink);
-  font-weight: bold;
-  font-size: 1.3rem;
+  font-weight: var(--font-bold);
 }
 
 .reasons-grid {
@@ -417,12 +442,15 @@
 @keyframes pulse {
   0% {
     transform: scale(1);
+    opacity: 1;
   }
   50% {
     transform: scale(1.2);
+    opacity: 0.7;
   }
   100% {
     transform: scale(1);
+    opacity: 1;
   }
 }
 
@@ -454,6 +482,12 @@
   }
   100% {
     transform: scale(1) rotate(360deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact-header h1 {
+    font-size: 3rem;
   }
 }
 
@@ -509,7 +543,7 @@
   }
 
   .contact-header {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
   .contact-header h1 {

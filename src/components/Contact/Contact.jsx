@@ -123,9 +123,6 @@ const Contact = () => {
 
       <div className="contact-content">
         <div className="contact-header">
-          <Suspense fallback={<div>Loading sparkle icon...</div>}>
-            <HiSparkles className="spark-icon" />
-          </Suspense>
           <h1>Let's Create Something Extraordinary</h1>
           <p className="response-time">
             <Suspense fallback={<div>Loading clock icon...</div>}>
