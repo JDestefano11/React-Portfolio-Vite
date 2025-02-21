@@ -58,7 +58,7 @@ const ProjectSection = () => {
         "Sovereign Realty is an online platform where users can explore our completed real estate projects, browse detailed information, and schedule property viewings. Whether you're looking for inspiration or ready to make your next move, Sovereign Realty offers a seamless way to connect with our properties.",
       image: Sovereign,
       techStack: ["React", "Node.js", "Express", "MongoDB"],
-      liveLink: "https://github.com/JDestefano11/sovereign-realty.git",
+      liveLink: "https://real-estate-website-nrw6.onrender.com/",
       githubLink: "https://github.com/JDestefano11/sovereign-realty.git",
     },
     {
@@ -68,8 +68,8 @@ const ProjectSection = () => {
         "Movies Flix is a dynamic web application that allows users to explore and discover movies. Built with modern web technologies, it offers a sleek interface for browsing movies, viewing details, and managing favorites.",
       image: MoviesFlix,
       techStack: ["React", "API Integration", "CSS"],
-      liveLink: "https://movies-flix-psi.vercel.app/",
-      githubLink: "https://github.com/JDestefano11/movies-flix.git",
+      liveLink: "https://moviesflix-hub.netlify.app/login",
+      githubLink: "https://github.com/JDestefano11/MoviesFlix-Hub.git",
       caseStudyLink: "/case-studies/movies-flix",
     },
     {
@@ -79,21 +79,21 @@ const ProjectSection = () => {
         "Meet App is a serverless, progressive web application built with React using a test-driven development approach. It uses the Google Calendar API to fetch upcoming events and allows users to search for events by city.",
       image: MeetApp,
       techStack: ["React", "AWS", "Google API"],
-      liveLink: "https://jdestefano11.github.io/meet/",
-      githubLink: "https://github.com/JDestefano11/meet.git",
+      liveLink: "https://jdestefano11.github.io/meet-app/",
+      githubLink: "https://github.com/JDestefano11/meet-app.git",
       caseStudyLink: "/case-studies/meet-app",
     },
     {
       id: 5,
       title: "DragonFlix(refactoring)",
       description:
-        "DragonFlix is an updated version of my original MoviesFlixHub project, showcasing my early work with React. This remake features new functionalities and additional content, offering a more polished front-end experience. However, it is not integrated with my API.",
+        "DragonFlix is a MoviesFlixHub remake. It is an updated version of the front-end from my original full-stack project when I first began learning React. This remake includes some new features and additional content, though it is not connected to my API. It serves as a more polished version of my initial work.",
       tech: ["React"],
       image: Remake,
       techStack: ["React", "Node.js", "MongoDB"],
-      liveLink: "https://github.com/JDestefano11/remake.git",
-      githubLink: "https://github.com/JDestefano11/remake.git",
-      caseStudyLink: "/case-studies/movies-flix",
+      liveLink: "https://myflix-remake.onrender.com/",
+      githubLink: "https://github.com/JDestefano11/MoviesFlix-Remake-React.git",
+      caseStudyLink: "/case-studies/remake",
     },
   ];
 
