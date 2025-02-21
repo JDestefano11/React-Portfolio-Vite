@@ -1,198 +1,201 @@
-import React, { useState } from "react";
-import { FaGithub, FaRocket, FaBookReader } from "react-icons/fa";
-import { MdFlip, MdOpenInNew } from "react-icons/md";
-import { BiCodeAlt } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import "./ProjectSection.css";
+import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { FiGithub, FiExternalLink, FiBook } from 'react-icons/fi';
+import './ProjectSection.css';
 import TrendHive from "../../images/TrendHive.png";
 import MoviesFlix from "../../images/Movies.png";
 import MeetApp from "../../images/MeetApp.png";
 import Sovereign from "../../images/Sovereign.png";
 import Remake from "../../images/remake.png";
 
-const ProjectCard = ({ project, isActive, onClick }) => {
-  return (
-    <div
-      className={`project-card ${isActive ? "active" : ""}`}
-      onClick={onClick}
-    >
-      <div className="flip-indicator">
-        <MdFlip className="flip-icon" />
-        <span>Flip Card</span>
-      </div>
-      <div className="card-inner">
-        <div className="card-front">
-          <div className="card-header">
-            <h3>{project.title}</h3>
-            <div className="tech-stack">
-              {project.tech.map((tech, index) => (
-                <span key={index} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="card-preview">
-            <div className="preview-image">
-              {project.video ? (
-                <video 
-                  src={project.video} 
-                  alt={project.title}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-              ) : (
-                <img src={project.image} alt={project.title} />
-              )}
-            </div>
-            <div className="preview-content">
-              <p className="preview-description">
-                {project.description.slice(0, 100)}...
-              </p>
-              <div className="preview-actions">
-                <button className="action-button">
-                  <BiCodeAlt />
-                  <span>View Details</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="card-back">
-          <div className="project-content">
-            <h3>{project.title}</h3>
-            <p className="project-description">{project.description}</p>
-            <div className="project-links">
-              <a
-                href={project.liveUrl}
-                className="project-link live"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <FaRocket />
-                <span>Live Demo</span>
-                <MdOpenInNew className="external-link-icon" />
-              </a>
-              <a
-                href={project.codeUrl}
-                className="project-link code"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <FaGithub />
-                <span>View Code</span>
-                <MdOpenInNew className="external-link-icon" />
-              </a>
-              {(project.id === 1 ||
-                project.id === 3 ||
-                project.id === 4 ||
-                project.id === 5) && (
-                <Link
-                  to={
-                    project.id === 1
-                      ? "/trendhive"
-                      : project.id === 3
-                      ? "/moviesflix"
-                      : project.id === 4
-                      ? "/meetapp"
-                      : "/moviesflix"
-                  }
-                  className="project-link case-study"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <FaBookReader />
-                  <span>Case Study</span>
-                </Link>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const ProjectSection = () => {
-  const [activeProject, setActiveProject] = useState(null);
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const projectsRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const cards = document.querySelectorAll('.project-card');
+      
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    };
+
+    const projectsElement = projectsRef.current;
+    if (projectsElement) {
+      projectsElement.addEventListener('mousemove', handleMouseMove);
+    }
+
+    return () => {
+      if (projectsElement) {
+        projectsElement.removeEventListener('mousemove', handleMouseMove);
+      }
+    };
+  }, []);
 
   const projects = [
     {
       id: 1,
       title: "Trend Hive",
+      description: "Trend Hive is a cutting-edge e-commerce store dedicated to delivering a seamless and enjoyable shopping experience for fashion enthusiasts of all ages. Our mission is to be the premier destination for high-quality, stylish clothing for the entire family.",
       image: TrendHive,
-      description:
-        "Trend Hive is a cutting-edge e-commerce store dedicated to delivering a seamless and enjoyable shopping experience for fashion enthusiasts of all ages. Our mission is to be the premier destination for high-quality, stylish clothing for the entire family.",
-      tech: ["React", "Tailwind"],
-      liveUrl: "https://trend-hive.onrender.com/",
-      codeUrl: "https://github.com/JDestefano11/Ecommerce-application.git",
+      techStack: ["React", "Tailwind"],
+      liveLink: "https://trend-hive.onrender.com/",
+      githubLink: "https://github.com/JDestefano11/Ecommerce-application.git",
+      caseStudyLink: "/case-studies/trend-hive" // Has case study
     },
     {
       id: 2,
-      title: "Sovereign Realty (Still in progress)",
+      title: "Sovereign Realty",
+      description: "Sovereign Realty is an online platform where users can explore our completed real estate projects, browse detailed information, and schedule property viewings. Whether you're looking for inspiration or ready to make your next move, Sovereign Realty offers a seamless way to connect with our properties.",
       image: Sovereign,
-      description:
-        "Sovereign Realty is an online platform where users can explore our completed real estate projects, browse detailed information, and schedule property viewings. Whether you're looking for inspiration or ready to make your next move, Sovereign Realty offers a seamless way to connect with our offerings and book appointments at your convenience",
-      tech: ["React"],
-      liveUrl: "https://real-estate-website-nrw6.onrender.com/",
-      codeUrl: "#",
+      techStack: ["React", "Node.js", "Express", "MongoDB"],
+      liveLink: "https://github.com/JDestefano11/sovereign-realty.git",
+      githubLink: "https://github.com/JDestefano11/sovereign-realty.git"
+      // No case study
     },
     {
       id: 3,
-      title: "DragonFlix(Refactoring)",
-      image: Remake,
-      description:
-        "Movies Flix Hub Remake is an updated version of the front-end from my original full-stack project when I first began learning React. This remake includes some new features and additional content, though it is not connected to my API. It serves as a more polished version of my initial work.",
-      tech: ["React"],
-      liveUrl: "https://myflix-remake.onrender.com/",
-      codeUrl: "https://github.com/JDestefano11/MoviesFlix-Remake-React.git",
+      title: "Movies Flix",
+      description: "Movies Flix is a dynamic web application that allows users to explore and discover movies. Built with modern web technologies, it offers a sleek interface for browsing movies, viewing details, and managing favorites.",
+      image: MoviesFlix,
+      techStack: ["React", "API Integration", "CSS"],
+      liveLink: "https://movies-flix-psi.vercel.app/",
+      githubLink: "https://github.com/JDestefano11/movies-flix.git",
+      caseStudyLink: "/case-studies/movies-flix" // Has case study
     },
     {
       id: 4,
       title: "Meet App",
+      description: "Meet App is a serverless, progressive web application built with React using a test-driven development approach. It uses the Google Calendar API to fetch upcoming events and allows users to search for events by city.",
       image: MeetApp,
-      description:
-        "Meet App is a web application for discovering and tracking events. Key features include city-based filtering, toggling event details, customizing event display, offline functionality, home screen shortcuts, and visualizing event data with charts.",
-      tech: ["React", "AWS", "Google API", "CSS"],
-      liveUrl: "https://jdestefano11.github.io/meet-app/",
-      codeUrl: "https://github.com/JDestefano11/meet-app.git",
+      techStack: ["React", "AWS", "Google API"],
+      liveLink: "https://jdestefano11.github.io/meet/",
+      githubLink: "https://github.com/JDestefano11/meet.git"
+      // No case study
     },
     {
       id: 5,
-      title: "MoviesFlix-Hub",
-      image: MoviesFlix,
-      description:
-        "MoviesFlix-Hub, my first project with React, is a movie application for browsing, searching, and managing favorite films. This project highlights my growth as a developer, showcasing skills in responsive design, seamless user experiences, and dynamic front-end development.",
-      tech: ["React"],
-      liveUrl: "https://moviesflix-hub.netlify.app/login",
-      codeUrl: "https://github.com/JDestefano11/MoviesFlix-Hub.git",
-    },
+      title: "Remake",
+      description: "Remake is a modern web application that helps users track and manage their movie watchlist. With a clean interface and intuitive design, users can easily add, remove, and organize their favorite movies.",
+      image: Remake,
+      techStack: ["React", "Node.js", "MongoDB"],
+      liveLink: "https://github.com/JDestefano11/remake.git",
+      githubLink: "https://github.com/JDestefano11/remake.git"
+      // No case study
+    }
   ];
 
-  const handleProjectClick = (projectId) => {
-    setActiveProject(activeProject === projectId ? null : projectId);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 20
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1]
+      }
+    }
   };
 
   return (
-    <section id="projects" className="projects-section">
+    <section className="projects-section" id="projects">
       <div className="container">
-        <div className="section-title">
-          <h1 className="title-text">Featured Projects</h1>
-        </div>
-        <div className="projects-grid">
+        <motion.div
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <h2 className="title-text">Featured Projects</h2>
+        </motion.div>
+
+        <motion.div
+          className="projects-grid"
+          ref={projectsRef}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {projects.map((project) => (
-            <ProjectCard
+            <motion.div
               key={project.id}
-              project={project}
-              isActive={activeProject === project.id}
-              onClick={() => handleProjectClick(project.id)}
-            />
+              className={`project-card ${hoveredCard === project.id ? 'hovered' : ''}`}
+              variants={cardVariants}
+              onMouseEnter={() => setHoveredCard(project.id)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="card-inner">
+                <div className="project-image-container">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-image"
+                  />
+                  <div className="project-overlay">
+                    <h3 className="project-title">{project.title}</h3>
+                    <div className="tech-stack">
+                      {project.techStack.map((tech, index) => (
+                        <span key={index} className="tech-badge">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="card-content">
+                  <p className="project-description">{project.description}</p>
+                  <div className="project-links">
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                    >
+                      <FiGithub /> View Code
+                    </a>
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                    >
+                      <FiExternalLink /> Live Demo
+                    </a>
+                    {project.caseStudyLink && (
+                      <a
+                        href={project.caseStudyLink}
+                        className="project-link case-study-link"
+                      >
+                        <FiBook /> Case Study
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
