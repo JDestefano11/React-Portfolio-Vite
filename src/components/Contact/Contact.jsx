@@ -120,7 +120,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.3 }}
     >
       <div className="cyber-grid"></div>
       <div className="cosmic-overlay"></div>
@@ -128,7 +128,7 @@ const Contact = () => {
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           <BiNetworkChart className="network-icon" />
         </motion.div>
@@ -139,20 +139,20 @@ const Contact = () => {
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.3 }}
       >
         <motion.div 
           className="contact-header"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.3 }}
         >
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3 }}
           >
             Let's Create Something Extraordinary
           </motion.h1>
@@ -161,7 +161,7 @@ const Contact = () => {
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.3 }}
           >
             <Suspense fallback={<div>Loading clock icon...</div>}>
               <FaClock className="clock-icon pulse" />
@@ -179,28 +179,28 @@ const Contact = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
+              transition={{ duration: 0.3, delay: 0.1 * index }}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
               <motion.div 
                 className="reason-icon"
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+                transition={{ duration: 0.3, delay: 0.2 * index }}
               >
                 {reason.icon}
               </motion.div>
               <motion.h3
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.2 }}
+                transition={{ duration: 0.3, delay: 0.3 * index }}
               >
                 {reason.title}
               </motion.h3>
               <motion.p
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.7 + index * 0.2 }}
+                transition={{ duration: 0.3, delay: 0.4 * index }}
               >
                 {reason.text}
               </motion.p>
@@ -215,13 +215,13 @@ const Contact = () => {
             initial={{ x: -20, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.h2
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.3 }}
             >
               Ready to Transform Your Ideas into Reality?
             </motion.h2>
@@ -229,7 +229,7 @@ const Contact = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.3 }}
             >
               Let's collaborate and build something amazing together!
             </motion.p>
@@ -239,7 +239,7 @@ const Contact = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.3 }}
             >
               <motion.div 
                 className="contact-stat-item"
@@ -272,7 +272,7 @@ const Contact = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              transition={{ duration: 0.3 }}
             >
               <motion.a
                 href="https://github.com/JDestefano11"
@@ -309,14 +309,14 @@ const Contact = () => {
             initial={{ x: 20, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.div 
               className="form-group"
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              transition={{ duration: 0.3 }}
             >
               <input
                 type="text"
@@ -334,7 +334,7 @@ const Contact = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.3 }}
             >
               <input
                 type="email"
@@ -352,7 +352,7 @@ const Contact = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.7 }}
+              transition={{ duration: 0.3 }}
             >
               <select
                 value={formData.contactReason}
@@ -376,7 +376,7 @@ const Contact = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.8 }}
+              transition={{ duration: 0.3 }}
             >
               <textarea
                 placeholder="Your Message"
@@ -394,7 +394,7 @@ const Contact = () => {
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.9 }}
+              transition={{ duration: 0.3 }}
             >
               <span>Send Message</span>
               <Suspense fallback={<div>Loading sparkle...</div>}>

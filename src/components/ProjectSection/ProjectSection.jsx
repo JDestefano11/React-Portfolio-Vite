@@ -41,12 +41,12 @@ const ProjectSection = () => {
   const projects = [
     {
       id: 1,
-      title: "Trend Hive",
+      title: "Clothonic",
       description:
-        "Trend Hive is a cutting-edge e-commerce store dedicated to delivering a seamless and enjoyable shopping experience for fashion enthusiasts of all ages. Our mission is to be the premier destination for high-quality, stylish clothing for the entire family.",
+        "Clothonicis a cutting-edge e-commerce store dedicated to delivering a seamless and enjoyable shopping experience for fashion enthusiasts of all ages. Our mission is to be the premier destination for high-quality, stylish clothing for the entire family.",
       image: TrendHive,
       techStack: ["React", "Tailwind"],
-      liveLink: "https://trend-hive.onrender.com/",
+      liveLink: "https://www.clothonic.store/",
       githubLink: "https://github.com/JDestefano11/Ecommerce-application.git",
       caseStudyLink: "/case-studies/trend-hive",
     },
@@ -188,8 +188,14 @@ const ProjectSection = () => {
                     {project.caseStudyLink && (
                       <a
                         href={project.caseStudyLink}
-                        className={`project-link case-study-link ${project.caseStudyComingSoon ? 'coming-soon' : ''}`}
-                        onClick={project.caseStudyComingSoon ? (e) => e.preventDefault() : undefined}
+                        className={`project-link case-study-link ${
+                          project.caseStudyComingSoon ? "coming-soon" : ""
+                        }`}
+                        onClick={
+                          project.caseStudyComingSoon
+                            ? (e) => e.preventDefault()
+                            : undefined
+                        }
                       >
                         <FiBook /> Case Study
                       </a>
