@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink, FiBook } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import "./ProjectSection.css";
-import TrendHive from "../../images/TrendHive.png";
+import clothonic from "../../images/clothonic.png";
 import MoviesFlix from "../../images/Movies.png";
 import MeetApp from "../../images/MeetApp.png";
 import Sovereign from "../../images/Sovereign.png";
@@ -44,7 +44,7 @@ const ProjectSection = () => {
       title: "Clothonic",
       description:
         "Clothonicis a cutting-edge e-commerce store dedicated to delivering a seamless and enjoyable shopping experience for fashion enthusiasts of all ages. Our mission is to be the premier destination for high-quality, stylish clothing for the entire family.",
-      image: TrendHive,
+      image: clothonic,
       techStack: ["React", "Tailwind"],
       liveLink: "https://www.clothonic.store/",
       githubLink: "https://github.com/JDestefano11/Ecommerce-application.git",
@@ -52,7 +52,7 @@ const ProjectSection = () => {
     },
     {
       id: 2,
-      title: "Sovereign Realty",
+      title: "Sovereign Realty(In Progress)",
       description:
         "Sovereign Realty is an online platform where users can explore our completed real estate projects, browse detailed information, and schedule property viewings. Whether you're looking for inspiration or ready to make your next move, Sovereign Realty offers a seamless way to connect with our properties.",
       image: Sovereign,
@@ -86,7 +86,7 @@ const ProjectSection = () => {
     },
     {
       id: 5,
-      title: "DragonFlix(refactoring)",
+      title: "DragonFlix",
       description:
         "DragonFlix is a MoviesFlixHub remake. It is an updated version of the front-end from my original full-stack project when I first began learning React. This remake includes some new features and additional content, though it is not connected to my API. It serves as a more polished version of my initial work.",
       tech: ["React"],
