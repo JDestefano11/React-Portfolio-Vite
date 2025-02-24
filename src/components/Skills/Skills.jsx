@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaReact, FaNodeJs, FaPython, FaPhp, FaAngular } from 'react-icons/fa';
-import { SiJavascript, SiTailwindcss, SiPostgresql, SiTypescript, SiDjango, SiMysql, SiExpress, SiRedux } from 'react-icons/si';
+import { SiJavascript, SiTailwindcss, SiPostgresql, SiTypescript, SiDjango, SiMysql, SiExpress, SiRedux, SiNextdotjs } from 'react-icons/si';
 import { BiCodeAlt } from 'react-icons/bi';
 import { BsDatabase } from 'react-icons/bs';
 import './Skills.css';
@@ -24,6 +24,7 @@ const Skills = () => {
     { name: 'PostgreSQL', icon: SiPostgresql, level: 85 },
     { name: 'Express', icon: SiExpress, level: 80 },
     { name: 'Node.js', icon: FaNodeJs, level: 80 },
+    { name: 'Next.js', icon: SiNextdotjs, level: 85 },
     { name: 'Python', icon: FaPython, level: 85 },
     { name: 'PHP', icon: FaPhp, level: 75 },
     { name: 'Database Management', icon: BsDatabase, level: 85 },
