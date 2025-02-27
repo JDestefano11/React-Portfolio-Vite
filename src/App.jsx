@@ -53,8 +53,14 @@ const App = () => {
           }
         />
         <Route path="/case-studies/meet-app" element={<MeetAppCaseStudy />} />
-        <Route path="/case-studies/movies-flix" element={<MoviesFlixCaseStudy />} />
-        <Route path="/case-studies/trend-hive" element={<TrendHiveCaseStudy />} />
+        <Route
+          path="/case-studies/movies-flix"
+          element={<MoviesFlixCaseStudy />}
+        />
+        <Route
+          path="/case-studies/trend-hive"
+          element={<TrendHiveCaseStudy />}
+        />
       </Routes>
       <Footer />
     </BrowserRouter>
@@ -62,3 +68,4 @@ const App = () => {
 };
 
 export default App;
+// Test
