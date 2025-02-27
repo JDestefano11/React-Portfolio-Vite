@@ -15,6 +15,10 @@ const ScrollToSection = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Always scroll to top when navigating to a new route
+    window.scrollTo(0, 0);
+
+    // Then handle any specific scroll-to-section behavior
     if (location.state && location.state.scrollTo) {
       const element = document.getElementById(location.state.scrollTo);
       if (element) {
@@ -28,7 +32,7 @@ const ScrollToSection = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <NewNavbar />
       <ScrollToSection />
       <Routes>

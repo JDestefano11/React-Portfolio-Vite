@@ -186,8 +186,8 @@ const ProjectSection = () => {
                       <FiExternalLink /> Live Demo
                     </a>
                     {project.caseStudyLink && (
-                      <a
-                        href={project.caseStudyLink}
+                      <Link
+                        to={project.caseStudyLink}
                         className={`project-link case-study-link ${
                           project.caseStudyComingSoon ? "coming-soon" : ""
                         }`}
@@ -198,7 +198,7 @@ const ProjectSection = () => {
                         }
                       >
                         <FiBook /> Case Study
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </div>
