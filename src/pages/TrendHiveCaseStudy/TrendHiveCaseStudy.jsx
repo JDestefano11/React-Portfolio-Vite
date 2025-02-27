@@ -1,6 +1,5 @@
 import React, { useState, Suspense, useLayoutEffect } from "react";
 import "./TrendHiveCaseStudy.css";
-import Footer from "../../components/Footer/Footer";
 
 // Lazy load icons for better performance
 const BiStore = React.lazy(() =>
@@ -154,7 +153,6 @@ export const TrendHiveCaseStudy = () => {
           <BiNetworkChart className="timeline-network-icon" />
         </Suspense>
       </div>
-      <Footer />
     </>
   );
 };

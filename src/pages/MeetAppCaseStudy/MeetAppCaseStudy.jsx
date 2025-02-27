@@ -1,7 +1,5 @@
 import React, { useState, Suspense, useLayoutEffect } from "react";
 import "./MeetAppCaseStudy.css";
-import Footer from "../../components/Footer/Footer";
-import { IoFootstepsOutline } from "react-icons/io5";
 
 // Lazy load icons for better performance
 const BiStore = React.lazy(() =>
@@ -155,7 +153,6 @@ export const MeetAppCaseStudy = () => {
           <BiNetworkChart className="timeline-network-icon" />
         </Suspense>
       </div>
-      <Footer />
     </>
   );
 };
