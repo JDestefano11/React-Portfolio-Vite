@@ -8,6 +8,8 @@ import MoviesFlix from "../../images/Movies.png";
 import MeetApp from "../../images/MeetApp.png";
 import Sovereign from "../../images/Sovereign.png";
 import Remake from "../../images/remake.png";
+import clothonicAPI from "../../images/Ecom API.png";
+import moviesFlixAPI from "../../images/MoviesFlix-Hub API.png";
 
 const ProjectSection = () => {
   const projectsRef = useRef(null);
@@ -43,16 +45,17 @@ const ProjectSection = () => {
       id: 1,
       title: "Clothonic",
       description:
-        "Clothonicis a cutting-edge e-commerce store dedicated to delivering a seamless and enjoyable shopping experience for fashion enthusiasts of all ages. Our mission is to be the premier destination for high-quality, stylish clothing for the entire family.",
+        "Clothonic is a cutting-edge e-commerce store dedicated to delivering a seamless and enjoyable shopping experience for fashion enthusiasts of all ages. Our mission is to be the premier destination for high-quality, stylish clothing for the entire family.",
       image: clothonic,
-      techStack: ["React", "Tailwind"],
+      techStack: ["React", "Tailwind", "Node.js", "MongoDB"],
       liveLink: "https://www.clothonic.store/",
       githubLink: "https://github.com/JDestefano11/Ecommerce-application.git",
-      caseStudyLink: "/case-studies/trend-hive",
+      caseStudyLink: "#",
+      caseStudyComingSoon: true,
     },
     {
       id: 2,
-      title: "Sovereign Realty(In Progress)",
+      title: "Sovereign Realty",
       description:
         "Sovereign Realty is an online platform where users can explore our completed real estate projects, browse detailed information, and schedule property viewings. Whether you're looking for inspiration or ready to make your next move, Sovereign Realty offers a seamless way to connect with our properties.",
       image: Sovereign,
@@ -64,37 +67,63 @@ const ProjectSection = () => {
     },
     {
       id: 3,
-      title: "Movies Flix",
+      title: "MoviesFlix",
       description:
-        "Movies Flix is a dynamic web application that allows users to explore and discover movies. Built with modern web technologies, it offers a sleek interface for browsing movies, viewing details, and managing favorites.",
+        "MoviesFlix is a dynamic web application that allows users to explore and discover movies. Built with modern web technologies, it offers a sleek interface for browsing movies, viewing details, and managing favorites. Features include user authentication, personalized watchlists, and real-time search.",
       image: MoviesFlix,
-      techStack: ["React", "API Integration", "CSS"],
+      techStack: ["React", "Node.js", "Express", "MongoDB"],
       liveLink: "https://moviesflix-hub.netlify.app/login",
       githubLink: "https://github.com/JDestefano11/MoviesFlix-Hub.git",
-      caseStudyLink: "/case-studies/movies-flix",
+      caseStudyLink: "#",
+      caseStudyComingSoon: true,
     },
     {
       id: 4,
       title: "Meet App",
       description:
-        "Meet App is a serverless, progressive web application built with React using a test-driven development approach. It uses the Google Calendar API to fetch upcoming events and allows users to search for events by city.",
+        "Meet App is a serverless, progressive web application built with React using a test-driven development approach. It uses the Google Calendar API to fetch upcoming events and allows users to search for events by city, with features for offline functionality and detailed analytics.",
       image: MeetApp,
-      techStack: ["React", "AWS", "Google API"],
+      techStack: ["React", "AWS", "Google API", "Jest"],
       liveLink: "https://jdestefano11.github.io/meet-app/",
       githubLink: "https://github.com/JDestefano11/meet-app.git",
-      caseStudyLink: "/case-studies/meet-app",
+      caseStudyLink: "#",
+      caseStudyComingSoon: true,
     },
     {
       id: 5,
       title: "DragonFlix",
       description:
-        "DragonFlix is a MoviesFlixHub remake. It is an updated version of the front-end from my original full-stack project when I first began learning React. This remake includes some new features and additional content, though it is not connected to my API. It serves as a more polished version of my initial work.",
-      tech: ["React"],
+        "DragonFlix is a modern remake of the MoviesFlix platform, featuring an enhanced user interface and improved functionality. This version includes advanced filtering, responsive design, and a more intuitive user experience, while maintaining the core features that made the original successful.",
       image: Remake,
-      techStack: ["React", "Node.js", "MongoDB"],
+      techStack: ["React", "Node.js", "MongoDB", "Express"],
       liveLink: "https://myflix-remake.onrender.com/",
       githubLink: "https://github.com/JDestefano11/MoviesFlix-Remake-React.git",
-      caseStudyLink: "/case-studies/remake",
+      caseStudyLink: "#",
+      caseStudyComingSoon: true,
+    },
+    {
+      id: 6,
+      title: "MoviesFlix API",
+      description:
+        "The backend REST API powering the MoviesFlix platform. Built with Node.js and Express, it provides endpoints for user authentication, movie management, and favorites handling. Features include JWT authentication, password hashing, and MongoDB integration for data persistence.",
+      image: moviesFlixAPI,
+      techStack: ["Node.js", "Express", "MongoDB", "JWT"],
+      liveLink: "https://moviesflix-hub-api.onrender.com/",
+      githubLink: "https://github.com/JDestefano11/MoviesFlix-Hub-API.git",
+      caseStudyLink: "#",
+      caseStudyComingSoon: true,
+    },
+    {
+      id: 7,
+      title: "Clothonic API",
+      description:
+        "A robust REST API backend for the Clothonic e-commerce platform. Built with Node.js and Express, it handles product management, user authentication, cart operations, and order processing. Includes features like Stripe payment integration, JWT authentication, and comprehensive inventory management.",
+      image: clothonicAPI,
+      techStack: ["Node.js", "Express", "MongoDB", "Stripe"],
+      liveLink: "https://clothonic-api.onrender.com/",
+      githubLink: "https://github.com/JDestefano11/Clothonic-API.git",
+      caseStudyLink: "#",
+      caseStudyComingSoon: true,
     },
   ];
 

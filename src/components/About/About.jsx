@@ -20,32 +20,36 @@ const About = () => {
     visible: { 
       opacity: 1,
       transition: { 
-        staggerChildren: 0.1,
-        delayChildren: 0.2
+        staggerChildren: 0.05,
+        delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 10 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.2 }
+    }
   };
 
   return (
     <section id="about" className="about-section">
       <motion.div 
         className="about-container"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.3 }}
       >
         <motion.div 
           className="section-title"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
         >
           <h1 className="title-text">Crafting Digital Experiences</h1>
         </motion.div>
@@ -53,15 +57,15 @@ const About = () => {
           <div className="about-grid">
             <motion.div 
               className="about-image-container"
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
             >
               <motion.div
                 style={{ 
                   opacity: isImageLoaded ? 1 : 0,
-                  transition: "opacity 0.5s ease-in-out"
+                  transition: "opacity 0.3s ease-in-out"
                 }}
               >
                 <motion.img 
@@ -69,21 +73,21 @@ const About = () => {
                   alt="Joe Destefano" 
                   className="about-image"
                   onLoad={() => setIsImageLoaded(true)}
-                  initial={{ scale: 0.9 }}
+                  initial={{ scale: 0.95 }}
                   animate={{ scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 />
               </motion.div>
               <motion.a 
                 href={joeResume} 
                 download="Joe_Destefano_Resume.pdf" 
                 className="download-resume"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                whileHover={{ y: -2 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                whileHover={{ y: -2, transition: { duration: 0.2 } }}
                 whileTap={{ scale: 0.98 }}
               >
                 <FaFileDownload /> 
@@ -93,28 +97,28 @@ const About = () => {
             
             <motion.div 
               className="about-info"
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 10 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
             >
               <motion.div 
                 className="about-tabs"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
               >
                 {tabs.map(({ id, label }, index) => (
                   <motion.button
                     key={id}
                     className={`tab-button ${activeTab === id ? "active" : ""}`}
                     onClick={() => setActiveTab(id)}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.2, delay: 0.2 + index * 0.05 }}
+                    whileHover={{ y: -2, transition: { duration: 0.2 } }}
                     whileTap={{ scale: 0.98 }}
                   >
                     {label}
@@ -129,7 +133,7 @@ const About = () => {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    exit={{ opacity: 0, y: -20 }}
+                    exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
                     className="tab-content"
                   >
                     <motion.h2 variants={itemVariants}>
@@ -162,7 +166,7 @@ const About = () => {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    exit={{ opacity: 0, y: -20 }}
+                    exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
                     className="tab-content"
                   >
                     <motion.h2 variants={itemVariants}>
@@ -185,7 +189,7 @@ const About = () => {
                         <motion.li
                           key={index}
                           variants={itemVariants}
-                          whileHover={{ x: 10 }}
+                          whileHover={{ x: 10, transition: { duration: 0.2 } }}
                         >
                           {goal}
                         </motion.li>
@@ -200,7 +204,7 @@ const About = () => {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    exit={{ opacity: 0, y: -20 }}
+                    exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
                     className="tab-content"
                   >
                     <motion.h2 variants={itemVariants}>
@@ -223,7 +227,7 @@ const About = () => {
                         <motion.li
                           key={index}
                           variants={itemVariants}
-                          whileHover={{ x: 10 }}
+                          whileHover={{ x: 10, transition: { duration: 0.2 } }}
                         >
                           {reason}
                         </motion.li>
