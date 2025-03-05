@@ -105,7 +105,7 @@ const ProjectSection = () => {
       image: moviesFlixAPI,
       techStack: ["Node.js", "Express", "MongoDB", "JWT"],
       liveLink: "https://moviesflix-hub-api.onrender.com/",
-      githubLink: "https://github.com/JDestefano11/MoviesFlix-Hub-API.git",
+      githubLink: "https://github.com/JDestefano11/MoviesFlix-hub-api.git",
       caseStudyLink: "#",
       caseStudyComingSoon: true,
     },
@@ -117,7 +117,7 @@ const ProjectSection = () => {
       image: clothonicAPI,
       techStack: ["Node.js", "Express", "MongoDB", "Stripe"],
       liveLink: "https://clothonic-api.onrender.com/",
-      githubLink: "https://github.com/JDestefano11/Clothonic-API.git",
+      githubLink: "",
       caseStudyLink: "#",
       caseStudyComingSoon: true,
     },
@@ -222,7 +222,10 @@ const ProjectSection = () => {
                             : undefined
                         }
                       >
-                        <FiBook /> {project.caseStudyComingSoon ? "Coming Soon" : "Case Study"}
+                        <FiBook />{" "}
+                        {project.caseStudyComingSoon
+                          ? "Coming Soon"
+                          : "Case Study"}
                       </Link>
                     )}
                   </div>
