@@ -50,8 +50,7 @@ const ProjectSection = () => {
       techStack: ["React", "Tailwind", "Node.js", "MongoDB"],
       liveLink: "https://www.clothonic.store/",
       githubLink: "https://github.com/JDestefano11/Ecommerce-application.git",
-      caseStudyLink: "#",
-      caseStudyComingSoon: true,
+      caseStudyLink: "/case-studies/trend-hive",
     },
     {
       id: 2,
@@ -74,8 +73,7 @@ const ProjectSection = () => {
       techStack: ["React", "Node.js", "Express", "MongoDB"],
       liveLink: "https://moviesflix-hub.netlify.app/login",
       githubLink: "https://github.com/JDestefano11/MoviesFlix-Hub.git",
-      caseStudyLink: "#",
-      caseStudyComingSoon: true,
+      caseStudyLink: "/case-studies/movies-flix",
     },
     {
       id: 4,
@@ -86,8 +84,7 @@ const ProjectSection = () => {
       techStack: ["React", "AWS", "Google API", "Jest"],
       liveLink: "https://jdestefano11.github.io/meet-app/",
       githubLink: "https://github.com/JDestefano11/meet-app.git",
-      caseStudyLink: "#",
-      caseStudyComingSoon: true,
+      caseStudyLink: "/case-studies/meet-app",
     },
     {
       id: 5,
@@ -98,8 +95,7 @@ const ProjectSection = () => {
       techStack: ["React", "Node.js", "MongoDB", "Express"],
       liveLink: "https://myflix-remake.onrender.com/",
       githubLink: "https://github.com/JDestefano11/MoviesFlix-Remake-React.git",
-      caseStudyLink: "#",
-      caseStudyComingSoon: true,
+      caseStudyLink: "/case-studies/movies-flix",
     },
     {
       id: 6,
@@ -226,7 +222,7 @@ const ProjectSection = () => {
                             : undefined
                         }
                       >
-                        <FiBook /> Case Study
+                        <FiBook /> {project.caseStudyComingSoon ? "Coming Soon" : "Case Study"}
                       </Link>
                     )}
                   </div>
