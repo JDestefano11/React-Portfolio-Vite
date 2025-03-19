@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { FiGithub, FiExternalLink, FiBook } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import "./ProjectSection.css";
@@ -12,33 +12,9 @@ import clothonicAPI from "../../images/Ecom API.png";
 import moviesFlixAPI from "../../images/MoviesFlix-Hub API.png";
 
 const ProjectSection = () => {
+  const [filter, setFilter] = useState("all");
   const projectsRef = useRef(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const cards = document.querySelectorAll(".project-card");
-
-      cards.forEach((card) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
-      });
-    };
-
-    const projectsElement = projectsRef.current;
-    if (projectsElement) {
-      projectsElement.addEventListener("mousemove", handleMouseMove);
-    }
-
-    return () => {
-      if (projectsElement) {
-        projectsElement.removeEventListener("mousemove", handleMouseMove);
-      }
-    };
-  }, []);
+  const isInView = useInView(projectsRef, { once: true, amount: 0.1 });
 
   const projects = [
     {
@@ -51,10 +27,11 @@ const ProjectSection = () => {
       liveLink: "https://www.clothonic.store/",
       githubLink: "https://github.com/JDestefano11/Ecommerce-application.git",
       caseStudyLink: "/case-studies/trend-hive",
+      featured: true,
     },
     {
       id: 2,
-      title: "Sovereign Realty",
+      title: "Sovereign Realty(Work In Progress)",
       description:
         "Sovereign Realty is an online platform where users can explore our completed real estate projects, browse detailed information, and schedule property viewings. Whether you're looking for inspiration or ready to make your next move, Sovereign Realty offers a seamless way to connect with our properties.",
       image: Sovereign,
@@ -63,6 +40,7 @@ const ProjectSection = () => {
       githubLink: "https://github.com/JDestefano11/sovereign-realty.git",
       caseStudyLink: "#",
       caseStudyComingSoon: true,
+      featured: true,
     },
     {
       id: 3,
@@ -74,6 +52,7 @@ const ProjectSection = () => {
       liveLink: "https://moviesflix-hub.netlify.app/login",
       githubLink: "https://github.com/JDestefano11/MoviesFlix-Hub.git",
       caseStudyLink: "/case-studies/movies-flix",
+      featured: true,
     },
     {
       id: 4,
@@ -85,6 +64,7 @@ const ProjectSection = () => {
       liveLink: "https://jdestefano11.github.io/meet-app/",
       githubLink: "https://github.com/JDestefano11/meet-app.git",
       caseStudyLink: "/case-studies/meet-app",
+      featured: false,
     },
     {
       id: 5,
@@ -96,6 +76,7 @@ const ProjectSection = () => {
       liveLink: "https://myflix-remake.onrender.com/",
       githubLink: "https://github.com/JDestefano11/MoviesFlix-Remake-React.git",
       caseStudyLink: "/case-studies/movies-flix",
+      featured: false,
     },
     {
       id: 6,
@@ -108,6 +89,7 @@ const ProjectSection = () => {
       githubLink: "https://github.com/JDestefano11/MoviesFlix-hub-api.git",
       caseStudyLink: "#",
       caseStudyComingSoon: true,
+      featured: false,
     },
     {
       id: 7,
@@ -120,6 +102,33 @@ const ProjectSection = () => {
       githubLink: "",
       caseStudyLink: "#",
       caseStudyComingSoon: true,
+      featured: false,
+    },
+    {
+      id: 8,
+      title: "StriveFitness Labs(Work In Progress)",
+      description:
+        "A comprehensive fitness platform combining workout tracking, nutrition planning, and community features. Offers personalized workout routines, progress analytics, and wearable device integration. The app includes a clean, intuitive interface designed for both beginners and fitness enthusiasts.",
+      image: MeetApp, 
+      techStack: ["React Native", "Firebase", "Redux", "Node.js"],
+      liveLink: "https://strivefitness-labs.vercel.app/",
+      githubLink: "https://github.com/JDestefano11/strivefitness-labs",
+      caseStudyLink: "#",
+      caseStudyComingSoon: true,
+      featured: true,
+    },
+    {
+      id: 9,
+      title: "Car Showcase Application(Work In Progress)",
+      description:
+        "A modern car showcase platform with advanced filtering, detailed specifications, and interactive 3D models. Users can explore various car models with a sleek interface and immersive experience. Features include comprehensive search functionality, comparison tools, and responsive design.",
+      image: MoviesFlix, 
+      techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Three.js"],
+      liveLink: "https://car-showcase-nextjs.vercel.app/",
+      githubLink: "https://github.com/JDestefano11/car-showcase",
+      caseStudyLink: "#",
+      caseStudyComingSoon: true,
+      featured: true,
     },
   ];
 
@@ -128,7 +137,7 @@ const ProjectSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1, 
       },
     },
   };
@@ -136,42 +145,61 @@ const ProjectSection = () => {
   const cardVariants = {
     hidden: {
       opacity: 0,
-      y: 20,
+      y: 10, 
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.4, 0, 0.2, 1],
+        duration: 0.3, 
+        ease: "easeOut", 
       },
     },
   };
 
+  const filteredProjects = filter === "featured" 
+    ? projects.filter(project => project.featured) 
+    : projects;
+
   return (
-    <section className="projects-section" id="projects">
+    <section className="projects-section" id="projects" ref={projectsRef}>
       <div className="container">
         <motion.div
           className="section-title"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }} 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.3, ease: "easeOut" }} 
         >
           <h2 className="title-text">Featured Projects</h2>
+          <div className="filter-buttons">
+            <button 
+              className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
+              onClick={() => setFilter('all')}
+            >
+              All Projects
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'featured' ? 'active' : ''}`}
+              onClick={() => setFilter('featured')}
+            >
+              Featured
+            </button>
+          </div>
         </motion.div>
 
         <motion.div
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? "visible" : "hidden"}
         >
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               variants={cardVariants}
               className="project-card"
+              whileHover={{ y: -5, transition: { duration: 0.2 } }} 
             >
               <div className="card-inner">
                 <div className="project-image-container">
@@ -195,10 +223,11 @@ const ProjectSection = () => {
                   <p className="project-description">{project.description}</p>
                   <div className="project-links">
                     <a
-                      href={project.githubLink}
+                      href={project.githubLink || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="project-link view-code"
+                      className={`project-link view-code ${!project.githubLink ? "disabled" : ""}`}
+                      onClick={!project.githubLink ? (e) => e.preventDefault() : undefined}
                     >
                       <FiGithub /> View Code
                     </a>
@@ -210,24 +239,20 @@ const ProjectSection = () => {
                     >
                       <FiExternalLink /> Live Demo
                     </a>
-                    {project.caseStudyLink && (
-                      <Link
-                        to={project.caseStudyLink}
-                        className={`project-link case-study-link ${
-                          project.caseStudyComingSoon ? "coming-soon" : ""
-                        }`}
-                        onClick={
-                          project.caseStudyComingSoon
-                            ? (e) => e.preventDefault()
-                            : undefined
-                        }
-                      >
-                        <FiBook />{" "}
-                        {project.caseStudyComingSoon
-                          ? "Coming Soon"
-                          : "Case Study"}
-                      </Link>
-                    )}
+                    <Link
+                      to={project.caseStudyLink || "#"}
+                      className={`project-link case-study-link ${project.caseStudyComingSoon ? "coming-soon" : ""}`}
+                      onClick={
+                        project.caseStudyComingSoon
+                          ? (e) => e.preventDefault()
+                          : undefined
+                      }
+                    >
+                      <FiBook />{" "}
+                      {project.caseStudyComingSoon
+                        ? "Coming Soon"
+                        : "Case Study"}
+                    </Link>
                   </div>
                 </div>
               </div>
