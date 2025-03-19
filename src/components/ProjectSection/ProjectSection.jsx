@@ -10,6 +10,7 @@ import Sovereign from "../../images/Sovereign.png";
 import Remake from "../../images/remake.png";
 import clothonicAPI from "../../images/Ecom API.png";
 import moviesFlixAPI from "../../images/MoviesFlix-Hub API.png";
+import comingSoon from "../../images/coming-soon.svg";
 
 const ProjectSection = () => {
   const [filter, setFilter] = useState("all");
@@ -109,7 +110,7 @@ const ProjectSection = () => {
       title: "StriveFitness Labs(Work In Progress)",
       description:
         "A comprehensive fitness platform combining workout tracking, nutrition planning, and community features. Offers personalized workout routines, progress analytics, and wearable device integration. The app includes a clean, intuitive interface designed for both beginners and fitness enthusiasts.",
-      image: MeetApp, 
+      image: comingSoon,
       techStack: ["React Native", "Firebase", "Redux", "Node.js"],
       liveLink: "https://strivefitness-labs.vercel.app/",
       githubLink: "https://github.com/JDestefano11/strivefitness-labs",
@@ -122,7 +123,7 @@ const ProjectSection = () => {
       title: "Car Showcase Application(Work In Progress)",
       description:
         "A modern car showcase platform with advanced filtering, detailed specifications, and interactive 3D models. Users can explore various car models with a sleek interface and immersive experience. Features include comprehensive search functionality, comparison tools, and responsive design.",
-      image: MoviesFlix, 
+      image: comingSoon,
       techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Three.js"],
       liveLink: "https://car-showcase-nextjs.vercel.app/",
       githubLink: "https://github.com/JDestefano11/car-showcase",
@@ -137,7 +138,7 @@ const ProjectSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1, 
+        staggerChildren: 0.1,
       },
     },
   };
@@ -145,43 +146,44 @@ const ProjectSection = () => {
   const cardVariants = {
     hidden: {
       opacity: 0,
-      y: 10, 
+      y: 10,
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.3, 
-        ease: "easeOut", 
+        duration: 0.3,
+        ease: "easeOut",
       },
     },
   };
 
-  const filteredProjects = filter === "featured" 
-    ? projects.filter(project => project.featured) 
-    : projects;
+  const filteredProjects =
+    filter === "featured"
+      ? projects.filter((project) => project.featured)
+      : projects;
 
   return (
     <section className="projects-section" id="projects" ref={projectsRef}>
       <div className="container">
         <motion.div
           className="section-title"
-          initial={{ opacity: 0, y: 10 }} 
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.3, ease: "easeOut" }} 
+          transition={{ duration: 0.3, ease: "easeOut" }}
         >
           <h2 className="title-text">Featured Projects</h2>
           <div className="filter-buttons">
-            <button 
-              className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
-              onClick={() => setFilter('all')}
+            <button
+              className={`filter-btn ${filter === "all" ? "active" : ""}`}
+              onClick={() => setFilter("all")}
             >
               All Projects
             </button>
-            <button 
-              className={`filter-btn ${filter === 'featured' ? 'active' : ''}`}
-              onClick={() => setFilter('featured')}
+            <button
+              className={`filter-btn ${filter === "featured" ? "active" : ""}`}
+              onClick={() => setFilter("featured")}
             >
               Featured
             </button>
@@ -199,7 +201,7 @@ const ProjectSection = () => {
               key={project.id}
               variants={cardVariants}
               className="project-card"
-              whileHover={{ y: -5, transition: { duration: 0.2 } }} 
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
               <div className="card-inner">
                 <div className="project-image-container">
@@ -226,8 +228,14 @@ const ProjectSection = () => {
                       href={project.githubLink || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`project-link view-code ${!project.githubLink ? "disabled" : ""}`}
-                      onClick={!project.githubLink ? (e) => e.preventDefault() : undefined}
+                      className={`project-link view-code ${
+                        !project.githubLink ? "disabled" : ""
+                      }`}
+                      onClick={
+                        !project.githubLink
+                          ? (e) => e.preventDefault()
+                          : undefined
+                      }
                     >
                       <FiGithub /> View Code
                     </a>
@@ -241,7 +249,9 @@ const ProjectSection = () => {
                     </a>
                     <Link
                       to={project.caseStudyLink || "#"}
-                      className={`project-link case-study-link ${project.caseStudyComingSoon ? "coming-soon" : ""}`}
+                      className={`project-link case-study-link ${
+                        project.caseStudyComingSoon ? "coming-soon" : ""
+                      }`}
                       onClick={
                         project.caseStudyComingSoon
                           ? (e) => e.preventDefault()
